@@ -35,16 +35,10 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tvDocument = new System.Windows.Forms.TreeView();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tpEditor = new System.Windows.Forms.TabPage();
-            this.tpBrowserView = new System.Windows.Forms.TabPage();
-            this.tpHtml = new System.Windows.Forms.TabPage();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
-            this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -79,41 +73,10 @@
             // 
             this.splitContainer.Panel1.Controls.Add(this.tvDocument);
             // 
-            // splitContainer.Panel2
-            // 
-            this.splitContainer.Panel2.Controls.Add(this.tabControl);
-            // 
             // tvDocument
             // 
             resources.ApplyResources(this.tvDocument, "tvDocument");
             this.tvDocument.Name = "tvDocument";
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tpEditor);
-            this.tabControl.Controls.Add(this.tpHtml);
-            this.tabControl.Controls.Add(this.tpBrowserView);
-            resources.ApplyResources(this.tabControl, "tabControl");
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            // 
-            // tpEditor
-            // 
-            resources.ApplyResources(this.tpEditor, "tpEditor");
-            this.tpEditor.Name = "tpEditor";
-            this.tpEditor.UseVisualStyleBackColor = true;
-            // 
-            // tpBrowserView
-            // 
-            resources.ApplyResources(this.tpBrowserView, "tpBrowserView");
-            this.tpBrowserView.Name = "tpBrowserView";
-            this.tpBrowserView.UseVisualStyleBackColor = true;
-            // 
-            // tpHtml
-            // 
-            resources.ApplyResources(this.tpHtml, "tpHtml");
-            this.tpHtml.Name = "tpHtml";
-            this.tpHtml.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
@@ -128,10 +91,8 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
-            this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,10 +106,6 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.TreeView tvDocument;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tpEditor;
-        private System.Windows.Forms.TabPage tpBrowserView;
-        private System.Windows.Forms.TabPage tpHtml;
 
     }
 }

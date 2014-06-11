@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -8,11 +10,23 @@ using System.Threading.Tasks;
 namespace MDocWriter.Documents
 {
     [Serializable]
-    public sealed class DocumentNode
+    public sealed class DocumentNode : INotifyPropertyChanged
     {
+        private Guid id;
+
+        private string name;
+
+        private string content;
+
+        private DateTime? dateLastModified;
+
+        private DocumentNode parent;
+
+        private ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
+
         public DocumentNode()
         {
-            this.Children = new List<DocumentNode>();
+        //    children.CollectionChanged
         }
 
         public Guid Id { get; set; }
@@ -31,5 +45,11 @@ namespace MDocWriter.Documents
         {
             return Name;
         }
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
     }
 }
