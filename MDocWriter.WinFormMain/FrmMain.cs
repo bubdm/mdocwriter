@@ -20,5 +20,28 @@ namespace MDocWriter.WinFormMain
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //DocumentNode node = new DocumentNode("test");
+
+            //using (FileStream fs = new FileStream(@"c:\test.binary", FileMode.Create, FileAccess.Write))
+            //{
+            //    var formatter = new BinaryFormatter();
+            //    formatter.Serialize(fs, node);
+            //    fs.Flush();
+            //}
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //using (FileStream fs = new FileStream(@"c:\test.binary", FileMode.Open, FileAccess.Read))
+            //{
+            //    var formatter = new BinaryFormatter();
+            //    var node = formatter.Deserialize(fs);
+            //}
+        }
+
+
     }
 }

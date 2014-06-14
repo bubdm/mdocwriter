@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9C6D7E68-27B4-4C3B-A040-DE1F0AEB6B09}</ProjectGuid>
+    <ProjectGuid>{CD2C1938-9B89-4CF1-ABC6-9D353FA0C4A9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MDocWriter.Documents</RootNamespace>
-    <AssemblyName>MDocWriter.Documents</AssemblyName>
+    <RootNamespace>MDocWriter.Common</RootNamespace>
+    <AssemblyName>MDocWriter.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -45,20 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Document.cs" />
-    <Compile Include="DocumentNode.cs" />
-    <Compile Include="DocumentResource.cs" />
+    <Compile Include="Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PropertyChangedNotifier.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MDocWriter.snk" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MDocWriter.Common\MDocWriter.Common.csproj">
-      <Project>{cd2c1938-9b89-4cf1-abc6-9d353fa0c4a9}</Project>
-      <Name>MDocWriter.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -53,7 +53,7 @@ namespace MDocWriter.Application
                 var document = (Document)serializer.Deserialize(fileStream);
                 // Extract the resources
                 if (document.Resources != null &&
-                    document.Resources.Count > 0)
+                    document.Resources.Count() > 0)
                 {
                     Parallel.ForEach(
                         document.Resources,
