@@ -1,37 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
-
-using MDocWriter.Documents;
-
-namespace MDocWriter.Application
+﻿namespace MDocWriter.Application
 {
-    public class Workspace
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Runtime.Serialization.Formatters.Binary;
+    using System.Threading.Tasks;
+
+    using MDocWriter.Documents;
+
+    public sealed class Workspace
     {
         private readonly string workingDirectory;
         private readonly Document document;
+        private bool isModified;
 
         private Workspace()
+            : this(Path.GetTempPath(), new Document())
         {
-            this.document = new Document();
-            this.workingDirectory = Path.GetTempPath();
         }
 
         private Workspace(string workingDirectory, Document document)
         {
             this.workingDirectory = workingDirectory;
             this.document = document;
+            this.document.PropertyChanged += (s, e) => { this.isModified = true; this.OnModified(); };
         }
+
+        public event EventHandler Modified;
 
         public string WorkingDirectory
         {
             get
             {
-                return workingDirectory;
+                return this.workingDirectory;
             }
         }
 
@@ -40,6 +41,23 @@ namespace MDocWriter.Application
             get
             {
                 return this.document;
+            }
+        }
+
+        public bool IsModified
+        {
+            get
+            {
+                return this.isModified;
+            }
+        }
+
+        private void OnModified()
+        {
+            var handler = this.Modified;
+            if (handler != null)
+            {
+                handler(this, EventArgs.Empty);
             }
         }
 
@@ -53,7 +71,7 @@ namespace MDocWriter.Application
                 var document = (Document)serializer.Deserialize(fileStream);
                 // Extract the resources
                 if (document.Resources != null &&
-                    document.Resources.Count() > 0)
+                    document.Resources.Any())
                 {
                     Parallel.ForEach(
                         document.Resources,

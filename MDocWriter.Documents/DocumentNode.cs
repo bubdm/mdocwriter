@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-using MDocWriter.Common;
-
-namespace MDocWriter.Documents
+﻿namespace MDocWriter.Documents
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Runtime.Serialization;
+
+    using MDocWriter.Common;
+
     [Serializable]
     public sealed class DocumentNode : PropertyChangedNotifier, ISerializable
     {
+        private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
+
         private Guid id;
 
         private string name;
@@ -25,14 +24,7 @@ namespace MDocWriter.Documents
         private DateTime? dateLastModified;
 
         private DocumentNode parent;
-
-        private ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
-
-        private DocumentNode()
-        {
-            children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
-        }
-
+        
         internal DocumentNode(string name, string content = null, DocumentNode parent = null)
             : this()
         {
@@ -40,6 +32,12 @@ namespace MDocWriter.Documents
             this.name = name;
             this.content = content;
             this.parent = parent;
+            this.dateCreated = DateTime.UtcNow;
+        }
+
+        private DocumentNode()
+        {
+            children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
         }
 
         private DocumentNode(SerializationInfo info, StreamingContext context)
@@ -64,7 +62,7 @@ namespace MDocWriter.Documents
             }
             set
             {
-                if (this.id!=value)
+                if (this.id != value)
                 {
                     this.id = value;
                     this.OnPropertyChanged("Id");
@@ -80,7 +78,7 @@ namespace MDocWriter.Documents
             }
             set
             {
-                if (this.name!=value)
+                if (this.name != value)
                 {
                     this.name = value;
                     this.OnPropertyChanged("Name");
@@ -96,7 +94,7 @@ namespace MDocWriter.Documents
             }
             set
             {
-                if (this.content!=value)
+                if (this.content != value)
                 {
                     this.content = value;
                     this.OnPropertyChanged("Content");
@@ -112,7 +110,7 @@ namespace MDocWriter.Documents
             }
             set
             {
-                if (this.dateCreated!=value)
+                if (this.dateCreated != value)
                 {
                     this.dateCreated = value;
                     this.OnPropertyChanged("DateCreated");
@@ -128,7 +126,7 @@ namespace MDocWriter.Documents
             }
             set
             {
-                if (this.dateLastModified!=value)
+                if (this.dateLastModified != value)
                 {
                     this.dateLastModified = value;
                     this.OnPropertyChanged("DateLastModified");
@@ -152,19 +150,11 @@ namespace MDocWriter.Documents
             }
         }
 
-        public ObservableCollection<DocumentNode> Children
+        public IEnumerable<DocumentNode> Children
         {
             get
             {
                 return this.children;
-            }
-            set
-            {
-                if (this.children!=value)
-                {
-                    this.children = value;
-                    this.OnPropertyChanged("Children");
-                }
             }
         }
 
@@ -180,7 +170,7 @@ namespace MDocWriter.Documents
         }
 
         /// <summary>
-        /// Determines whether the specified <see cref="System.Object" }, is equal to this instance.
+        /// Determines whether the specified <see cref="System.Object"></see>, is equal to this instance.
         /// </summary>
         /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
         /// <returns>
@@ -232,5 +222,15 @@ namespace MDocWriter.Documents
         }
 
         #endregion
+
+        public DocumentNode AddChildDocumentNode(string name)
+        {
+            if (this.children.Any(child => child.Name == name))
+                throw new InvalidOperationException("The document node already exists.");
+            var documentNode = new DocumentNode(name);
+            documentNode.PropertyChanged += (s, e) => this.OnPropertyChanged("Children");
+            this.children.Add(documentNode);
+            return documentNode;
+        }
     }
 }

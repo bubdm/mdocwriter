@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-using MDocWriter.Common;
-
-namespace MDocWriter.Documents
+﻿namespace MDocWriter.Documents
 {
+    using MDocWriter.Common;
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Runtime.Serialization;
+
     [Serializable]
     public sealed class Document : PropertyChangedNotifier, ISerializable
     {
+        private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
+
+        private readonly ObservableCollection<DocumentResource> resources = new ObservableCollection<DocumentResource>();
+
         private string title;
 
         private string author;
 
-        private DateTime dateCreated;
-
-        private ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
-        
-        private ObservableCollection<DocumentResource> resources = new ObservableCollection<DocumentResource>();
+        private DateTime dateCreated = DateTime.UtcNow;
  
         public Document()
         {
@@ -67,7 +64,7 @@ namespace MDocWriter.Documents
             }
             set
             {
-                if (this.author!=value)
+                if (this.author != value)
                 {
                     this.author = value;
                     this.OnPropertyChanged("Author");
@@ -83,7 +80,7 @@ namespace MDocWriter.Documents
             }
             set
             {
-                if (this.dateCreated!=value)
+                if (this.dateCreated != value)
                 {
                     this.dateCreated = value;
                     this.OnPropertyChanged("DateCreated");
@@ -119,7 +116,7 @@ namespace MDocWriter.Documents
         }
 
         /// <summary>
-        /// Determines whether the specified <see cref="System.Object" }, is equal to this instance.
+        /// Determines whether the specified <see cref="System.Object"/>, is equal to this instance.
         /// </summary>
         /// <param name="obj">The <see cref="System.Object" /> to compare with this instance.</param>
         /// <returns>
@@ -127,8 +124,14 @@ namespace MDocWriter.Documents
         /// </returns>
         public override bool Equals(object obj)
         {
-            if (obj == null) return false;
-            if (ReferenceEquals(this, obj)) return true;
+            if (obj == null)
+            {
+                return false;
+            }
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
             var other = obj as Document;
             if (other == null) return false;
             return this.title == other.title;
@@ -168,14 +171,28 @@ namespace MDocWriter.Documents
 
         #endregion
 
-        public DocumentNode AddChildDocumentNode(string name)
+        public DocumentNode AddChildDocumentNode(string name, string content = null, DocumentNode parent = null)
         {
-            if (this.children.Any(child=>child.Name==name))
+            if (this.children.Any(child => child.Name == name))
+            {
                 throw new InvalidOperationException("The document node already exists.");
-            var documentNode = new DocumentNode(name);
+            }
+            var documentNode = new DocumentNode(name, content, parent);
             documentNode.PropertyChanged += (s, e) => this.OnPropertyChanged("Children");
             this.children.Add(documentNode);
             return documentNode;
+        }
+
+        public DocumentResource AddDocumentResource(string fileName, string base64Data)
+        {
+            if (this.resources.Any(resource => resource.FileName == fileName))
+            {
+                throw new InvalidOperationException("The document resource already exists.");
+            }
+            var documentResource = new DocumentResource(fileName, base64Data);
+            documentResource.PropertyChanged += (s, e) => this.OnPropertyChanged("Resources");
+            this.resources.Add(documentResource);
+            return documentResource;
         }
     }
 }

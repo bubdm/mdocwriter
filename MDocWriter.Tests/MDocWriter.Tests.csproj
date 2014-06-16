@@ -56,11 +56,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="DocumentModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="MDocWriter.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MDocWriter.Common\MDocWriter.Common.csproj">
+      <Project>{cd2c1938-9b89-4cf1-abc6-9d353fa0c4a9}</Project>
+      <Name>MDocWriter.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MDocWriter.Documents\MDocWriter.Documents.csproj">
+      <Project>{9c6d7e68-27b4-4c3b-a040-de1f0aeb6b09}</Project>
+      <Name>MDocWriter.Documents</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

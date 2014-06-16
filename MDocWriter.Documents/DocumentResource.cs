@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-
-using MDocWriter.Common;
-
-namespace MDocWriter.Documents
+﻿namespace MDocWriter.Documents
 {
+    using System;
+    using System.Runtime.Serialization;
+    using MDocWriter.Common;
+
     [Serializable]
     public sealed class DocumentResource : PropertyChangedNotifier, ISerializable
     {
@@ -18,7 +13,15 @@ namespace MDocWriter.Documents
 
         private string base64Data;
 
-        public DocumentResource()
+        internal DocumentResource(string fileName, string base64Data)
+            : this()
+        {
+            this.id = Guid.NewGuid();
+            this.fileName = fileName;
+            this.base64Data = base64Data;
+        }
+
+        private DocumentResource()
         {
 
         }
