@@ -12,6 +12,7 @@
     {
         private readonly string workingDirectory;
         private readonly Document document;
+        private WorkspaceStatus status = WorkspaceStatus.NewlyCreated;
         private bool isModified;
 
         private Workspace()
@@ -19,14 +20,17 @@
         {
         }
 
-        private Workspace(string workingDirectory, Document document)
+        private Workspace(string workingDirectory, Document document, bool attachDocumentEvent = true)
         {
             this.workingDirectory = workingDirectory;
             this.document = document;
-            this.document.PropertyChanged += (s, e) => { this.isModified = true; this.OnModified(); };
+            if (attachDocumentEvent)
+                this.document.PropertyChanged += (s, e) => this.OnModified();
         }
 
         public event EventHandler Modified;
+
+        public event EventHandler Saved;
 
         public string WorkingDirectory
         {
@@ -41,6 +45,14 @@
             get
             {
                 return this.document;
+            }
+        }
+
+        public WorkspaceStatus Status
+        {
+            get
+            {
+                return this.status;
             }
         }
 
@@ -59,6 +71,17 @@
             {
                 handler(this, EventArgs.Empty);
             }
+            this.isModified = true;
+        }
+
+        private void OnSaved()
+        {
+            var handler = this.Saved;
+            if (handler!=null)
+            {
+                handler(this, EventArgs.Empty);
+            }
+            this.isModified = false;
         }
 
         public static Workspace Open(string fileName)
@@ -79,13 +102,18 @@
                             Path.Combine(workingDirectory, resource.FileName),
                             Convert.FromBase64String(resource.Base64Data)));
                 }
-                return new Workspace(workingDirectory, document);
+                return new Workspace(workingDirectory, document) { status = WorkspaceStatus.Existing };
             }
         }
 
-        public static void Save(string fileName)
+        public static void Save(string fileName, Workspace workspace)
         {
-            
+            using (var fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
+            {
+                var serializer = new BinaryFormatter();
+                serializer.Serialize(fileStream, workspace);
+                workspace.OnSaved();
+            }
         }
 
         public static Workspace New()
