@@ -32,14 +32,14 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tbtnNew = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.tvDocument = new System.Windows.Forms.TreeView();
             this.tbtnOpen = new System.Windows.Forms.ToolStripButton();
             this.tbtnSave = new System.Windows.Forms.ToolStripButton();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.tvWorkspace = new System.Windows.Forms.TreeView();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -68,6 +68,11 @@
             this.mnuNew.Name = "mnuNew";
             resources.ApplyResources(this.mnuNew, "mnuNew");
             // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
+            // 
             // toolStrip
             // 
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -84,26 +89,6 @@
             resources.ApplyResources(this.tbtnNew, "tbtnNew");
             this.tbtnNew.Name = "tbtnNew";
             // 
-            // statusStrip
-            // 
-            resources.ApplyResources(this.statusStrip, "statusStrip");
-            this.statusStrip.Name = "statusStrip";
-            // 
-            // splitContainer
-            // 
-            resources.ApplyResources(this.splitContainer, "splitContainer");
-            this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer.Name = "splitContainer";
-            // 
-            // splitContainer.Panel1
-            // 
-            this.splitContainer.Panel1.Controls.Add(this.tvDocument);
-            // 
-            // tvDocument
-            // 
-            resources.ApplyResources(this.tvDocument, "tvDocument");
-            this.tvDocument.Name = "tvDocument";
-            // 
             // tbtnOpen
             // 
             this.tbtnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -118,10 +103,25 @@
             resources.ApplyResources(this.tbtnSave, "tbtnSave");
             this.tbtnSave.Name = "tbtnSave";
             // 
-            // openToolStripMenuItem
+            // statusStrip
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
+            resources.ApplyResources(this.statusStrip, "statusStrip");
+            this.statusStrip.Name = "statusStrip";
+            // 
+            // splitContainer
+            // 
+            resources.ApplyResources(this.splitContainer, "splitContainer");
+            this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer.Name = "splitContainer";
+            // 
+            // splitContainer.Panel1
+            // 
+            this.splitContainer.Panel1.Controls.Add(this.tvWorkspace);
+            // 
+            // tvWorkspace
+            // 
+            resources.ApplyResources(this.tvWorkspace, "tvWorkspace");
+            this.tvWorkspace.Name = "tvWorkspace";
             // 
             // FrmMain
             // 
@@ -152,7 +152,7 @@
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.SplitContainer splitContainer;
-        private System.Windows.Forms.TreeView tvDocument;
+        private System.Windows.Forms.TreeView tvWorkspace;
         private System.Windows.Forms.ToolStripMenuItem mnuNew;
         private System.Windows.Forms.ToolStripButton tbtnNew;
         private System.Windows.Forms.ToolStripButton tbtnOpen;
