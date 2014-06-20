@@ -5,6 +5,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MDocWriter.Tests
 {
+    using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
+
+    using MDocWriter.Common;
+
     [TestClass]
     public class DocumentModelTests
     {
@@ -64,5 +69,55 @@ namespace MDocWriter.Tests
             Assert.AreEqual(1, document.Children.Count());
             Assert.AreEqual(1, document.Children.First().Children.Count());
         }
+
+        [TestMethod]
+        public void VisitDocumentNodeTest()
+        {
+            var document = new Document();
+            var node1 = document.AddChildDocumentNode("node1");
+            node1.AddChildDocumentNode("node11");
+            node1.AddChildDocumentNode("node12");
+            var node2 = document.AddChildDocumentNode("node2");
+            var node21 = node2.AddChildDocumentNode("node21");
+            var node211 = node21.AddChildDocumentNode("node211");
+            node211.AddChildDocumentNode("node2111");
+            document.AddDocumentResource("resource1.txt", string.Empty);
+            document.AddDocumentResource("resource2.txt", string.Empty);
+            document.AddDocumentResource("resource3.txt", string.Empty);
+            var walker = new DocumentTestWalker();
+            walker.VisitDocument(document);
+            var names = walker.Names;
+        }
+    }
+
+    [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]
+    internal class DocumentTestWalker : DocumentWalker
+    {
+
+        private readonly List<string> names = new List<string>();
+
+        public IEnumerable<string> Names
+        {
+            get
+            {
+                return this.names;
+            }
+        }
+
+        public override void Visit(Document document)
+        {
+            this.names.Add(document.Title);
+        }
+
+        public override void Visit(DocumentNode documentNode)
+        {
+            this.names.Add(documentNode.Name);
+        }
+
+        public override void Visit(DocumentResource documentResource)
+        {
+            this.names.Add(documentResource.FileName);
+        }
+
     }
 }

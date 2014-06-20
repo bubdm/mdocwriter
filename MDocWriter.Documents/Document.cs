@@ -8,7 +8,7 @@
     using System.Runtime.Serialization;
 
     [Serializable]
-    public sealed class Document : PropertyChangedNotifier, ISerializable
+    public sealed class Document : PropertyChangedNotifier, ISerializable, IVisitorAcceptor
     {
         private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
 
@@ -194,5 +194,22 @@
             this.resources.Add(documentResource);
             return documentResource;
         }
+
+        #region IVisitorAcceptor Members
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+            foreach (var child in this.children)
+            {
+                child.Accept(visitor);
+            }
+            foreach (var resource in this.resources)
+            {
+                resource.Accept(visitor);
+            }
+        }
+
+        #endregion
     }
 }

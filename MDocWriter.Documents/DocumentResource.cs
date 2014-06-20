@@ -5,7 +5,7 @@
     using MDocWriter.Common;
 
     [Serializable]
-    public sealed class DocumentResource : PropertyChangedNotifier, ISerializable
+    public sealed class DocumentResource : PropertyChangedNotifier, ISerializable, IVisitorAcceptor
     {
         private Guid id;
 
@@ -103,6 +103,15 @@
             info.AddValue("Id", this.id);
             info.AddValue("FileName", this.fileName);
             info.AddValue("Base64Data", this.base64Data);
+        }
+
+        #endregion
+
+        #region IVisitorAcceptor Members
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
         }
 
         #endregion

@@ -9,7 +9,7 @@
     using MDocWriter.Common;
 
     [Serializable]
-    public sealed class DocumentNode : PropertyChangedNotifier, ISerializable
+    public sealed class DocumentNode : PropertyChangedNotifier, ISerializable, IVisitorAcceptor
     {
         private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
 
@@ -232,5 +232,18 @@
             this.children.Add(documentNode);
             return documentNode;
         }
+
+        #region IVisitorAcceptor Members
+
+        public void Accept(IVisitor visitor)
+        {
+            visitor.Visit(this);
+            foreach (var child in this.children)
+            {
+                child.Accept(visitor);
+            }
+        }
+
+        #endregion
     }
 }
