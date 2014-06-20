@@ -14,6 +14,8 @@
 
         private readonly ObservableCollection<DocumentResource> resources = new ObservableCollection<DocumentResource>();
 
+        private Guid id;
+
         private string title;
 
         private string author;
@@ -22,13 +24,22 @@
  
         public Document()
         {
+            this.id = Guid.NewGuid();
             this.children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
             this.resources.CollectionChanged += (s, e) => this.OnPropertyChanged("Resources");
+        }
+
+        public Document(string title, string author = null)
+            : this()
+        {
+            this.title = title;
+            this.author = author;
         }
 
         private Document(SerializationInfo info, StreamingContext context)
             : this()
         {
+            this.id = (Guid)info.GetValue("Id", typeof(Guid));
             this.title = info.GetString("Title");
             this.author = info.GetString("Author");
             this.dateCreated = info.GetDateTime("DateCreated");
@@ -68,6 +79,22 @@
                 {
                     this.author = value;
                     this.OnPropertyChanged("Author");
+                }
+            }
+        }
+
+        public Guid Id
+        {
+            get
+            {
+                return this.id;
+            }
+            set
+            {
+                if (this.id != value)
+                {
+                    this.id = value;
+                    this.OnPropertyChanged("Id");
                 }
             }
         }
@@ -134,7 +161,7 @@
             }
             var other = obj as Document;
             if (other == null) return false;
-            return this.title == other.title;
+            return this.id == other.id;
         }
 
         /// <summary>
@@ -146,6 +173,7 @@
         public override int GetHashCode()
         {
             return Utils.GetHashCode(
+                this.id.GetHashCode(),
                 this.title.GetHashCode(),
                 this.author.GetHashCode(),
                 this.dateCreated.GetHashCode(),
@@ -162,6 +190,7 @@
         /// <param name="context">The destination (see <see cref="T:System.Runtime.Serialization.StreamingContext" />) for this serialization.</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
+            info.AddValue("Id", this.id);
             info.AddValue("Title", this.title);
             info.AddValue("Author", this.author);
             info.AddValue("DateCreated", this.dateCreated);

@@ -32,7 +32,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.tbtnNew = new System.Windows.Forms.ToolStripButton();
             this.tbtnOpen = new System.Windows.Forms.ToolStripButton();
@@ -40,6 +40,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tvWorkspace = new System.Windows.Forms.TreeView();
+            this.saveDocumentDialog = new System.Windows.Forms.SaveFileDialog();
+            this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -50,7 +53,8 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuFile});
+            this.mnuFile,
+            this.mnuHelp});
             resources.ApplyResources(this.menuStrip, "menuStrip");
             this.menuStrip.Name = "menuStrip";
             // 
@@ -58,7 +62,8 @@
             // 
             this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuNew,
-            this.openToolStripMenuItem});
+            this.mnuOpen,
+            this.mnuSave});
             this.mnuFile.Name = "mnuFile";
             resources.ApplyResources(this.mnuFile, "mnuFile");
             // 
@@ -67,11 +72,13 @@
             this.mnuNew.Image = global::MDocWriter.WinFormMain.Properties.Resources.New;
             this.mnuNew.Name = "mnuNew";
             resources.ApplyResources(this.mnuNew, "mnuNew");
+            this.mnuNew.Click += new System.EventHandler(this.ActionNew);
             // 
-            // openToolStripMenuItem
+            // mnuOpen
             // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
+            this.mnuOpen.Image = global::MDocWriter.WinFormMain.Properties.Resources.Open;
+            this.mnuOpen.Name = "mnuOpen";
+            resources.ApplyResources(this.mnuOpen, "mnuOpen");
             // 
             // toolStrip
             // 
@@ -88,6 +95,7 @@
             this.tbtnNew.Image = global::MDocWriter.WinFormMain.Properties.Resources.New;
             resources.ApplyResources(this.tbtnNew, "tbtnNew");
             this.tbtnNew.Name = "tbtnNew";
+            this.tbtnNew.Click += new System.EventHandler(this.ActionNew);
             // 
             // tbtnOpen
             // 
@@ -123,6 +131,21 @@
             resources.ApplyResources(this.tvWorkspace, "tvWorkspace");
             this.tvWorkspace.Name = "tvWorkspace";
             // 
+            // saveDocumentDialog
+            // 
+            resources.ApplyResources(this.saveDocumentDialog, "saveDocumentDialog");
+            // 
+            // mnuHelp
+            // 
+            this.mnuHelp.Name = "mnuHelp";
+            resources.ApplyResources(this.mnuHelp, "mnuHelp");
+            // 
+            // mnuSave
+            // 
+            this.mnuSave.Image = global::MDocWriter.WinFormMain.Properties.Resources.Save;
+            this.mnuSave.Name = "mnuSave";
+            resources.ApplyResources(this.mnuSave, "mnuSave");
+            // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -157,7 +180,10 @@
         private System.Windows.Forms.ToolStripButton tbtnNew;
         private System.Windows.Forms.ToolStripButton tbtnOpen;
         private System.Windows.Forms.ToolStripButton tbtnSave;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuOpen;
+        private System.Windows.Forms.SaveFileDialog saveDocumentDialog;
+        private System.Windows.Forms.ToolStripMenuItem mnuHelp;
+        private System.Windows.Forms.ToolStripMenuItem mnuSave;
 
     }
 }

@@ -13,15 +13,18 @@
         private readonly string workingDirectory;
         private readonly Document document;
         private WorkspaceStatus status = WorkspaceStatus.NewlyCreated;
+
+        private string fileName;
         private bool isModified;
 
-        private Workspace()
-            : this(Path.GetTempPath(), new Document())
+        private Workspace(string documentTitle = null, string documentAuthor = null)
+            : this(string.Empty, Path.GetTempPath(), new Document(documentTitle, documentAuthor))
         {
         }
 
-        private Workspace(string workingDirectory, Document document, bool attachDocumentEvent = true)
+        private Workspace(string fileName, string workingDirectory, Document document, bool attachDocumentEvent = true)
         {
+            this.fileName = fileName;
             this.workingDirectory = workingDirectory;
             this.document = document;
             if (attachDocumentEvent)
@@ -45,6 +48,14 @@
             get
             {
                 return this.document;
+            }
+        }
+
+        public string FileName
+        {
+            get
+            {
+                return this.fileName;
             }
         }
 
@@ -102,7 +113,7 @@
                             Path.Combine(workingDirectory, resource.FileName),
                             Convert.FromBase64String(resource.Base64Data)));
                 }
-                return new Workspace(workingDirectory, document) { status = WorkspaceStatus.Existing };
+                return new Workspace(fileName, workingDirectory, document) { status = WorkspaceStatus.Existing };
             }
         }
 
@@ -111,14 +122,16 @@
             using (var fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
             {
                 var serializer = new BinaryFormatter();
-                serializer.Serialize(fileStream, workspace);
+                serializer.Serialize(fileStream, workspace.Document);
+                workspace.fileName = fileName;
+                workspace.status = WorkspaceStatus.Existing;
                 workspace.OnSaved();
             }
         }
 
-        public static Workspace New()
+        public static Workspace New(string documentTitle = null, string documentAuthor = null)
         {
-            var newWorkspace = new Workspace();
+            var newWorkspace = new Workspace(documentTitle, documentAuthor);
             if (!Directory.Exists(newWorkspace.WorkingDirectory)) Directory.CreateDirectory(newWorkspace.WorkingDirectory);
             return newWorkspace;
         }
