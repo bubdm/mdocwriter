@@ -27,5 +27,24 @@ namespace MDocWriter.Common
                 return hashCodesForProperties.Aggregate(InitialPrime, (current, code) => current * FactorPrime + code);
             }
         }
+
+        public static string GetUniqueName(IEnumerable<string> source, string leading)
+        {
+            var intList = new List<int> { 0 };
+
+            foreach (var str in source)
+            {
+                if (str.StartsWith(leading))
+                {
+                    var remaining = str.Substring(leading.Length, str.Length - leading.Length).Trim();
+                    int val;
+                    if (int.TryParse(remaining, out val))
+                    {
+                        intList.Add(val);
+                    }
+                }
+            }
+            return string.Format("{0} {1}", leading, intList.Max() + 1);
+        }
     }
 }

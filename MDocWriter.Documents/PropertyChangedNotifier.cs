@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MDocWriter.Documents
 {
+    using System.ComponentModel;
+
+    /// <summary>
+    /// Represents the base class of the classes that will listen to
+    /// the <c>PropertyChanged</c> event and be notified by this event.
+    /// </summary>
     public abstract class PropertyChangedNotifier : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Called when <c>PropertyChanged</c> event occurs.
+        /// </summary>
+        /// <param name="propertyName">Name of the property which causes the event to occur.</param>
         protected virtual void OnPropertyChanged(string propertyName)
         {
             var handler = this.PropertyChanged;
@@ -20,6 +24,9 @@ namespace MDocWriter.Documents
 
         #region INotifyPropertyChanged Members
 
+        /// <summary>
+        /// Occurs when a property value changes.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion

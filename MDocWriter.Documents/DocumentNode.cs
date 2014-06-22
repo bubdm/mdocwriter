@@ -9,7 +9,7 @@
     using MDocWriter.Common;
 
     [Serializable]
-    public sealed class DocumentNode : PropertyChangedNotifier, ISerializable, IVisitorAcceptor
+    public sealed class DocumentNode : PropertyChangedNotifier, ISerializable, IVisitorAcceptor, IDocumentNode
     {
         private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
 
@@ -41,7 +41,6 @@
         }
 
         private DocumentNode(SerializationInfo info, StreamingContext context)
-            : this()
         {
             this.id = (Guid)info.GetValue("Id", typeof(Guid));
             this.name = info.GetString("Name");
@@ -52,6 +51,7 @@
             this.children =
                 (ObservableCollection<DocumentNode>)
                 info.GetValue("Children", typeof(ObservableCollection<DocumentNode>));
+            children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
         }
 
         public Guid Id
@@ -223,11 +223,11 @@
 
         #endregion
 
-        public DocumentNode AddChildDocumentNode(string name)
+        public DocumentNode AddChildDocumentNode(string name, string content = null, DocumentNode parent = null)
         {
             if (this.children.Any(child => child.Name == name))
                 throw new InvalidOperationException("The document node already exists.");
-            var documentNode = new DocumentNode(name);
+            var documentNode = new DocumentNode(name, content, parent);
             documentNode.PropertyChanged += (s, e) => this.OnPropertyChanged("Children");
             this.children.Add(documentNode);
             return documentNode;

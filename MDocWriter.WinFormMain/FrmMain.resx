@@ -120,47 +120,7 @@
   <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="mnuNew.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+N</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="mnuNew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="mnuNew.Text" xml:space="preserve">
-    <value>New</value>
-  </data>
-  <data name="mnuOpen.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+O</value>
-  </data>
-  <data name="mnuOpen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="mnuOpen.Text" xml:space="preserve">
-    <value>Open...</value>
-  </data>
-  <data name="mnuSave.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+S</value>
-  </data>
-  <data name="mnuSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
-  </data>
-  <data name="mnuSave.Text" xml:space="preserve">
-    <value>Save...</value>
-  </data>
-  <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="mnuFile.Text" xml:space="preserve">
-    <value>&amp;File</value>
-  </data>
-  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="mnuHelp.Text" xml:space="preserve">
-    <value>&amp;Help</value>
-  </data>
   <data name="menuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -184,11 +144,81 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
+  </data>
+  <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="mnuFile.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="mnuNew.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+N</value>
+  </data>
+  <data name="mnuNew.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="mnuNew.Text" xml:space="preserve">
+    <value>New...</value>
+  </data>
+  <data name="mnuOpen.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+O</value>
+  </data>
+  <data name="mnuOpen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="mnuOpen.Text" xml:space="preserve">
+    <value>Open...</value>
+  </data>
+  <data name="mnuSave.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+S</value>
+  </data>
+  <data name="mnuSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 22</value>
+  </data>
+  <data name="mnuSave.Text" xml:space="preserve">
+    <value>Save...</value>
+  </data>
+  <data name="mnuHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="mnuHelp.Text" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="mnuAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="mnuAbout.Text" xml:space="preserve">
+    <value>&amp;About...</value>
   </data>
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>125, 17</value>
   </metadata>
+  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>683, 25</value>
+  </data>
+  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
+    <value>toolStrip</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="tbtnNew.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
@@ -216,30 +246,6 @@
   <data name="tbtnSave.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>683, 25</value>
-  </data>
-  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="toolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
-    <value>toolStrip</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>223, 17</value>
   </metadata>
@@ -265,7 +271,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="splitContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -276,11 +282,83 @@
   <data name="tvWorkspace.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="tvWorkspace.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <metadata name="tvImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>500, 17</value>
+  </metadata>
+  <data name="tvImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAa
+        DQAAAk1TRnQBSQFMAgEBBgEAAVABAAFQAQABEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AwABIAMAAQEBAAEYBgABGP8AlgAt9gMAA/wB7gHyAfQn9mMAA/YBegG2AdwBegG2AdwBegG2AdwBegG2
+        AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwD9gMA
+        A/IByAHeAewBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2
+        AdwBegG2AdwBtgHTAeYBegG2AdwD9mMAA/YBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2
+        AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwD9gMAA/MBkQHCAeEBegG2
+        AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBiQG9Ad8B8QHv
+        AfABegG2AdwD9mMAA/YBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2
+        AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwG9gHfAeoB8QF6AbYB3AF6AbYB3AF6AbYB3AF6
+        AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AHTAeEB6wHxAe8B8AF6AbYB3AP2
+        YwAD9gF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6
+        AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AP2A/EBqQHOAeYBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2
+        AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBnwHIAeIB8QHvAfAB8QHvAfABegG2AdwD9mMAA/YBegG2
+        AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2AdwBegG2
+        AdwBegG2AdwBegG2AdwG9gGCAboB3gF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6
+        AbYB3AF6AbYB3AF6AbYB3AHiAegB7gHxAe8B8AHxAe8B8AF6AbYB3AP2YwAD9gF6AbYB3AF6AbYB3AF6
+        AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6AbYB3AF6
+        AbYB3An2AXoBtgHcAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHw
+        AfEB7wHwAfEB7wHwAfEB7wHwAXoBtgHcA/ZjAAP2AXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHc
+        AXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcA/YDAAP2AXoBtgHc
+        AfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHw
+        AfEB7wHwAXoBtgHcA/ZjAAP2AXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHc
+        AXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcA/YDAAP2AXoBtgHcAfEB7wHwAfEB7wHw
+        AfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAXoBtgHc
+        A/ZjAAP2AXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHc
+        AXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcA/YDAAP2AXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAeIB6AHu
+        AfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAXoBtgHcA/ZjAA/2AYoBvgHf
+        AacBywHkAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAXoBtgHcA/YDAAz2AYoBvgHf
+        AacBywHkAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAXoBtgHcA/ZvAAPx
+        AcgB3gHsAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcA/YMAAPz
+        AcgB3gHsAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHcAXoBtgHc
+        A/ZvAAP8A/Ub9gwAA/Qh9v8A4QAw9gYAD/YeACT2DwAk9gYAA/YMQgP2DEID9gxCA/YGAAP2CUIb9gYA
+        A/YeQgn2CQAD9h5CA/YGAAP2A0IB8QHvAfAB8QHvAfADQgP2A0IB8QHvAfAB8QHvAfADQgP2A0IB8QHv
+        AfAB8QHvAfADQgP2BgAD9glCA/YVQgP2BgAD9gNCGPYDQgP2A0ID9gkAA/YDQgHxAe8B8AHxAe8B8AHx
+        Ae8B8AHxAe8B8AHxAe8B8AHxAe8B8AHxAe8B8AHxAe8B8ANCA/YGAAP2DEID9gxCA/YMQgP2BgAD9glC
+        G/YGAAP2A0IM9gOcA+sD9gPUA0ID9gNCA/YJAAP2A0IB8QHvAfASQgHxAe8B8ANCA/YGAAP2A0IB8QHv
+        AfAB8QHvAfADQgP2A0IB8QHvAfAB8QHvAfADQgP2A0IB8QHvAfAB8QHvAfADQgP2BgAq9gMAA/YDQgOz
+        BvYDpwZNA7MDTQNCA/YDQgP2CQAD9gNCAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHw
+        AfEB7wHwAfEB7wHwA0ID9gYAA/YMQgP2DEID9gxCA/YSAAP2BkID9g9CA/YDAAP2A0IDTQPUA8kDTQPr
+        A7MDTQOzA0ID9gNCA/YJAAP2A0IB8QHvAfASQgHxAe8B8ANCA/YGAAP2DEID9gxCA/YMQgP2EgAD9gZC
+        FfYDAAP2A0ID1AZNA9QM9gNCA/YDQgP2CQAD9gNCAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHw
+        AfEB7wHwAfEB7wHwAfEB7wHwA0ID9gYAA/YMQgP2DEID9gxCA/YSABv2BgAD9gNCA/YDswO+A/YGQgb2
+        A0ID9gNCA/YJAAP2A0IB8QHvAfASQgHxAe8B8ANCA/YGAAP2DEID9gxCA/YMQgP2EgAD9gZCA/YMQgP2
+        BgAD9gNCDPYGQgb2A0ID9gNCA/YJAAP2A0IB8QHvAfAB8QHvAfAB8QHvAfAB8QHvAfAB8QHvAfAB8QHv
+        AfAB8QHvAfAB8QHvAfADQgP2BgAD9gNCAfEB7wHwAfEB7wHwA0ID9gxCA/YDQgHxAe8B8AHxAe8B8ANC
+        A/YSAAP2BkIS9gYAA/YDQhj2A0ID9gNCA/YJAAP2A0IB8QHvAfAJQgHxAe8B8AxCA/YGAAP2A0IB8QHv
+        AfAB8QHvAfADQgP2DEID9gNCAfEB7wHwAfEB7wHwA0ID9gYAGPYVAAP2HkID9gNCA/YJAAP2A0IB8QHv
+        AfAB8QHvAfAB8QHvAfAB8QHvAfAB8QHvAfAJQgOGA/UGAAP2DEID9gNCAfEB7wHwAfEB7wHwA0ID9gxC
+        A/YGAAP2CUIY9gkAJPYDQgP2CQAD9gNCAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwAfEB7wHwBkIDhgP1
+        A/gGABL2DEIS9gYAA/YJQgP2EkID9gwAA/YhQgP2CQAD9hVCA5wD8wP6GAAS9hUAA/YJQhj2DAAn9gkA
+        GPYD8wP8QgAP9nsAAUIBTQE+BwABPgMAASgDAAFAAwABIAMAAQEBAAEBBgABARYAA/8BAAT/BAAE/wQA
+        AYABAAGABQABgAEAAYAFAAGAAQABgAUAAYAHAAGABwABgAcAAYAHAAGAAQABgAUAAYABAAGABQABgAEA
+        AYAFAAGAAQABgAUAAfgBAAHwBQAB+AEAAfAFAAT/BAAI/wIAAcEB/wGAAQcBwAEDAgABwAEBAYABAQHA
+        AQMCAAHAAQEBgAEBAcABAwIAAcABAQGAAQEBwAEDAgABwAEAAYABAQHAAQMCAAH8AQABgAEBAcABAwIA
+        AfwBAAGAAQEBwAEDAgAB/AEBAYABAQHAAQMCAAH8AQEBgAEBAcABAwIAAfwBAQGAAQEBwAEDAgABwAE/
+        AYABAQHAAQMCAAHAAQMBgAEBAcABAwIAAcABAwHAAQEBwAEHAfgBHwHAAQMBwAEBAcABDwL/AcEF/ws=
+</value>
+  </data>
   <data name="tvWorkspace.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="tvWorkspace.SelectedImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="tvWorkspace.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 346</value>
+    <value>231, 346</value>
   </data>
   <data name="tvWorkspace.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -325,7 +403,7 @@
     <value>683, 346</value>
   </data>
   <data name="splitContainer.SplitterDistance" type="System.Int32, mscorlib">
-    <value>165</value>
+    <value>231</value>
   </data>
   <data name="splitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -340,16 +418,76 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;splitContainer.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <metadata name="saveDocumentDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>332, 17</value>
   </metadata>
   <data name="saveDocumentDialog.Filter" xml:space="preserve">
-    <value>Markdown Document Writer File (*.mdx)|*.mdx</value>
+    <value>Markdown Document Writer File (*.mdocx)|*.mdocx</value>
   </data>
   <data name="saveDocumentDialog.Title" xml:space="preserve">
     <value>Save Document</value>
+  </data>
+  <metadata name="openDocumentDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>614, 17</value>
+  </metadata>
+  <data name="openDocumentDialog.Filter" xml:space="preserve">
+    <value>Markdown Document Writer File (*.mdocx)|*.mdocx</value>
+  </data>
+  <metadata name="cmsDocument.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 41</value>
+  </metadata>
+  <data name="cmsDocument.Size" type="System.Drawing.Size, System.Drawing">
+    <value>197, 26</value>
+  </data>
+  <data name="&gt;&gt;cmsDocument.Name" xml:space="preserve">
+    <value>cmsDocument</value>
+  </data>
+  <data name="&gt;&gt;cmsDocument.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cmnuOpenWorkingFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="cmnuOpenWorkingFolder.Text" xml:space="preserve">
+    <value>Open Working Folder...</value>
+  </data>
+  <metadata name="cmsDocumentNodes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>147, 41</value>
+  </metadata>
+  <data name="cmsDocumentNodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 26</value>
+  </data>
+  <data name="&gt;&gt;cmsDocumentNodes.Name" xml:space="preserve">
+    <value>cmsDocumentNodes</value>
+  </data>
+  <data name="&gt;&gt;cmsDocumentNodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cmnuAddNode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="cmnuAddNode.Text" xml:space="preserve">
+    <value>Add Node</value>
+  </data>
+  <metadata name="cmsDocumentNode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>312, 41</value>
+  </metadata>
+  <data name="cmsDocumentNode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 26</value>
+  </data>
+  <data name="&gt;&gt;cmsDocumentNode.Name" xml:space="preserve">
+    <value>cmsDocumentNode</value>
+  </data>
+  <data name="&gt;&gt;cmsDocumentNode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cmnuAddNode2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="cmnuAddNode2.Text" xml:space="preserve">
+    <value>Add Node</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -362,6 +500,9 @@
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Markdown Document Writer</value>
@@ -384,6 +525,24 @@
   <data name="&gt;&gt;mnuOpen.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;mnuSave.Name" xml:space="preserve">
+    <value>mnuSave</value>
+  </data>
+  <data name="&gt;&gt;mnuSave.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuHelp.Name" xml:space="preserve">
+    <value>mnuHelp</value>
+  </data>
+  <data name="&gt;&gt;mnuHelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuAbout.Name" xml:space="preserve">
+    <value>mnuAbout</value>
+  </data>
+  <data name="&gt;&gt;mnuAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tbtnNew.Name" xml:space="preserve">
     <value>tbtnNew</value>
   </data>
@@ -402,22 +561,40 @@
   <data name="&gt;&gt;tbtnSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tvImageList.Name" xml:space="preserve">
+    <value>tvImageList</value>
+  </data>
+  <data name="&gt;&gt;tvImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;saveDocumentDialog.Name" xml:space="preserve">
     <value>saveDocumentDialog</value>
   </data>
   <data name="&gt;&gt;saveDocumentDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuHelp.Name" xml:space="preserve">
-    <value>mnuHelp</value>
+  <data name="&gt;&gt;openDocumentDialog.Name" xml:space="preserve">
+    <value>openDocumentDialog</value>
   </data>
-  <data name="&gt;&gt;mnuHelp.Type" xml:space="preserve">
+  <data name="&gt;&gt;openDocumentDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmnuOpenWorkingFolder.Name" xml:space="preserve">
+    <value>cmnuOpenWorkingFolder</value>
+  </data>
+  <data name="&gt;&gt;cmnuOpenWorkingFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuSave.Name" xml:space="preserve">
-    <value>mnuSave</value>
+  <data name="&gt;&gt;cmnuAddNode.Name" xml:space="preserve">
+    <value>cmnuAddNode</value>
   </data>
-  <data name="&gt;&gt;mnuSave.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmnuAddNode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmnuAddNode2.Name" xml:space="preserve">
+    <value>cmnuAddNode2</value>
+  </data>
+  <data name="&gt;&gt;cmnuAddNode2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

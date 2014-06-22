@@ -12,13 +12,22 @@
     {
         private readonly string workingDirectory;
         private readonly Document document;
+
         private WorkspaceStatus status = WorkspaceStatus.NewlyCreated;
 
         private string fileName;
         private bool isModified;
 
-        private Workspace(string documentTitle = null, string documentAuthor = null)
-            : this(string.Empty, Path.GetTempPath(), new Document(documentTitle, documentAuthor))
+        private Workspace()
+            : this(new WorkspaceSettings { DocumentAuthor = null, DocumentTitle = null })
+        {
+        }
+
+        private Workspace(WorkspaceSettings settings)
+            : this(
+                string.Empty,
+                Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString()),
+                new Document(settings.DocumentTitle, settings.DocumentAuthor))
         {
         }
 
@@ -27,8 +36,7 @@
             this.fileName = fileName;
             this.workingDirectory = workingDirectory;
             this.document = document;
-            if (attachDocumentEvent)
-                this.document.PropertyChanged += (s, e) => this.OnModified();
+            if (attachDocumentEvent) this.document.PropertyChanged += (s, e) => this.OnModified();
         }
 
         public event EventHandler Modified;
@@ -88,18 +96,18 @@
         private void OnSaved()
         {
             var handler = this.Saved;
-            if (handler!=null)
+            if (handler != null)
             {
                 handler(this, EventArgs.Empty);
             }
             this.isModified = false;
         }
 
-        public static Workspace Open(string fileName)
+        public static Workspace Open(EventHandler onModifiedHandler, EventHandler onSavedHandler, string fileName)
         {
             using (var fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
             {
-                var workingDirectory = Path.GetTempPath();
+                var workingDirectory = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
                 if (!Directory.Exists(workingDirectory)) Directory.CreateDirectory(workingDirectory);
                 var serializer = new BinaryFormatter();
                 var document = (Document)serializer.Deserialize(fileStream);
@@ -113,7 +121,10 @@
                             Path.Combine(workingDirectory, resource.FileName),
                             Convert.FromBase64String(resource.Base64Data)));
                 }
-                return new Workspace(fileName, workingDirectory, document) { status = WorkspaceStatus.Existing };
+                var wks = new Workspace(fileName, workingDirectory, document) { status = WorkspaceStatus.Existing };
+                if (onModifiedHandler != null) wks.Modified += onModifiedHandler;
+                if (onSavedHandler != null) wks.Saved += onSavedHandler;
+                return wks;
             }
         }
 
@@ -129,11 +140,46 @@
             }
         }
 
-        public static Workspace New(string documentTitle = null, string documentAuthor = null)
+        public static Workspace New(EventHandler onModifiedHandler, EventHandler onSavedHandler, WorkspaceSettings settings)
         {
-            var newWorkspace = new Workspace(documentTitle, documentAuthor);
+            var newWorkspace = new Workspace(settings);
+            if (onModifiedHandler != null)
+            {
+                newWorkspace.Modified += onModifiedHandler;
+            }
+            if (onSavedHandler != null)
+            {
+                newWorkspace.Saved += onSavedHandler;
+            }
+            newWorkspace.OnModified();
             if (!Directory.Exists(newWorkspace.WorkingDirectory)) Directory.CreateDirectory(newWorkspace.WorkingDirectory);
             return newWorkspace;
+        }
+
+        public static Workspace New(EventHandler onModifiedHandler, EventHandler onSavedHandler)
+        {
+            var newWorkspace = new Workspace();
+            if (onModifiedHandler != null)
+            {
+                newWorkspace.Modified += onModifiedHandler;
+            }
+            if (onSavedHandler != null)
+            {
+                newWorkspace.Saved += onSavedHandler;
+            }
+            newWorkspace.OnModified();
+            if (!Directory.Exists(newWorkspace.WorkingDirectory)) Directory.CreateDirectory(newWorkspace.WorkingDirectory);
+            return newWorkspace;
+        }
+
+        public static void Close(Workspace workspace, EventHandler onModifiedHandler, EventHandler onSavedHandler)
+        {
+            if (workspace != null)
+            {
+                workspace.Modified -= onModifiedHandler;
+                workspace.Saved -= onSavedHandler;
+                workspace = null;
+            }
         }
     }
 }

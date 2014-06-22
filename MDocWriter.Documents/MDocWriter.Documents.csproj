@@ -49,6 +49,7 @@
     <Compile Include="DocumentNode.cs" />
     <Compile Include="DocumentResource.cs" />
     <Compile Include="DocumentWalker.cs" />
+    <Compile Include="IDocumentNode.cs" />
     <Compile Include="IVisitor.cs" />
     <Compile Include="IVisitorAcceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

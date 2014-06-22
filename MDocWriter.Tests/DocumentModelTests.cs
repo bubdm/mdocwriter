@@ -1,14 +1,12 @@
-﻿using System;
-using System.Linq;
-using MDocWriter.Documents;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace MDocWriter.Tests
+﻿namespace MDocWriter.Tests
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
-    using MDocWriter.Common;
+    using MDocWriter.Documents;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class DocumentModelTests
@@ -87,6 +85,7 @@ namespace MDocWriter.Tests
             var walker = new DocumentTestWalker();
             walker.VisitDocument(document);
             var names = walker.Names;
+            Assert.AreEqual(11, names.Count());
         }
     }
 

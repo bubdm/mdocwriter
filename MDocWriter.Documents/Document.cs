@@ -8,7 +8,7 @@
     using System.Runtime.Serialization;
 
     [Serializable]
-    public sealed class Document : PropertyChangedNotifier, ISerializable, IVisitorAcceptor
+    public sealed class Document : PropertyChangedNotifier, ISerializable, IVisitorAcceptor, IDocumentNode
     {
         private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
 
@@ -37,7 +37,6 @@
         }
 
         private Document(SerializationInfo info, StreamingContext context)
-            : this()
         {
             this.id = (Guid)info.GetValue("Id", typeof(Guid));
             this.title = info.GetString("Title");
@@ -49,6 +48,9 @@
             this.resources =
                 (ObservableCollection<DocumentResource>)
                 info.GetValue("Resources", typeof(ObservableCollection<DocumentResource>));
+
+            this.children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
+            this.resources.CollectionChanged += (s, e) => this.OnPropertyChanged("Resources");
         }
 
         public string Title
