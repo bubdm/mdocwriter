@@ -32,15 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDocumentPropertyEditor));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
+            this.lblAuthor = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.lblAuthor = new System.Windows.Forms.Label();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
+            this.lblDlgDesc = new System.Windows.Forms.Label();
+            this.lblDlgTitle = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl.SuspendLayout();
@@ -66,6 +66,28 @@
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.UseVisualStyleBackColor = true;
             // 
+            // txtAuthor
+            // 
+            resources.ApplyResources(this.txtAuthor, "txtAuthor");
+            this.txtAuthor.Name = "txtAuthor";
+            this.toolTip.SetToolTip(this.txtAuthor, resources.GetString("txtAuthor.ToolTip"));
+            // 
+            // lblAuthor
+            // 
+            resources.ApplyResources(this.lblAuthor, "lblAuthor");
+            this.lblAuthor.Name = "lblAuthor";
+            // 
+            // txtTitle
+            // 
+            resources.ApplyResources(this.txtTitle, "txtTitle");
+            this.txtTitle.Name = "txtTitle";
+            this.toolTip.SetToolTip(this.txtTitle, resources.GetString("txtTitle.ToolTip"));
+            // 
+            // lblTitle
+            // 
+            resources.ApplyResources(this.lblTitle, "lblTitle");
+            this.lblTitle.Name = "lblTitle";
+            // 
             // btnOK
             // 
             resources.ApplyResources(this.btnOK, "btnOK");
@@ -84,42 +106,20 @@
             // pnlTop
             // 
             this.pnlTop.BackColor = System.Drawing.Color.White;
-            this.pnlTop.Controls.Add(this.label2);
-            this.pnlTop.Controls.Add(this.label1);
+            this.pnlTop.Controls.Add(this.lblDlgDesc);
+            this.pnlTop.Controls.Add(this.lblDlgTitle);
             resources.ApplyResources(this.pnlTop, "pnlTop");
             this.pnlTop.Name = "pnlTop";
             // 
-            // label1
+            // lblDlgDesc
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lblDlgDesc, "lblDlgDesc");
+            this.lblDlgDesc.Name = "lblDlgDesc";
             // 
-            // label2
+            // lblDlgTitle
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // lblTitle
-            // 
-            resources.ApplyResources(this.lblTitle, "lblTitle");
-            this.lblTitle.Name = "lblTitle";
-            // 
-            // txtTitle
-            // 
-            resources.ApplyResources(this.txtTitle, "txtTitle");
-            this.txtTitle.Name = "txtTitle";
-            this.toolTip.SetToolTip(this.txtTitle, resources.GetString("txtTitle.ToolTip"));
-            // 
-            // lblAuthor
-            // 
-            resources.ApplyResources(this.lblAuthor, "lblAuthor");
-            this.lblAuthor.Name = "lblAuthor";
-            // 
-            // txtAuthor
-            // 
-            resources.ApplyResources(this.txtAuthor, "txtAuthor");
-            this.txtAuthor.Name = "txtAuthor";
-            this.toolTip.SetToolTip(this.txtAuthor, resources.GetString("txtAuthor.ToolTip"));
+            resources.ApplyResources(this.lblDlgTitle, "lblDlgTitle");
+            this.lblDlgTitle.Name = "lblDlgTitle";
             // 
             // errorProvider
             // 
@@ -130,7 +130,7 @@
             // 
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // FrmNewDocument
+            // FrmDocumentPropertyEditor
             // 
             this.AcceptButton = this.btnOK;
             resources.ApplyResources(this, "$this");
@@ -143,7 +143,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmNewDocument";
+            this.Name = "FrmDocumentPropertyEditor";
             this.ShowInTaskbar = false;
             this.Shown += new System.EventHandler(this.FrmNewDocument_Shown);
             this.tabControl.ResumeLayout(false);
@@ -163,8 +163,8 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel pnlTop;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDlgTitle;
+        private System.Windows.Forms.Label lblDlgDesc;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.TextBox txtTitle;

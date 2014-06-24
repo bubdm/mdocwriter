@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("MDocWriter.WinFormMain")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A document writer powered by Markdown that can fulfill various document writing needs.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MDocWriter.WinFormMain")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("Markdown Document Writer")]
+[assembly: AssemblyCopyright("Copyright © 2014 daxnet software development.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

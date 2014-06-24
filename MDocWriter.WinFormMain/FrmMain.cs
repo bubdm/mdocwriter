@@ -189,6 +189,8 @@
                         frmNewDocument.WorkspaceSettings);
 
                     this.LoadWorkspace(this.workspace);
+
+                    mnuClose.Enabled = true;
                 }
             }
         }
@@ -203,7 +205,10 @@
                         this.WorkspaceModified,
                         this.WorkspaceSaved,
                         this.openDocumentDialog.FileName);
+
                     this.LoadWorkspace(this.workspace);
+
+                    mnuClose.Enabled = true;
                 }
             }
         }
@@ -220,6 +225,7 @@
                 tvWorkspace.Nodes.Clear();
                 this.tbtnSave.Enabled = false;
                 this.mnuSave.Enabled = false;
+                mnuClose.Enabled = false;
             }
         }
 
@@ -236,6 +242,11 @@
         {
             var currentNode = tvWorkspace.SelectedNode;
             this.AddDocumentNode(currentNode);
+        }
+
+        private void ActionAbout(object sender, EventArgs e)
+        {
+            new FrmAbout().ShowDialog();
         }
 
         private void WorkspaceModified(object sender, EventArgs e)
@@ -276,6 +287,7 @@
         {
             this.mnuSave.Enabled = false;
             this.tbtnSave.Enabled = false;
+            this.mnuClose.Enabled = false;
         }
 
         private void tvWorkspace_AfterExpand(object sender, TreeViewEventArgs e)

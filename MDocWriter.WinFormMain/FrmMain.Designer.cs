@@ -128,6 +128,7 @@
             // 
             this.mnuAbout.Name = "mnuAbout";
             resources.ApplyResources(this.mnuAbout, "mnuAbout");
+            this.mnuAbout.Click += new System.EventHandler(this.ActionAbout);
             // 
             // toolStrip
             // 

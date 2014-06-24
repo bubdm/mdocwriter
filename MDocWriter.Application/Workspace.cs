@@ -14,12 +14,14 @@
     /// </summary>
     public sealed class Workspace
     {
+        #region Private Fields
         private readonly string workingDirectory;
         private readonly Document document;
 
         private WorkspaceStatus status = WorkspaceStatus.NewlyCreated;
         private string fileName;
         private bool isModified;
+        #endregion
 
         /// <summary>
         /// Prevents a default instance of the <see cref="Workspace"/> class from being created.

@@ -8,23 +8,22 @@
 
     using MDocWriter.Common;
 
+    /// <summary>
+    /// Represents a document node in the document model.
+    /// </summary>
     [Serializable]
     public sealed class DocumentNode : PropertyChangedNotifier, ISerializable, IVisitorAcceptor, IDocumentNode
     {
+        #region Private Fields
         private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
-
         private readonly Guid id;
-
         private string name;
-
         private string content;
-
         private DateTime dateCreated;
-
         private DateTime? dateLastModified;
-
         private DocumentNode parent;
-        
+        #endregion
+
         internal DocumentNode(string name, string content = null, DocumentNode parent = null)
             : this()
         {
@@ -53,8 +52,8 @@
                 info.GetValue("Children", typeof(ObservableCollection<DocumentNode>));
         }
 
-        [OnDeserialized()]
-        private void OnDeserializedMethod(StreamingContext context)
+        [OnDeserialized]
+        private void OnDocumentNodeDeserialized(StreamingContext context)
         {
             if (this.children.Any())
             {

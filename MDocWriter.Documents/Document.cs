@@ -11,15 +11,10 @@
     public sealed class Document : PropertyChangedNotifier, ISerializable, IVisitorAcceptor, IDocumentNode
     {
         private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
-
         private readonly ObservableCollection<DocumentResource> resources = new ObservableCollection<DocumentResource>();
-
         private readonly Guid id;
-
         private string title;
-
         private string author;
-
         private DateTime dateCreated = DateTime.UtcNow;
  
         public Document()
@@ -54,8 +49,8 @@
         }
 
 
-        [OnDeserialized()]
-        private void OnDeserializedMethod(StreamingContext context)
+        [OnDeserialized]
+        private void OnDocumentDeserialized(StreamingContext context)
         {
             if (this.children.Any())
             {
