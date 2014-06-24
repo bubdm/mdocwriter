@@ -7,7 +7,7 @@
     [Serializable]
     public sealed class DocumentResource : PropertyChangedNotifier, ISerializable, IVisitorAcceptor
     {
-        private Guid id;
+        private readonly Guid id;
 
         private string fileName;
 
@@ -16,18 +16,16 @@
         internal DocumentResource(string fileName, string base64Data)
             : this()
         {
-            this.id = Guid.NewGuid();
             this.fileName = fileName;
             this.base64Data = base64Data;
         }
 
         private DocumentResource()
         {
-
+            this.id = Guid.NewGuid();
         }
 
         private DocumentResource(SerializationInfo info, StreamingContext context)
-            : this()
         {
             this.id = (Guid)info.GetValue("Id", typeof(Guid));
             this.fileName = info.GetString("FileName");
@@ -39,14 +37,6 @@
             get
             {
                 return this.id;
-            }
-            set
-            {
-                if (this.id != value)
-                {
-                    this.id = value;
-                    this.OnPropertyChanged("Id");
-                }
             }
         }
 
@@ -82,6 +72,11 @@
             }
         }
 
+        public override string ToString()
+        {
+            return this.fileName;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
@@ -93,7 +88,7 @@
 
         public override int GetHashCode()
         {
-            return Utils.GetHashCode(this.id.GetHashCode(), this.fileName.GetHashCode(), this.base64Data.GetHashCode());
+            return Utils.GetHashCode(this.id.GetHashCode());
         }
 
         #region ISerializable Members

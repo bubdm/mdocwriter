@@ -13,7 +13,7 @@
     {
         private readonly ObservableCollection<DocumentNode> children = new ObservableCollection<DocumentNode>();
 
-        private Guid id;
+        private readonly Guid id;
 
         private string name;
 
@@ -28,7 +28,6 @@
         internal DocumentNode(string name, string content = null, DocumentNode parent = null)
             : this()
         {
-            this.id = Guid.NewGuid();
             this.name = name;
             this.content = content;
             this.parent = parent;
@@ -37,6 +36,7 @@
 
         private DocumentNode()
         {
+            this.id = Guid.NewGuid();
             children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
         }
 
@@ -51,22 +51,29 @@
             this.children =
                 (ObservableCollection<DocumentNode>)
                 info.GetValue("Children", typeof(ObservableCollection<DocumentNode>));
-            children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
         }
 
+        [OnDeserialized()]
+        private void OnDeserializedMethod(StreamingContext context)
+        {
+            if (this.children.Any())
+            {
+                foreach (var child in this.children) child.PropertyChanged += (s, e) => this.OnPropertyChanged("Children");
+            }
+            this.children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
+        }
+
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public Guid Id
         {
             get
             {
                 return this.id;
-            }
-            set
-            {
-                if (this.id != value)
-                {
-                    this.id = value;
-                    this.OnPropertyChanged("Id");
-                }
             }
         }
 
@@ -166,7 +173,7 @@
         /// </returns>
         public override string ToString()
         {
-            return Name;
+            return this.name;
         }
 
         /// <summary>
@@ -193,14 +200,7 @@
         /// </returns>
         public override int GetHashCode()
         {
-            return Utils.GetHashCode(
-                this.id.GetHashCode(),
-                this.name.GetHashCode(),
-                this.content.GetHashCode(),
-                this.dateCreated.GetHashCode(),
-                this.dateLastModified.GetHashCode(),
-                this.parent.GetHashCode(),
-                this.children.GetHashCode());
+            return Utils.GetHashCode(this.id.GetHashCode());
         }
 
         #region ISerializable Members

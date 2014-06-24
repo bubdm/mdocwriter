@@ -46,7 +46,8 @@
                             break;
                     }
                 }
-                Workspace.Close(this.workspace, this.WorkspaceModified, this.WorkspaceSaved);
+                Workspace.Close(ref this.workspace, this.WorkspaceModified, this.WorkspaceSaved);
+                
             }
             return true;
         }
@@ -77,6 +78,11 @@
             return true;
         }
 
+        /// <summary>
+        /// Sets the tree node image.
+        /// </summary>
+        /// <param name="node">The node.</param>
+        /// <param name="imageKey">The image key.</param>
         private void SetTreeNodeImage(TreeNode node, string imageKey)
         {
             node.ImageKey = node.StateImageKey = node.SelectedImageKey = imageKey;
@@ -89,22 +95,61 @@
         private void LoadWorkspace(Workspace wks)
         {
             tvWorkspace.Nodes.Clear();
+            // Create the root document node
             var documentNode = tvWorkspace.Nodes.Add(wks.Document.Id.ToString(), wks.Document.Title);
-            this.SetTreeNodeImage(documentNode, "Document");
             documentNode.Tag = new WorkspaceNode(WorkspaceNodeType.Document, wks.Document);
+            this.SetTreeNodeImage(documentNode, "Document");
 
+            // Create the DocumentNodes node
             var documentNodesNode = documentNode.Nodes.Add("<DOCUMENT_NODES>", Resources.DocumentNodesText);
             documentNodesNode.Tag = new WorkspaceNode(WorkspaceNodeType.DocumentNodes);
             this.SetTreeNodeImage(documentNodesNode, "DocumentNodes");
-            
+
+            // Add the document nodes, recursively
+            this.AddDocumentNode(documentNodesNode, wks.Document);
+            documentNodesNode.Expand();
+
+            // Create the ResourceNodes node
             var resourcesNode = documentNode.Nodes.Add("<RESOURCE_NODES>", Resources.ResourcesText);
             resourcesNode.Tag = new WorkspaceNode(WorkspaceNodeType.ResourceNodes);
             this.SetTreeNodeImage(resourcesNode, "Resources");
 
+            // Add the resources
+            foreach (var resource in wks.Document.Resources)
+            {
+                var resourceNode = resourcesNode.Nodes.Add(resource.Id.ToString(), resource.FileName);
+                resourceNode.Tag = new WorkspaceNode(WorkspaceNodeType.ResourceNode, resource);
+                this.SetTreeNodeImage(resourceNode, "Resource");
+            }
+
             documentNode.Expand();
         }
 
-        private void AddNewDocumentNode(TreeNode parent)
+        /// <summary>
+        /// Adds the document node, recursively.
+        /// </summary>
+        /// <param name="parent">The parent.</param>
+        /// <param name="documentNode">The document node.</param>
+        private void AddDocumentNode(TreeNode parent, IDocumentNode documentNode)
+        {
+            foreach(var childNode in documentNode.Children)
+            {
+                var childTreeNode = parent.Nodes.Add(childNode.Id.ToString(), childNode.ToString());
+                childTreeNode.Tag = new WorkspaceNode(WorkspaceNodeType.DocumentNode, childNode);
+                this.SetTreeNodeImage(childTreeNode, "File");
+                if (childNode.Children.Any())
+                {
+                    this.SetTreeNodeImage(childTreeNode, "FolderClose");
+                    AddDocumentNode(childTreeNode, childNode);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Adds a new document node under the specified tree node.
+        /// </summary>
+        /// <param name="parent">The parent node on which the new document node should be added.</param>
+        private void AddDocumentNode(TreeNode parent)
         {
             var parentHasChild = parent.Nodes.Count != 0;
             // firstly, check and get the name of the document.
@@ -135,7 +180,7 @@
         {
             if (this.CloseCurrentWorkspace())
             {
-                var frmNewDocument = new FrmNewDocument();
+                var frmNewDocument = new FrmDocumentPropertyEditor();
                 if (frmNewDocument.ShowDialog() == DialogResult.OK)
                 {
                     this.workspace = Workspace.New(
@@ -168,6 +213,16 @@
             this.SaveCurrentWorkspace();
         }
 
+        private void ActionClose(object sender, EventArgs e)
+        {
+            if (this.CloseCurrentWorkspace())
+            {
+                tvWorkspace.Nodes.Clear();
+                this.tbtnSave.Enabled = false;
+                this.mnuSave.Enabled = false;
+            }
+        }
+
         private void ActionOpenWorkingFolder(object sender, EventArgs e)
         {
             if (this.workspace != null &&
@@ -180,7 +235,7 @@
         private void ActionAddDocumentNode(object sender, EventArgs e)
         {
             var currentNode = tvWorkspace.SelectedNode;
-            this.AddNewDocumentNode(currentNode);
+            this.AddDocumentNode(currentNode);
         }
 
         private void WorkspaceModified(object sender, EventArgs e)

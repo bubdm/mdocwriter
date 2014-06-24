@@ -12,9 +12,9 @@
 
     using MDocWriter.Application;
 
-    public partial class FrmNewDocument : Form
+    public partial class FrmDocumentPropertyEditor : Form
     {
-        public FrmNewDocument()
+        public FrmDocumentPropertyEditor()
         {
             InitializeComponent();
         }

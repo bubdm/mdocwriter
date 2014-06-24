@@ -1,6 +1,6 @@
 ﻿namespace MDocWriter.WinFormMain
 {
-    partial class FrmNewDocument
+    partial class FrmDocumentPropertyEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNewDocument));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDocumentPropertyEditor));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
             this.btnOK = new System.Windows.Forms.Button();

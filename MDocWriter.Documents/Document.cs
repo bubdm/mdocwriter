@@ -14,7 +14,7 @@
 
         private readonly ObservableCollection<DocumentResource> resources = new ObservableCollection<DocumentResource>();
 
-        private Guid id;
+        private readonly Guid id;
 
         private string title;
 
@@ -49,6 +49,22 @@
                 (ObservableCollection<DocumentResource>)
                 info.GetValue("Resources", typeof(ObservableCollection<DocumentResource>));
 
+            this.children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
+            this.resources.CollectionChanged += (s, e) => this.OnPropertyChanged("Resources");
+        }
+
+
+        [OnDeserialized()]
+        private void OnDeserializedMethod(StreamingContext context)
+        {
+            if (this.children.Any())
+            {
+                foreach (var child in this.children) child.PropertyChanged += (s, e) => this.OnPropertyChanged("Children");
+            }
+            if (this.resources.Any())
+            {
+                foreach (var resource in this.resources) resource.PropertyChanged += (s, e) => this.OnPropertyChanged("Resources");
+            }
             this.children.CollectionChanged += (s, e) => this.OnPropertyChanged("Children");
             this.resources.CollectionChanged += (s, e) => this.OnPropertyChanged("Resources");
         }
@@ -90,14 +106,6 @@
             get
             {
                 return this.id;
-            }
-            set
-            {
-                if (this.id != value)
-                {
-                    this.id = value;
-                    this.OnPropertyChanged("Id");
-                }
             }
         }
 
@@ -174,13 +182,7 @@
         /// </returns>
         public override int GetHashCode()
         {
-            return Utils.GetHashCode(
-                this.id.GetHashCode(),
-                this.title.GetHashCode(),
-                this.author.GetHashCode(),
-                this.dateCreated.GetHashCode(),
-                this.children.GetHashCode(),
-                this.resources.GetHashCode());
+            return Utils.GetHashCode(this.id.GetHashCode());
         }
 
         #region ISerializable Members
@@ -212,6 +214,11 @@
             documentNode.PropertyChanged += (s, e) => this.OnPropertyChanged("Children");
             this.children.Add(documentNode);
             return documentNode;
+        }
+
+        public void RemoveChildDocumentNode(string name)
+        {
+            
         }
 
         public DocumentResource AddDocumentResource(string fileName, string base64Data)

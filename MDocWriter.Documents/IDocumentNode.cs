@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace MDocWriter.Documents
 {
     using System.Collections.Generic;
@@ -8,6 +10,14 @@ namespace MDocWriter.Documents
     /// </summary>
     public interface IDocumentNode
     {
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
+        Guid Id { get; }
+
         /// <summary>
         /// Gets the children of the current document node.
         /// </summary>

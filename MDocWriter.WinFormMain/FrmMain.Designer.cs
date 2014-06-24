@@ -35,6 +35,8 @@
             this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -76,7 +78,9 @@
             this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuNew,
             this.mnuOpen,
-            this.mnuSave});
+            this.mnuSave,
+            this.toolStripMenuItem1,
+            this.mnuClose});
             this.mnuFile.Name = "mnuFile";
             resources.ApplyResources(this.mnuFile, "mnuFile");
             // 
@@ -100,6 +104,18 @@
             this.mnuSave.Name = "mnuSave";
             resources.ApplyResources(this.mnuSave, "mnuSave");
             this.mnuSave.Click += new System.EventHandler(this.ActionSave);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            // 
+            // mnuClose
+            // 
+            this.mnuClose.Image = global::MDocWriter.WinFormMain.Properties.Resources.Close;
+            this.mnuClose.Name = "mnuClose";
+            resources.ApplyResources(this.mnuClose, "mnuClose");
+            this.mnuClose.Click += new System.EventHandler(this.ActionClose);
             // 
             // mnuHelp
             // 
@@ -182,6 +198,7 @@
             this.tvImageList.Images.SetKeyName(3, "File");
             this.tvImageList.Images.SetKeyName(4, "FolderClose");
             this.tvImageList.Images.SetKeyName(5, "FolderOpen");
+            this.tvImageList.Images.SetKeyName(6, "Resource.png");
             // 
             // saveDocumentDialog
             // 
@@ -214,6 +231,7 @@
             // 
             // cmnuAddNode
             // 
+            this.cmnuAddNode.Image = global::MDocWriter.WinFormMain.Properties.Resources.AddNode;
             this.cmnuAddNode.Name = "cmnuAddNode";
             resources.ApplyResources(this.cmnuAddNode, "cmnuAddNode");
             this.cmnuAddNode.Click += new System.EventHandler(this.ActionAddDocumentNode);
@@ -227,6 +245,7 @@
             // 
             // cmnuAddNode2
             // 
+            this.cmnuAddNode2.Image = global::MDocWriter.WinFormMain.Properties.Resources.AddNode;
             this.cmnuAddNode2.Name = "cmnuAddNode2";
             resources.ApplyResources(this.cmnuAddNode2, "cmnuAddNode2");
             this.cmnuAddNode2.Click += new System.EventHandler(this.ActionAddDocumentNode);
@@ -283,6 +302,8 @@
         private System.Windows.Forms.ToolStripMenuItem cmnuAddNode;
         private System.Windows.Forms.ContextMenuStrip cmsDocumentNode;
         private System.Windows.Forms.ToolStripMenuItem cmnuAddNode2;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mnuClose;
 
     }
 }

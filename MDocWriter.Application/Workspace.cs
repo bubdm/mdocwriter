@@ -8,21 +8,31 @@
 
     using MDocWriter.Documents;
 
+    /// <summary>
+    /// Represents the workspace concept on which the users
+    /// are able to manipulate the documents.
+    /// </summary>
     public sealed class Workspace
     {
         private readonly string workingDirectory;
         private readonly Document document;
 
         private WorkspaceStatus status = WorkspaceStatus.NewlyCreated;
-
         private string fileName;
         private bool isModified;
 
+        /// <summary>
+        /// Prevents a default instance of the <see cref="Workspace"/> class from being created.
+        /// </summary>
         private Workspace()
             : this(new WorkspaceSettings { DocumentAuthor = null, DocumentTitle = null })
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Workspace"/> class.
+        /// </summary>
+        /// <param name="settings">The <see cref="WorkspaceSettings"/> instance.</param>
         private Workspace(WorkspaceSettings settings)
             : this(
                 string.Empty,
@@ -31,6 +41,13 @@
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Workspace"/> class.
+        /// </summary>
+        /// <param name="fileName">Name of the document file.</param>
+        /// <param name="workingDirectory">The working directory.</param>
+        /// <param name="document">The document instance.</param>
+        /// <param name="attachDocumentEvent">if set to <c>true</c> [attach document event].</param>
         private Workspace(string fileName, string workingDirectory, Document document, bool attachDocumentEvent = true)
         {
             this.fileName = fileName;
@@ -172,7 +189,7 @@
             return newWorkspace;
         }
 
-        public static void Close(Workspace workspace, EventHandler onModifiedHandler, EventHandler onSavedHandler)
+        public static void Close(ref Workspace workspace, EventHandler onModifiedHandler, EventHandler onSavedHandler)
         {
             if (workspace != null)
             {
