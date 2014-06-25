@@ -141,7 +141,7 @@
                 this.SetTreeNodeImage(childTreeNode, "File");
                 if (childNode.Children.Any())
                 {
-                    this.SetTreeNodeImage(childTreeNode, "FolderClose");
+                    this.SetTreeNodeImage(childTreeNode, "BookClose");
                     AddDocumentNode(childTreeNode, childNode);
                 }
             }
@@ -171,10 +171,11 @@
 
             if (parentNodeTag.NodeType == WorkspaceNodeType.DocumentNode && !parentHasChild)
             {
-                this.SetTreeNodeImage(parent, "FolderOpen");
+                this.SetTreeNodeImage(parent, "BookOpen");
             }
             parent.Expand();
             tvWorkspace.SelectedNode = newTreeNode;
+            tvWorkspace.SelectedNode.BeginEdit();
         }
         #endregion
 
@@ -272,9 +273,20 @@
                 var currentDocumentNode = (DocumentNode)((WorkspaceNode)currentNode.Tag).NodeValue;
                 var parentDocumentNode = currentDocumentNode.Parent;
                 parentDocumentNode.RemoveDocumentNode(currentDocumentNode.Id);
-                tvWorkspace.SelectedNode = currentNode.Parent;
+                var parentNode = currentNode.Parent;
+                tvWorkspace.SelectedNode = parentNode;
                 tvWorkspace.Nodes.Remove(currentNode);
+                if (((WorkspaceNode)parentNode.Tag).NodeType == WorkspaceNodeType.DocumentNode
+                    && parentNode.Nodes.Count == 0)
+                {
+                    this.SetTreeNodeImage(parentNode, "File");
+                }
             }
+        }
+
+        private void ActionRenameDocumentNode(object sender, EventArgs e)
+        {
+            tvWorkspace.SelectedNode.BeginEdit();
         }
 
         private void ActionAbout(object sender, EventArgs e)
@@ -331,7 +343,7 @@
             var wksType = ((WorkspaceNode)e.Node.Tag).NodeType;
             if (wksType == WorkspaceNodeType.DocumentNode && e.Node.Nodes.Count > 0)
             {
-                this.SetTreeNodeImage(e.Node, "FolderOpen");
+                this.SetTreeNodeImage(e.Node, "BookOpen");
             }
         }
 
@@ -340,7 +352,7 @@
             var wksType = ((WorkspaceNode)e.Node.Tag).NodeType;
             if (wksType == WorkspaceNodeType.DocumentNode && e.Node.Nodes.Count > 0)
             {
-                this.SetTreeNodeImage(e.Node, "FolderClose");
+                this.SetTreeNodeImage(e.Node, "BookClose");
             }
         }
 

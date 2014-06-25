@@ -59,6 +59,7 @@
             this.cmsDocumentNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddNode2 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRename = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -212,9 +213,9 @@
             this.tvImageList.Images.SetKeyName(1, "DocumentNodes");
             this.tvImageList.Images.SetKeyName(2, "Resources");
             this.tvImageList.Images.SetKeyName(3, "File");
-            this.tvImageList.Images.SetKeyName(4, "FolderClose");
-            this.tvImageList.Images.SetKeyName(5, "FolderOpen");
-            this.tvImageList.Images.SetKeyName(6, "Resource.png");
+            this.tvImageList.Images.SetKeyName(4, "Resource.png");
+            this.tvImageList.Images.SetKeyName(5, "BookClose");
+            this.tvImageList.Images.SetKeyName(6, "BookOpen");
             // 
             // saveDocumentDialog
             // 
@@ -270,6 +271,7 @@
             // 
             this.cmsDocumentNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmnuAddNode2,
+            this.mnuRename,
             this.deleteToolStripMenuItem});
             this.cmsDocumentNode.Name = "cmsDocumentNode";
             resources.ApplyResources(this.cmsDocumentNode, "cmsDocumentNode");
@@ -287,6 +289,13 @@
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             resources.ApplyResources(this.deleteToolStripMenuItem, "deleteToolStripMenuItem");
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            // 
+            // mnuRename
+            // 
+            this.mnuRename.Image = global::MDocWriter.WinFormMain.Properties.Resources.Rename;
+            this.mnuRename.Name = "mnuRename";
+            resources.ApplyResources(this.mnuRename, "mnuRename");
+            this.mnuRename.Click += new System.EventHandler(this.ActionRenameDocumentNode);
             // 
             // FrmMain
             // 
@@ -348,6 +357,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem mnuProperties;
+        private System.Windows.Forms.ToolStripMenuItem mnuRename;
 
     }
 }
