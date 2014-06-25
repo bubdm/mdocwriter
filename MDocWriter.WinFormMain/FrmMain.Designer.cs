@@ -44,6 +44,7 @@
             this.tbtnOpen = new System.Windows.Forms.ToolStripButton();
             this.tbtnSave = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tvWorkspace = new System.Windows.Forms.TreeView();
             this.tvImageList = new System.Windows.Forms.ImageList(this.components);
@@ -51,12 +52,16 @@
             this.openDocumentDialog = new System.Windows.Forms.OpenFileDialog();
             this.cmsDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuOpenWorkingFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuProperties = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsDocumentNodes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddNode = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsDocumentNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddNode2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -165,8 +170,15 @@
             // 
             // statusStrip
             // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus});
             resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Name = "statusStrip";
+            // 
+            // lblStatus
+            // 
+            resources.ApplyResources(this.lblStatus, "lblStatus");
+            this.lblStatus.Name = "lblStatus";
             // 
             // splitContainer
             // 
@@ -184,7 +196,10 @@
             this.tvWorkspace.FullRowSelect = true;
             this.tvWorkspace.HideSelection = false;
             this.tvWorkspace.ImageList = this.tvImageList;
+            this.tvWorkspace.LabelEdit = true;
             this.tvWorkspace.Name = "tvWorkspace";
+            this.tvWorkspace.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvWorkspace_BeforeLabelEdit);
+            this.tvWorkspace.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvWorkspace_AfterLabelEdit);
             this.tvWorkspace.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.tvWorkspace_AfterCollapse);
             this.tvWorkspace.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.tvWorkspace_AfterExpand);
             this.tvWorkspace.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvWorkspace_NodeMouseClick);
@@ -212,7 +227,9 @@
             // cmsDocument
             // 
             this.cmsDocument.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmnuOpenWorkingFolder});
+            this.cmnuOpenWorkingFolder,
+            this.toolStripMenuItem2,
+            this.mnuProperties});
             this.cmsDocument.Name = "cmsDocument";
             resources.ApplyResources(this.cmsDocument, "cmsDocument");
             // 
@@ -222,6 +239,18 @@
             this.cmnuOpenWorkingFolder.Name = "cmnuOpenWorkingFolder";
             resources.ApplyResources(this.cmnuOpenWorkingFolder, "cmnuOpenWorkingFolder");
             this.cmnuOpenWorkingFolder.Click += new System.EventHandler(this.ActionOpenWorkingFolder);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            // 
+            // mnuProperties
+            // 
+            this.mnuProperties.Image = global::MDocWriter.WinFormMain.Properties.Resources.Property;
+            this.mnuProperties.Name = "mnuProperties";
+            resources.ApplyResources(this.mnuProperties, "mnuProperties");
+            this.mnuProperties.Click += new System.EventHandler(this.ActionEditDocumentProperty);
             // 
             // cmsDocumentNodes
             // 
@@ -240,7 +269,8 @@
             // cmsDocumentNode
             // 
             this.cmsDocumentNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmnuAddNode2});
+            this.cmnuAddNode2,
+            this.deleteToolStripMenuItem});
             this.cmsDocumentNode.Name = "cmsDocumentNode";
             resources.ApplyResources(this.cmsDocumentNode, "cmsDocumentNode");
             // 
@@ -250,6 +280,13 @@
             this.cmnuAddNode2.Name = "cmnuAddNode2";
             resources.ApplyResources(this.cmnuAddNode2, "cmnuAddNode2");
             this.cmnuAddNode2.Click += new System.EventHandler(this.ActionAddDocumentNode);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            resources.ApplyResources(this.deleteToolStripMenuItem, "deleteToolStripMenuItem");
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
             // 
             // FrmMain
             // 
@@ -267,6 +304,8 @@
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
@@ -305,6 +344,10 @@
         private System.Windows.Forms.ToolStripMenuItem cmnuAddNode2;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuClose;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem mnuProperties;
 
     }
 }

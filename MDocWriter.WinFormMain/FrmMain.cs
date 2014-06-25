@@ -19,8 +19,10 @@
         public FrmMain()
         {
             InitializeComponent();
+            Application.Idle += (sender, e) => lblStatus.Text = Resources.Ready;
         }
 
+        #region Private Methods
         /// <summary>
         /// Closes the current workspace.
         /// </summary>
@@ -162,7 +164,7 @@
             if (parentNodeTag.NodeType == WorkspaceNodeType.DocumentNodes) parentDocumentNode = (IDocumentNode)((WorkspaceNode)parent.Parent.Tag).NodeValue;
             else parentDocumentNode = (IDocumentNode)parentNodeTag.NodeValue;
 
-            var newDocumentNode = parentDocumentNode.AddChildDocumentNode(newNodeText, string.Empty);
+            var newDocumentNode = parentDocumentNode.AddDocumentNode(newNodeText, string.Empty);
             var newTreeNode = parent.Nodes.Add(newDocumentNode.Id.ToString(), newNodeText);
             newTreeNode.Tag = new WorkspaceNode(WorkspaceNodeType.DocumentNode, newDocumentNode);
             this.SetTreeNodeImage(newTreeNode, "File");
@@ -174,8 +176,9 @@
             parent.Expand();
             tvWorkspace.SelectedNode = newTreeNode;
         }
+        #endregion
 
-
+        #region Private ToolStrip Actions
         private void ActionNew(object sender, EventArgs e)
         {
             if (this.CloseCurrentWorkspace())
@@ -229,6 +232,22 @@
             }
         }
 
+        private void ActionEditDocumentProperty(object sender, EventArgs e)
+        {
+            if (this.workspace != null && this.workspace.Document != null)
+            {
+                var frmDocumentPropertyEditor = new FrmDocumentPropertyEditor(this.workspace.Document);
+                if (frmDocumentPropertyEditor.ShowDialog() == DialogResult.OK)
+                {
+                    var settings = frmDocumentPropertyEditor.WorkspaceSettings;
+                    this.workspace.Document.Title = settings.DocumentTitle;
+                    this.workspace.Document.Author = settings.DocumentAuthor;
+                    var documentTreeNode = tvWorkspace.Nodes.Find(this.workspace.Document.Id.ToString(), false).First();
+                    documentTreeNode.Text = this.workspace.Document.Title;
+                }
+            }
+        }
+
         private void ActionOpenWorkingFolder(object sender, EventArgs e)
         {
             if (this.workspace != null &&
@@ -244,11 +263,27 @@
             this.AddDocumentNode(currentNode);
         }
 
+        private void ActionRemoveDocumentNode(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(Resources.DeleteDocumentNodeConfirmPrompt, Resources.Confirmation,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                var currentNode = tvWorkspace.SelectedNode;
+                var currentDocumentNode = (DocumentNode)((WorkspaceNode)currentNode.Tag).NodeValue;
+                var parentDocumentNode = currentDocumentNode.Parent;
+                parentDocumentNode.RemoveDocumentNode(currentDocumentNode.Id);
+                tvWorkspace.SelectedNode = currentNode.Parent;
+                tvWorkspace.Nodes.Remove(currentNode);
+            }
+        }
+
         private void ActionAbout(object sender, EventArgs e)
         {
             new FrmAbout().ShowDialog();
         }
+        #endregion
 
+        #region Custom Event Handlers
         private void WorkspaceModified(object sender, EventArgs e)
         {
             this.mnuSave.Enabled = true;
@@ -260,6 +295,7 @@
             this.mnuSave.Enabled = false;
             this.tbtnSave.Enabled = false;
         }
+        #endregion
 
         private void tvWorkspace_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -311,6 +347,19 @@
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = !this.CloseCurrentWorkspace();
+        }
+
+        private void tvWorkspace_BeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            var workspaceNodeType = ((WorkspaceNode)e.Node.Tag).NodeType;
+            e.CancelEdit = workspaceNodeType != WorkspaceNodeType.DocumentNode;
+        }
+
+        private void tvWorkspace_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            var documentNode = (DocumentNode)((WorkspaceNode)e.Node.Tag).NodeValue;
+            documentNode.Name = e.Label;
+            
         }
     }
 }

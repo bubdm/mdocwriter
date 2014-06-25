@@ -17,7 +17,7 @@
             var count = 0;
             var document = new Document();
             document.PropertyChanged += (s, e) => count++;
-            document.AddChildDocumentNode("Overview");
+            document.AddDocumentNode("Overview");
             Assert.AreEqual(1, count);
         }
 
@@ -27,7 +27,7 @@
             var count = 0;
             var document = new Document();
             document.PropertyChanged += (s, e) => count++;
-            var node = document.AddChildDocumentNode("Overview");
+            var node = document.AddDocumentNode("Overview");
             node.Name = "Preface";
             Assert.AreEqual(2, count);
             Assert.AreEqual("Preface", document.Children.First().Name);
@@ -61,8 +61,8 @@
             var count = 0;
             var document = new Document();
             document.PropertyChanged += (s, e) => count++;
-            var node = document.AddChildDocumentNode("Overview");
-            var subNode = node.AddChildDocumentNode("Design");
+            var node = document.AddDocumentNode("Overview");
+            var subNode = node.AddDocumentNode("Design");
             Assert.AreEqual(2, count);
             Assert.AreEqual(1, document.Children.Count());
             Assert.AreEqual(1, document.Children.First().Children.Count());
@@ -72,13 +72,13 @@
         public void VisitDocumentNodeTest()
         {
             var document = new Document();
-            var node1 = document.AddChildDocumentNode("node1");
-            node1.AddChildDocumentNode("node11");
-            node1.AddChildDocumentNode("node12");
-            var node2 = document.AddChildDocumentNode("node2");
-            var node21 = node2.AddChildDocumentNode("node21");
-            var node211 = node21.AddChildDocumentNode("node211");
-            node211.AddChildDocumentNode("node2111");
+            var node1 = document.AddDocumentNode("node1");
+            node1.AddDocumentNode("node11");
+            node1.AddDocumentNode("node12");
+            var node2 = document.AddDocumentNode("node2");
+            var node21 = node2.AddDocumentNode("node21");
+            var node211 = node21.AddDocumentNode("node211");
+            node211.AddDocumentNode("node2111");
             document.AddDocumentResource("resource1.txt", string.Empty);
             document.AddDocumentResource("resource2.txt", string.Empty);
             document.AddDocumentResource("resource3.txt", string.Empty);

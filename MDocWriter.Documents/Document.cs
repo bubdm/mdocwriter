@@ -199,21 +199,31 @@
 
         #endregion
 
-        public DocumentNode AddChildDocumentNode(string name, string content = null, DocumentNode parent = null)
+        public DocumentNode AddDocumentNode(string name, string content = null)
         {
             if (this.children.Any(child => child.Name == name))
             {
                 throw new InvalidOperationException("The document node already exists.");
             }
-            var documentNode = new DocumentNode(name, content, parent);
+            var documentNode = new DocumentNode(name, content, this);
             documentNode.PropertyChanged += (s, e) => this.OnPropertyChanged("Children");
             this.children.Add(documentNode);
             return documentNode;
         }
 
-        public void RemoveChildDocumentNode(string name)
+        /// <summary>
+        /// Removes the document node from the children collection of this node.
+        /// </summary>
+        /// <param name="id">The identifier of the document node that needs to be removed.</param>
+        public void RemoveDocumentNode(Guid id)
         {
-            
+            if (this.children.All(child => child.Id != id))
+            {
+                throw new InvalidOperationException("The document node doesn't exist.");
+            }
+            var found = this.children.First(dn => dn.Id == id);
+            DocumentNode.RemoveChildNodes(found);
+            this.children.Remove(found);
         }
 
         public DocumentResource AddDocumentResource(string fileName, string base64Data)

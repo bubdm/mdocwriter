@@ -21,10 +21,10 @@
         private string content;
         private DateTime dateCreated;
         private DateTime? dateLastModified;
-        private DocumentNode parent;
+        private IDocumentNode parent;
         #endregion
 
-        internal DocumentNode(string name, string content = null, DocumentNode parent = null)
+        internal DocumentNode(string name, string content = null, IDocumentNode parent = null)
             : this()
         {
             this.name = name;
@@ -46,7 +46,7 @@
             this.content = info.GetString("Content");
             this.dateLastModified = (DateTime?)info.GetValue("DateLastModified", typeof(DateTime?));
             this.dateCreated = info.GetDateTime("DateCreated");
-            this.parent = (DocumentNode)info.GetValue("Parent", typeof(DocumentNode));
+            this.parent = (IDocumentNode)info.GetValue("Parent", typeof(IDocumentNode));
             this.children =
                 (ObservableCollection<DocumentNode>)
                 info.GetValue("Children", typeof(ObservableCollection<DocumentNode>));
@@ -140,7 +140,7 @@
             }
         }
 
-        public DocumentNode Parent
+        public IDocumentNode Parent
         {
             get
             {
@@ -222,14 +222,40 @@
 
         #endregion
 
-        public DocumentNode AddChildDocumentNode(string name, string content = null, DocumentNode parent = null)
+        public DocumentNode AddDocumentNode(string name, string content = null)
         {
             if (this.children.Any(child => child.Name == name))
                 throw new InvalidOperationException("The document node already exists.");
-            var documentNode = new DocumentNode(name, content, parent);
+            var documentNode = new DocumentNode(name, content, this);
             documentNode.PropertyChanged += (s, e) => this.OnPropertyChanged("Children");
             this.children.Add(documentNode);
             return documentNode;
+        }
+
+        /// <summary>
+        /// Removes the document node from the children collection of this node.
+        /// </summary>
+        /// <param name="id">The identifier of the document node that needs to be removed.</param>
+        public void RemoveDocumentNode(Guid id)
+        {
+            if (this.children.All(child => child.Id != id))
+            {
+                throw new InvalidOperationException("The document node doesn't exist.");
+            }
+            var found = this.children.First(dn => dn.Id == id);
+            RemoveChildNodes(found);
+            this.children.Remove(found);
+        }
+
+        internal static void RemoveChildNodes(DocumentNode parent)
+        {
+            var children = parent.Children.ToArray();
+            var count = children.Length;
+            for (var i = 0; i < count; i++)
+            {
+                RemoveChildNodes(children[i]);
+                parent.RemoveDocumentNode(children[i].Id);
+            }
         }
 
         #region IVisitorAcceptor Members

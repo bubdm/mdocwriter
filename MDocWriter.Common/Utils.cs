@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,5 +47,15 @@ namespace MDocWriter.Common
             }
             return string.Format("{0} {1}", leading, intList.Max() + 1);
         }
+
+        #region Extension Methods
+        public static void Remove<T> (this ObservableCollection<T> source, Func<T, bool> predicate)
+        {
+            if (source == null) throw new ArgumentNullException("source");
+            var item = source.FirstOrDefault(predicate);
+            if (item == null) return;
+            source.Remove(item);
+        }
+        #endregion
     }
 }

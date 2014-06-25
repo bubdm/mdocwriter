@@ -33,6 +33,13 @@ namespace MDocWriter.Documents
         /// <param name="content">The content of the child node to be added.</param>
         /// <param name="parent">The parent node, usually it is the current node.</param>
         /// <returns>A <see cref="DocumentNode"/> instance.</returns>
-        DocumentNode AddChildDocumentNode(string name, string content = null, DocumentNode parent = null);
+        DocumentNode AddDocumentNode(string name, string content = null);
+
+        /// <summary>
+        /// Removes the document node from the children collection of this node.
+        /// </summary>
+        /// <param name="id">The identifier of the document node that needs to be removed.</param>
+        void RemoveDocumentNode(Guid id);
+
     }
 }
