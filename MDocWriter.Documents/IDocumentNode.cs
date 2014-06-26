@@ -19,6 +19,14 @@ namespace MDocWriter.Documents
         Guid Id { get; }
 
         /// <summary>
+        /// Gets the parent.
+        /// </summary>
+        /// <value>
+        /// The parent.
+        /// </value>
+        IDocumentNode Parent { get; }
+
+        /// <summary>
         /// Gets the children of the current document node.
         /// </summary>
         /// <value>

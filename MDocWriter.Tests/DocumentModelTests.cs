@@ -87,6 +87,99 @@
             var names = walker.Names;
             Assert.AreEqual(11, names.Count());
         }
+
+        [TestMethod]
+        public void MoveDocumentNodeUp_Normal_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            node12.MoveUp();
+            Assert.AreEqual(node12, node1.Children.First());
+            Assert.AreEqual(node11, node1.Children.Last());
+        }
+
+        [TestMethod]
+        public void MoveDocumentNodeUp_MoveTopNode_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            node11.MoveUp();
+            Assert.AreEqual(node11, node1.Children.First());
+            Assert.AreEqual(node12, node1.Children.Last());
+        }
+
+        [TestMethod]
+        public void MoveDocumentNodeUp_MoveUpTwice_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node13.MoveUp();
+            node13.MoveUp();
+            Assert.AreEqual(node13, node1.Children.First());
+            Assert.AreEqual(node12, node1.Children.Last());
+        }
+
+        [TestMethod]
+        public void MoveDocumentNodeUp_EventFire_Test()
+        {
+            bool eventFired = false;
+
+            var document = new Document();
+            document.PropertyChanged += (s, e) => eventFired = true;
+            var node1 = document.AddDocumentNode("node1");
+            node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            node12.MoveUp();
+
+            Assert.IsTrue(eventFired);
+        }
+
+        [TestMethod]
+        public void MoveDocumentNodeDown_Normal_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node11.MoveDown();
+            Assert.AreEqual(node12, node1.Children.First());
+            Assert.AreEqual(node13, node1.Children.Last());
+        }
+
+        [TestMethod]
+        public void MoveDocumentNodeDown_MoveBottomNode_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node13.MoveDown();
+            Assert.AreEqual(node11, node1.Children.First());
+            Assert.AreEqual(node13, node1.Children.Last());
+        }
+
+        [TestMethod]
+        public void MoveDocumentNodeDown_MoveDownTwice_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node11.MoveDown();
+            node11.MoveDown();
+            Assert.AreEqual(node12, node1.Children.First());
+            Assert.AreEqual(node11, node1.Children.Last());
+        }
     }
 
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]

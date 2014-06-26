@@ -37,6 +37,8 @@
             this.mnuSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDocument = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuProperties = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -53,13 +55,19 @@
             this.cmsDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuOpenWorkingFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuProperties = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuProperties = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsDocumentNodes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddNode = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsDocumentNode = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddNode2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuRename = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmnuDeleteDocumentNode = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddChild = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuRename = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuOpenWorkingFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -75,6 +83,7 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
+            this.mnuDocument,
             this.mnuHelp});
             resources.ApplyResources(this.menuStrip, "menuStrip");
             this.menuStrip.Name = "menuStrip";
@@ -86,7 +95,9 @@
             this.mnuOpen,
             this.mnuSave,
             this.toolStripMenuItem1,
-            this.mnuClose});
+            this.mnuClose,
+            this.toolStripMenuItem4,
+            this.mnuOpenWorkingFolder});
             this.mnuFile.Name = "mnuFile";
             resources.ApplyResources(this.mnuFile, "mnuFile");
             // 
@@ -122,6 +133,24 @@
             this.mnuClose.Name = "mnuClose";
             resources.ApplyResources(this.mnuClose, "mnuClose");
             this.mnuClose.Click += new System.EventHandler(this.ActionClose);
+            // 
+            // mnuDocument
+            // 
+            this.mnuDocument.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAddChild,
+            this.mnuRename,
+            this.mnuDelete,
+            this.toolStripMenuItem3,
+            this.mnuProperties});
+            this.mnuDocument.Name = "mnuDocument";
+            resources.ApplyResources(this.mnuDocument, "mnuDocument");
+            // 
+            // mnuProperties
+            // 
+            this.mnuProperties.Image = global::MDocWriter.WinFormMain.Properties.Resources.Property;
+            this.mnuProperties.Name = "mnuProperties";
+            resources.ApplyResources(this.mnuProperties, "mnuProperties");
+            this.mnuProperties.Click += new System.EventHandler(this.ActionEditDocumentProperty);
             // 
             // mnuHelp
             // 
@@ -203,6 +232,7 @@
             this.tvWorkspace.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvWorkspace_AfterLabelEdit);
             this.tvWorkspace.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.tvWorkspace_AfterCollapse);
             this.tvWorkspace.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.tvWorkspace_AfterExpand);
+            this.tvWorkspace.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvWorkspace_AfterSelect);
             this.tvWorkspace.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvWorkspace_NodeMouseClick);
             // 
             // tvImageList
@@ -230,7 +260,7 @@
             this.cmsDocument.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmnuOpenWorkingFolder,
             this.toolStripMenuItem2,
-            this.mnuProperties});
+            this.cmnuProperties});
             this.cmsDocument.Name = "cmsDocument";
             resources.ApplyResources(this.cmsDocument, "cmsDocument");
             // 
@@ -246,12 +276,12 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             // 
-            // mnuProperties
+            // cmnuProperties
             // 
-            this.mnuProperties.Image = global::MDocWriter.WinFormMain.Properties.Resources.Property;
-            this.mnuProperties.Name = "mnuProperties";
-            resources.ApplyResources(this.mnuProperties, "mnuProperties");
-            this.mnuProperties.Click += new System.EventHandler(this.ActionEditDocumentProperty);
+            this.cmnuProperties.Image = global::MDocWriter.WinFormMain.Properties.Resources.Property;
+            this.cmnuProperties.Name = "cmnuProperties";
+            resources.ApplyResources(this.cmnuProperties, "cmnuProperties");
+            this.cmnuProperties.Click += new System.EventHandler(this.ActionEditDocumentProperty);
             // 
             // cmsDocumentNodes
             // 
@@ -271,8 +301,8 @@
             // 
             this.cmsDocumentNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmnuAddNode2,
-            this.mnuRename,
-            this.deleteToolStripMenuItem});
+            this.cmnuRename,
+            this.cmnuDeleteDocumentNode});
             this.cmsDocumentNode.Name = "cmsDocumentNode";
             resources.ApplyResources(this.cmsDocumentNode, "cmsDocumentNode");
             // 
@@ -283,12 +313,31 @@
             resources.ApplyResources(this.cmnuAddNode2, "cmnuAddNode2");
             this.cmnuAddNode2.Click += new System.EventHandler(this.ActionAddDocumentNode);
             // 
-            // deleteToolStripMenuItem
+            // cmnuRename
             // 
-            this.deleteToolStripMenuItem.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            resources.ApplyResources(this.deleteToolStripMenuItem, "deleteToolStripMenuItem");
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            this.cmnuRename.Image = global::MDocWriter.WinFormMain.Properties.Resources.Rename;
+            this.cmnuRename.Name = "cmnuRename";
+            resources.ApplyResources(this.cmnuRename, "cmnuRename");
+            this.cmnuRename.Click += new System.EventHandler(this.ActionRenameDocumentNode);
+            // 
+            // cmnuDeleteDocumentNode
+            // 
+            this.cmnuDeleteDocumentNode.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
+            this.cmnuDeleteDocumentNode.Name = "cmnuDeleteDocumentNode";
+            resources.ApplyResources(this.cmnuDeleteDocumentNode, "cmnuDeleteDocumentNode");
+            this.cmnuDeleteDocumentNode.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            // 
+            // mnuAddChild
+            // 
+            this.mnuAddChild.Image = global::MDocWriter.WinFormMain.Properties.Resources.AddNode;
+            this.mnuAddChild.Name = "mnuAddChild";
+            resources.ApplyResources(this.mnuAddChild, "mnuAddChild");
+            this.mnuAddChild.Click += new System.EventHandler(this.ActionAddDocumentNode);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
             // 
             // mnuRename
             // 
@@ -296,6 +345,25 @@
             this.mnuRename.Name = "mnuRename";
             resources.ApplyResources(this.mnuRename, "mnuRename");
             this.mnuRename.Click += new System.EventHandler(this.ActionRenameDocumentNode);
+            // 
+            // mnuDelete
+            // 
+            this.mnuDelete.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
+            this.mnuDelete.Name = "mnuDelete";
+            resources.ApplyResources(this.mnuDelete, "mnuDelete");
+            this.mnuDelete.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
+            // 
+            // mnuOpenWorkingFolder
+            // 
+            this.mnuOpenWorkingFolder.Image = global::MDocWriter.WinFormMain.Properties.Resources.FolderTemp;
+            this.mnuOpenWorkingFolder.Name = "mnuOpenWorkingFolder";
+            resources.ApplyResources(this.mnuOpenWorkingFolder, "mnuOpenWorkingFolder");
+            this.mnuOpenWorkingFolder.Click += new System.EventHandler(this.ActionOpenWorkingFolder);
             // 
             // FrmMain
             // 
@@ -354,10 +422,18 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuClose;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cmnuDeleteDocumentNode;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem cmnuProperties;
+        private System.Windows.Forms.ToolStripMenuItem cmnuRename;
+        private System.Windows.Forms.ToolStripMenuItem mnuDocument;
         private System.Windows.Forms.ToolStripMenuItem mnuProperties;
+        private System.Windows.Forms.ToolStripMenuItem mnuAddChild;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem mnuRename;
+        private System.Windows.Forms.ToolStripMenuItem mnuDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem mnuOpenWorkingFolder;
 
     }
 }

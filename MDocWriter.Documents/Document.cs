@@ -120,6 +120,14 @@
             }
         }
 
+        public IDocumentNode Parent
+        {
+            get
+            {
+                return null;
+            }
+        }
+
         public IEnumerable<DocumentNode> Children
         {
             get

@@ -175,7 +175,7 @@
             }
             parent.Expand();
             tvWorkspace.SelectedNode = newTreeNode;
-            tvWorkspace.SelectedNode.BeginEdit();
+            //tvWorkspace.SelectedNode.BeginEdit();
         }
         #endregion
 
@@ -194,7 +194,9 @@
 
                     this.LoadWorkspace(this.workspace);
 
-                    mnuClose.Enabled = true;
+                    this.mnuClose.Enabled = true;
+                    this.mnuProperties.Enabled = true;
+                    this.mnuOpenWorkingFolder.Enabled = true;
                 }
             }
         }
@@ -212,13 +214,19 @@
 
                     this.LoadWorkspace(this.workspace);
 
-                    mnuClose.Enabled = true;
+                    this.mnuClose.Enabled = true;
+                    this.mnuProperties.Enabled = true;
+                    this.mnuOpenWorkingFolder.Enabled = true;
                 }
             }
         }
 
         private void ActionSave(object sender, EventArgs e)
         {
+            if (tvWorkspace.SelectedNode.IsEditing)
+            {
+                tvWorkspace.SelectedNode.EndEdit(false);
+            }
             this.SaveCurrentWorkspace();
         }
 
@@ -229,7 +237,9 @@
                 tvWorkspace.Nodes.Clear();
                 this.tbtnSave.Enabled = false;
                 this.mnuSave.Enabled = false;
-                mnuClose.Enabled = false;
+                this.mnuClose.Enabled = false;
+                this.mnuProperties.Enabled = false;
+                this.mnuOpenWorkingFolder.Enabled = false;
             }
         }
 
@@ -312,10 +322,10 @@
         private void tvWorkspace_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             tvWorkspace.SelectedNode = e.Node;
+            var wksNode = (WorkspaceNode)e.Node.Tag;
+            // Checks if it is the right button click
             if (e.Button == MouseButtons.Right) 
             {
-                // Right click
-                var wksNode = (WorkspaceNode)e.Node.Tag;
                 switch (wksNode.NodeType)
                 {
                     case WorkspaceNodeType.Document:
@@ -336,6 +346,12 @@
             this.mnuSave.Enabled = false;
             this.tbtnSave.Enabled = false;
             this.mnuClose.Enabled = false;
+            this.mnuProperties.Enabled = false;
+            this.mnuOpenWorkingFolder.Enabled = false;
+
+            this.mnuAddChild.Enabled = false;
+            this.mnuRename.Enabled = false;
+            this.mnuDelete.Enabled = false;
         }
 
         private void tvWorkspace_AfterExpand(object sender, TreeViewEventArgs e)
@@ -369,9 +385,36 @@
 
         private void tvWorkspace_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
-            var documentNode = (DocumentNode)((WorkspaceNode)e.Node.Tag).NodeValue;
-            documentNode.Name = e.Label;
-            
+            if (e.Node != null && !string.IsNullOrEmpty(e.Label))
+            {
+                e.Node.Text = e.Label;
+                var documentNode = (DocumentNode)((WorkspaceNode)e.Node.Tag).NodeValue;
+                documentNode.Name = e.Label;
+            }
+        }
+
+        private void tvWorkspace_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            var wksNode = (WorkspaceNode)e.Node.Tag;
+            // Enable/Disable the menus and tools properly
+            switch (wksNode.NodeType)
+            {
+                case WorkspaceNodeType.DocumentNodes:
+                    mnuAddChild.Enabled = true;
+                    mnuRename.Enabled = false;
+                    mnuDelete.Enabled = false;
+                    break;
+                case WorkspaceNodeType.DocumentNode:
+                    mnuAddChild.Enabled = true;
+                    mnuRename.Enabled = true;
+                    mnuDelete.Enabled = true;
+                    break;
+                default:
+                    this.mnuAddChild.Enabled = false;
+                    this.mnuRename.Enabled = false;
+                    this.mnuDelete.Enabled = false;
+                    break;
+            }
         }
     }
 }

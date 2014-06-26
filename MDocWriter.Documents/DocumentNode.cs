@@ -247,6 +247,37 @@
             this.children.Remove(found);
         }
 
+        /// <summary>
+        /// Moves the current document node up.
+        /// </summary>
+        public void MoveUp()
+        {
+            if (this.parent != null)
+            {
+                var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
+                var index = parentChildren.IndexOf(this);
+                if (index > 0) parentChildren.Move(index, index - 1);
+            }
+        }
+
+        /// <summary>
+        /// Moves the current document node down.
+        /// </summary>
+        public void MoveDown()
+        {
+            if (this.parent != null)
+            {
+                var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
+                var index = parentChildren.IndexOf(this);
+                if (index < parentChildren.Count - 1) parentChildren.Move(index, index + 1);
+            }
+        }
+
+        public void Promote()
+        {
+            
+        }
+
         internal static void RemoveChildNodes(DocumentNode parent)
         {
             var children = parent.Children.ToArray();
