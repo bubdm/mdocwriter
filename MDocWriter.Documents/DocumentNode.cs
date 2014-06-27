@@ -275,7 +275,17 @@
 
         public void Promote()
         {
-            
+            // Make sure that the parent parent exists.
+            if (this.parent != null && this.parent.Parent != null)
+            {
+                // get the position of the parent node in its parent
+                var parentParentChildren = (ObservableCollection<DocumentNode>)this.parent.Parent.Children;
+                var parentIndex = parentParentChildren.IndexOf((DocumentNode)this.parent);
+                parentParentChildren.Insert(parentIndex + 1, this);
+                var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
+                parentChildren.Remove(this);
+                this.parent = this.parent.Parent;
+            }
         }
 
         internal static void RemoveChildNodes(DocumentNode parent)

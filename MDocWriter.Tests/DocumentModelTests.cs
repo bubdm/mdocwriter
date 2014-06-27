@@ -180,6 +180,64 @@
             Assert.AreEqual(node12, node1.Children.First());
             Assert.AreEqual(node11, node1.Children.Last());
         }
+
+        [TestMethod]
+        public void PromoteDocumentNode_Normal_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node12.Promote();
+            Assert.AreEqual(2, document.Children.Count());
+            Assert.AreEqual(2, node1.Children.Count());
+            Assert.AreEqual(node1, document.Children.First());
+            Assert.AreEqual(node12, document.Children.Last());
+        }
+
+        [TestMethod]
+        public void PromoteDocumentNode_Twice_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node121 = node12.AddDocumentNode("node121");
+            var node13 = node1.AddDocumentNode("node13");
+            node121.Promote();
+            Assert.AreEqual(4, node1.Children.Count());
+            node121.Promote();
+            Assert.AreEqual(2, document.Children.Count());
+        }
+
+        [TestMethod]
+        public void PromoteDocumentNode_AlreadyTopLevel_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node121 = node12.AddDocumentNode("node121");
+            var node13 = node1.AddDocumentNode("node13");
+            node1.Promote();
+            Assert.AreEqual(1, document.Children.Count());
+        }
+
+        [TestMethod]
+        public void PromoteDocumentNode_FireEvent_Test()
+        {
+            var fired = false;
+            var document = new Document();
+            document.PropertyChanged += (s, e) => fired = true;
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node121 = node12.AddDocumentNode("node121");
+            var node13 = node1.AddDocumentNode("node13");
+            node121.Promote();
+            Assert.IsTrue(fired);
+        }
     }
 
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]
