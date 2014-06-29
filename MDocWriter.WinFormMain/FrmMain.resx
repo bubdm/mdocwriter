@@ -189,17 +189,95 @@
   <data name="mnuClose.Text" xml:space="preserve">
     <value>Close...</value>
   </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>193, 6</value>
+  </data>
+  <data name="mnuOpenWorkingFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>196, 22</value>
+  </data>
+  <data name="mnuOpenWorkingFolder.Text" xml:space="preserve">
+    <value>Open Working Folder...</value>
+  </data>
   <data name="mnuDocument.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 20</value>
   </data>
   <data name="mnuDocument.Text" xml:space="preserve">
     <value>&amp;Document</value>
   </data>
+  <data name="mnuAddChild.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Shift+Ins</value>
+  </data>
+  <data name="mnuAddChild.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="mnuAddChild.Text" xml:space="preserve">
+    <value>Add Child</value>
+  </data>
+  <data name="mnuRename.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>F2</value>
+  </data>
+  <data name="mnuRename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="mnuRename.Text" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="mnuDelete.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Shift+Del</value>
+  </data>
+  <data name="mnuDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="mnuDelete.Text" xml:space="preserve">
+    <value>Delete...</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 6</value>
+  </data>
+  <data name="mnuMoveUp.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Shift+Up</value>
+  </data>
+  <data name="mnuMoveUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="mnuMoveUp.Text" xml:space="preserve">
+    <value>Move Up</value>
+  </data>
+  <data name="mnuMoveDown.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Shift+Down</value>
+  </data>
+  <data name="mnuMoveDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="mnuMoveDown.Text" xml:space="preserve">
+    <value>Move Down</value>
+  </data>
+  <data name="mnuPromote.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Shift+Left</value>
+  </data>
+  <data name="mnuPromote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="mnuPromote.Text" xml:space="preserve">
+    <value>Promote</value>
+  </data>
+  <data name="mnuDegrade.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Shift+Right</value>
+  </data>
+  <data name="mnuDegrade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="mnuDegrade.Text" xml:space="preserve">
+    <value>Degrade</value>
+  </data>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 6</value>
+  </data>
   <data name="mnuProperties.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>F4</value>
   </data>
   <data name="mnuProperties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+    <value>235, 22</value>
   </data>
   <data name="mnuProperties.Text" xml:space="preserve">
     <value>Properties...</value>
@@ -219,30 +297,6 @@
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>125, 17</value>
   </metadata>
-  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>754, 25</value>
-  </data>
-  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="toolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
-    <value>toolStrip</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="tbtnNew.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
@@ -269,6 +323,99 @@
   </data>
   <data name="tbtnSave.Text" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="tbtnAddNode.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbtnAddNode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbtnAddNode.Text" xml:space="preserve">
+    <value>Add Child</value>
+  </data>
+  <data name="tbtnRename.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbtnRename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbtnRename.Text" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="tbtnDelete.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbtnDelete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbtnDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="tbtnMoveUp.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbtnMoveUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbtnMoveUp.Text" xml:space="preserve">
+    <value>Move Up</value>
+  </data>
+  <data name="tbtnMoveDown.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbtnMoveDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbtnMoveDown.Text" xml:space="preserve">
+    <value>Move Down</value>
+  </data>
+  <data name="tbtnPromote.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbtnPromote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbtnPromote.Text" xml:space="preserve">
+    <value>Promote</value>
+  </data>
+  <data name="tbtnDegrade.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbtnDegrade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbtnDegrade.Text" xml:space="preserve">
+    <value>Degrade</value>
+  </data>
+  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>754, 25</value>
+  </data>
+  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
+    <value>toolStrip</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>223, 17</value>
@@ -329,7 +476,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADW
-        EAAAAk1TRnQBSQFMAgEBBwEAAcABAAHAAQABEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        EAAAAk1TRnQBSQFMAgEBBwEAAdgBAAHYAQABEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABIAMAAQEBAAEYBgABGFcAAeQB1QHUAcsBogGgAbYBZwFodQAe9gP1A/gYAAP9AcsBnwGdAdEBugG0
         AeIB5gHdAc0BqAGlAbYBZwFoGwAB9gL1AXQBVwFDAWgBTQE6AWQBSAE2AWkBTAE5AWsBTgE5AWwBUAE7
         AWwBUQE9AXEBUgFAAYkBbAFdAaEBigF9Ab4BrgGmMwAD9htCA4YD9QP4EgAB6ALbAbsBfQF6AdEBugG0
@@ -536,7 +683,7 @@
     <value>312, 41</value>
   </metadata>
   <data name="cmsDocumentNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 70</value>
+    <value>139, 164</value>
   </data>
   <data name="&gt;&gt;cmsDocumentNode.Name" xml:space="preserve">
     <value>cmsDocumentNode</value>
@@ -545,58 +692,49 @@
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cmnuAddNode2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="cmnuAddNode2.Text" xml:space="preserve">
     <value>Add Child</value>
   </data>
   <data name="cmnuRename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="cmnuRename.Text" xml:space="preserve">
     <value>Rename</value>
   </data>
   <data name="cmnuDeleteDocumentNode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 22</value>
+    <value>138, 22</value>
   </data>
   <data name="cmnuDeleteDocumentNode.Text" xml:space="preserve">
     <value>Delete...</value>
   </data>
-  <data name="mnuAddChild.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 6</value>
   </data>
-  <data name="mnuAddChild.Text" xml:space="preserve">
-    <value>Add Child</value>
+  <data name="cmnuMoveUp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
   </data>
-  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 6</value>
+  <data name="cmnuMoveUp.Text" xml:space="preserve">
+    <value>Move Up</value>
   </data>
-  <data name="mnuRename.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>F2</value>
+  <data name="cmnuMoveDown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
   </data>
-  <data name="mnuRename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+  <data name="cmnuMoveDown.Text" xml:space="preserve">
+    <value>Move Down</value>
   </data>
-  <data name="mnuRename.Text" xml:space="preserve">
-    <value>Rename</value>
+  <data name="cmnuPromote.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
   </data>
-  <data name="mnuDelete.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Del</value>
+  <data name="cmnuPromote.Text" xml:space="preserve">
+    <value>Promote</value>
   </data>
-  <data name="mnuDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 22</value>
+  <data name="cmnuDegrade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 22</value>
   </data>
-  <data name="mnuDelete.Text" xml:space="preserve">
-    <value>Delete...</value>
-  </data>
-  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 6</value>
-  </data>
-  <data name="mnuOpenWorkingFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
-  </data>
-  <data name="mnuOpenWorkingFolder.Text" xml:space="preserve">
-    <value>Open Working Folder...</value>
+  <data name="cmnuDegrade.Text" xml:space="preserve">
+    <value>Degrade</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -4013,11 +4151,77 @@
   <data name="&gt;&gt;mnuClose.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
+    <value>toolStripMenuItem4</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuOpenWorkingFolder.Name" xml:space="preserve">
+    <value>mnuOpenWorkingFolder</value>
+  </data>
+  <data name="&gt;&gt;mnuOpenWorkingFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;mnuDocument.Name" xml:space="preserve">
     <value>mnuDocument</value>
   </data>
   <data name="&gt;&gt;mnuDocument.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuAddChild.Name" xml:space="preserve">
+    <value>mnuAddChild</value>
+  </data>
+  <data name="&gt;&gt;mnuAddChild.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuRename.Name" xml:space="preserve">
+    <value>mnuRename</value>
+  </data>
+  <data name="&gt;&gt;mnuRename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuDelete.Name" xml:space="preserve">
+    <value>mnuDelete</value>
+  </data>
+  <data name="&gt;&gt;mnuDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem3.Name" xml:space="preserve">
+    <value>toolStripMenuItem3</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuMoveUp.Name" xml:space="preserve">
+    <value>mnuMoveUp</value>
+  </data>
+  <data name="&gt;&gt;mnuMoveUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuMoveDown.Name" xml:space="preserve">
+    <value>mnuMoveDown</value>
+  </data>
+  <data name="&gt;&gt;mnuMoveDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuPromote.Name" xml:space="preserve">
+    <value>mnuPromote</value>
+  </data>
+  <data name="&gt;&gt;mnuPromote.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnuDegrade.Name" xml:space="preserve">
+    <value>mnuDegrade</value>
+  </data>
+  <data name="&gt;&gt;mnuDegrade.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem6.Name" xml:space="preserve">
+    <value>toolStripMenuItem6</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mnuProperties.Name" xml:space="preserve">
     <value>mnuProperties</value>
@@ -4121,41 +4325,89 @@
   <data name="&gt;&gt;cmnuDeleteDocumentNode.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuAddChild.Name" xml:space="preserve">
-    <value>mnuAddChild</value>
+  <data name="&gt;&gt;toolStripMenuItem5.Name" xml:space="preserve">
+    <value>toolStripMenuItem5</value>
   </data>
-  <data name="&gt;&gt;mnuAddChild.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem3.Name" xml:space="preserve">
-    <value>toolStripMenuItem3</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
+  <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuRename.Name" xml:space="preserve">
-    <value>mnuRename</value>
+  <data name="&gt;&gt;cmnuMoveUp.Name" xml:space="preserve">
+    <value>cmnuMoveUp</value>
   </data>
-  <data name="&gt;&gt;mnuRename.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmnuMoveUp.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuDelete.Name" xml:space="preserve">
-    <value>mnuDelete</value>
+  <data name="&gt;&gt;cmnuMoveDown.Name" xml:space="preserve">
+    <value>cmnuMoveDown</value>
   </data>
-  <data name="&gt;&gt;mnuDelete.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmnuMoveDown.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
-    <value>toolStripMenuItem4</value>
+  <data name="&gt;&gt;cmnuPromote.Name" xml:space="preserve">
+    <value>cmnuPromote</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmnuPromote.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmnuDegrade.Name" xml:space="preserve">
+    <value>cmnuDegrade</value>
+  </data>
+  <data name="&gt;&gt;cmnuDegrade.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnuOpenWorkingFolder.Name" xml:space="preserve">
-    <value>mnuOpenWorkingFolder</value>
+  <data name="&gt;&gt;tbtnMoveUp.Name" xml:space="preserve">
+    <value>tbtnMoveUp</value>
   </data>
-  <data name="&gt;&gt;mnuOpenWorkingFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tbtnMoveUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnMoveDown.Name" xml:space="preserve">
+    <value>tbtnMoveDown</value>
+  </data>
+  <data name="&gt;&gt;tbtnMoveDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnPromote.Name" xml:space="preserve">
+    <value>tbtnPromote</value>
+  </data>
+  <data name="&gt;&gt;tbtnPromote.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnDegrade.Name" xml:space="preserve">
+    <value>tbtnDegrade</value>
+  </data>
+  <data name="&gt;&gt;tbtnDegrade.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnAddNode.Name" xml:space="preserve">
+    <value>tbtnAddNode</value>
+  </data>
+  <data name="&gt;&gt;tbtnAddNode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnRename.Name" xml:space="preserve">
+    <value>tbtnRename</value>
+  </data>
+  <data name="&gt;&gt;tbtnRename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnDelete.Name" xml:space="preserve">
+    <value>tbtnDelete</value>
+  </data>
+  <data name="&gt;&gt;tbtnDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMain</value>

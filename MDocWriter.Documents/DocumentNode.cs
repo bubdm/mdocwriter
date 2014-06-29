@@ -247,6 +247,20 @@
             this.children.Remove(found);
         }
 
+        public bool CanMoveUp
+        {
+            get
+            {
+                if (this.parent != null)
+                {
+                    var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
+                    var index = parentChildren.IndexOf(this);
+                    return index > 0;
+                }
+                return false;
+            }
+        }
+
         /// <summary>
         /// Moves the current document node up.
         /// </summary>
@@ -257,6 +271,20 @@
                 var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
                 var index = parentChildren.IndexOf(this);
                 if (index > 0) parentChildren.Move(index, index - 1);
+            }
+        }
+
+        public bool CanMoveDown
+        {
+            get
+            {
+                if (this.parent != null)
+                {
+                    var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
+                    var index = parentChildren.IndexOf(this);
+                    return index < parentChildren.Count - 1;
+                }
+                return false;
             }
         }
 
@@ -273,6 +301,14 @@
             }
         }
 
+        public bool CanPromote
+        {
+            get
+            {
+                return this.parent != null && this.parent.Parent != null;
+            }
+        }
+
         public void Promote()
         {
             // Make sure that the parent parent exists.
@@ -285,6 +321,38 @@
                 var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
                 parentChildren.Remove(this);
                 this.parent = this.parent.Parent;
+            }
+        }
+
+        public bool CanDegrade
+        {
+            get
+            {
+                if (this.parent != null)
+                {
+                    var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
+                    var thisIndex = parentChildren.IndexOf(this);
+                    return thisIndex > 0;
+                }
+                return false;
+            }
+        }
+
+        public void Degrade()
+        {
+            if (this.parent != null)
+            {
+                var parentChildren = (ObservableCollection<DocumentNode>)this.parent.Children;
+                var thisIndex = parentChildren.IndexOf(this);
+                if (thisIndex > 0)
+                {
+                    // If the index of current node in the parent is larger than 0, which means
+                    // the current node can be moved under its prior sibling
+                    var newParent = parentChildren[thisIndex - 1];
+                    newParent.children.Add(this);
+                    parentChildren.Remove(this);
+                    this.parent = newParent;
+                }
             }
         }
 

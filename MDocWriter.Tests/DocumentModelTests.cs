@@ -238,6 +238,57 @@
             node121.Promote();
             Assert.IsTrue(fired);
         }
+
+        [TestMethod]
+        public void DegradeDocumentNode_Normal_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node12.Degrade();
+            Assert.AreEqual(2, node1.Children.Count());
+            Assert.AreEqual(1, node11.Children.Count());
+        }
+
+        [TestMethod]
+        public void DegradeDocumentNode_FirstNode_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node11.Degrade();
+            Assert.AreEqual(3, node1.Children.Count());
+        }
+
+        [TestMethod]
+        public void DegradeDocumentNode_FirstDocumentNode_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node1.Degrade();
+            Assert.AreEqual(3, node1.Children.Count());
+        }
+
+        [TestMethod]
+        public void DegradeDocumentNode_Twice_Test()
+        {
+            var document = new Document();
+            var node1 = document.AddDocumentNode("node1");
+            var node11 = node1.AddDocumentNode("node11");
+            var node12 = node1.AddDocumentNode("node12");
+            var node13 = node1.AddDocumentNode("node13");
+            node12.Degrade();
+            node12.Degrade();
+            Assert.AreEqual(2, node1.Children.Count());
+            Assert.AreEqual(1, node11.Children.Count());
+        }
     }
 
     [SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:FileMayOnlyContainASingleClass", Justification = "Reviewed. Suppression is OK here.")]

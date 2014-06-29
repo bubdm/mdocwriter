@@ -175,7 +175,55 @@
             }
             parent.Expand();
             tvWorkspace.SelectedNode = newTreeNode;
-            //tvWorkspace.SelectedNode.BeginEdit();
+            newTreeNode.BeginEdit();
+        }
+
+        private void UpdateNodeMoveMenuStatus(TreeNode node)
+        {
+            var documentNode = (DocumentNode)((WorkspaceNode)node.Tag).NodeValue;
+            mnuMoveUp.Enabled = documentNode.CanMoveUp;
+            mnuMoveDown.Enabled = documentNode.CanMoveDown;
+            mnuPromote.Enabled = documentNode.CanPromote;
+            mnuDegrade.Enabled = documentNode.CanDegrade;
+            cmnuMoveUp.Enabled = documentNode.CanMoveUp;
+            cmnuMoveDown.Enabled = documentNode.CanMoveDown;
+            cmnuPromote.Enabled = documentNode.CanPromote;
+            cmnuDegrade.Enabled = documentNode.CanDegrade;
+            tbtnMoveUp.Enabled = documentNode.CanMoveUp;
+            tbtnMoveDown.Enabled = documentNode.CanMoveDown;
+            tbtnPromote.Enabled = documentNode.CanPromote;
+            tbtnDegrade.Enabled = documentNode.CanDegrade;
+        }
+
+        private void ResetMenuToolStatus()
+        {
+            this.mnuSave.Enabled = false;
+            this.tbtnSave.Enabled = false;
+            this.mnuClose.Enabled = false;
+            this.mnuProperties.Enabled = false;
+            this.mnuOpenWorkingFolder.Enabled = false;
+
+            this.mnuAddChild.Enabled = false;
+            this.tbtnAddNode.Enabled = false;
+            this.mnuRename.Enabled = false;
+            this.tbtnRename.Enabled = false;
+            this.mnuDelete.Enabled = false;
+            this.tbtnDelete.Enabled = false;
+
+            this.mnuMoveUp.Enabled = false;
+            this.mnuMoveDown.Enabled = false;
+            this.mnuPromote.Enabled = false;
+            this.mnuDegrade.Enabled = false;
+
+            this.cmnuMoveUp.Enabled = false;
+            this.cmnuMoveDown.Enabled = false;
+            this.cmnuPromote.Enabled = false;
+            this.cmnuDegrade.Enabled = false;
+
+            this.tbtnMoveUp.Enabled = false;
+            this.tbtnMoveDown.Enabled = false;
+            this.tbtnPromote.Enabled = false;
+            this.tbtnDegrade.Enabled = false;
         }
         #endregion
 
@@ -235,11 +283,7 @@
             if (this.CloseCurrentWorkspace())
             {
                 tvWorkspace.Nodes.Clear();
-                this.tbtnSave.Enabled = false;
-                this.mnuSave.Enabled = false;
-                this.mnuClose.Enabled = false;
-                this.mnuProperties.Enabled = false;
-                this.mnuOpenWorkingFolder.Enabled = false;
+                this.ResetMenuToolStatus();
             }
         }
 
@@ -277,7 +321,7 @@
         private void ActionRemoveDocumentNode(object sender, EventArgs e)
         {
             if (MessageBox.Show(Resources.DeleteDocumentNodeConfirmPrompt, Resources.Confirmation,
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
                 var currentNode = tvWorkspace.SelectedNode;
                 var currentDocumentNode = (DocumentNode)((WorkspaceNode)currentNode.Tag).NodeValue;
@@ -297,6 +341,87 @@
         private void ActionRenameDocumentNode(object sender, EventArgs e)
         {
             tvWorkspace.SelectedNode.BeginEdit();
+        }
+
+        private void ActionDocumentNodeMoveUp(object sender, EventArgs e)
+        {
+            var current = tvWorkspace.SelectedNode;
+            var status = current.IsExpanded;
+            var cloned = (TreeNode)current.Clone();
+            var parent = current.Parent;
+            var currentIndex = parent.Nodes.IndexOf(current);
+            parent.Nodes.RemoveAt(currentIndex);
+            parent.Nodes.Insert(currentIndex - 1, cloned);
+            var documentNode = (DocumentNode)((WorkspaceNode)cloned.Tag).NodeValue;
+            documentNode.MoveUp();
+            if (status)
+                cloned.Expand();
+            this.UpdateNodeMoveMenuStatus(cloned);
+            tvWorkspace.SelectedNode = cloned;
+        }
+
+        private void ActionDocumentNodeMoveDown(object sender, EventArgs e)
+        {
+            var current = tvWorkspace.SelectedNode;
+            var status = current.IsExpanded;
+            var cloned = (TreeNode)current.Clone();
+            var parent = current.Parent;
+            var currentIndex = parent.Nodes.IndexOf(current);
+            parent.Nodes.RemoveAt(currentIndex);
+            parent.Nodes.Insert(currentIndex + 1, cloned);
+            var documentNode = (DocumentNode)((WorkspaceNode)cloned.Tag).NodeValue;
+            documentNode.MoveDown();
+            if (status)
+                cloned.Expand();
+            this.UpdateNodeMoveMenuStatus(cloned);
+            tvWorkspace.SelectedNode = cloned;
+        }
+
+        private void ActionDocumentNodePromote(object sender, EventArgs e)
+        {
+            var current = tvWorkspace.SelectedNode;
+            if (current.Parent != null && current.Parent.Parent != null)
+            {
+                var parent = current.Parent;
+                var grand = current.Parent.Parent;
+                var parentIndex = grand.Nodes.IndexOf(parent);
+                var currentIndex = parent.Nodes.IndexOf(current);
+                var cloned = (TreeNode)current.Clone();
+                var status = current.IsExpanded;
+                parent.Nodes.RemoveAt(currentIndex);
+                if (parent.Nodes.Count == 0) this.SetTreeNodeImage(parent, "File");
+                grand.Nodes.Insert(parentIndex + 1, cloned);
+                grand.Expand();
+                if (((WorkspaceNode)grand.Tag).NodeType == WorkspaceNodeType.DocumentNode) this.SetTreeNodeImage(grand, "BookOpen");
+                if (status) cloned.Expand();
+                var documentNode = (DocumentNode)((WorkspaceNode)cloned.Tag).NodeValue;
+                documentNode.Promote();
+                this.UpdateNodeMoveMenuStatus(cloned);
+                tvWorkspace.SelectedNode = cloned;
+            }
+        }
+
+        private void ActionDocumentNodeDegrade(object sender, EventArgs e)
+        {
+            var current = tvWorkspace.SelectedNode;
+            var parent = current.Parent;
+            var prevSibling = current.PrevNode;
+            if (parent != null && prevSibling != null)
+            {
+                var cloned = (TreeNode)current.Clone();
+                var status = current.IsExpanded;
+                var currentIndex = parent.Nodes.IndexOf(current);
+                parent.Nodes.RemoveAt(currentIndex);
+                if (parent.Nodes.Count == 0) this.SetTreeNodeImage(parent, "File");
+                prevSibling.Nodes.Add(cloned);
+                prevSibling.Expand();
+                this.SetTreeNodeImage(prevSibling, "BookOpen");
+                if (status) cloned.Expand();
+                var documentNode = (DocumentNode)((WorkspaceNode)cloned.Tag).NodeValue;
+                documentNode.Degrade();
+                this.UpdateNodeMoveMenuStatus(cloned);
+                tvWorkspace.SelectedNode = cloned;
+            }
         }
 
         private void ActionAbout(object sender, EventArgs e)
@@ -343,15 +468,7 @@
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            this.mnuSave.Enabled = false;
-            this.tbtnSave.Enabled = false;
-            this.mnuClose.Enabled = false;
-            this.mnuProperties.Enabled = false;
-            this.mnuOpenWorkingFolder.Enabled = false;
-
-            this.mnuAddChild.Enabled = false;
-            this.mnuRename.Enabled = false;
-            this.mnuDelete.Enabled = false;
+            this.ResetMenuToolStatus();
         }
 
         private void tvWorkspace_AfterExpand(object sender, TreeViewEventArgs e)
@@ -402,17 +519,51 @@
                 case WorkspaceNodeType.DocumentNodes:
                     mnuAddChild.Enabled = true;
                     mnuRename.Enabled = false;
+                    tbtnRename.Enabled = false;
                     mnuDelete.Enabled = false;
+                    tbtnDelete.Enabled = false;
+                    tbtnAddNode.Enabled = true;
+                    this.mnuMoveUp.Enabled = false;
+                    this.mnuMoveDown.Enabled = false;
+                    this.mnuPromote.Enabled = false;
+                    this.mnuDegrade.Enabled = false;
+                    this.cmnuMoveUp.Enabled = false;
+                    this.cmnuMoveDown.Enabled = false;
+                    this.cmnuPromote.Enabled = false;
+                    this.cmnuDegrade.Enabled = false;
+                    this.tbtnMoveUp.Enabled = false;
+                    this.tbtnMoveDown.Enabled = false;
+                    this.tbtnPromote.Enabled = false;
+                    this.tbtnDegrade.Enabled = false;
                     break;
                 case WorkspaceNodeType.DocumentNode:
                     mnuAddChild.Enabled = true;
+                    tbtnAddNode.Enabled = true;
                     mnuRename.Enabled = true;
+                    tbtnRename.Enabled = true;
                     mnuDelete.Enabled = true;
+                    tbtnDelete.Enabled = true;
+                    this.UpdateNodeMoveMenuStatus(e.Node);
                     break;
                 default:
                     this.mnuAddChild.Enabled = false;
+                    this.tbtnAddNode.Enabled = false;
                     this.mnuRename.Enabled = false;
+                    this.tbtnRename.Enabled = false;
                     this.mnuDelete.Enabled = false;
+                    this.tbtnDelete.Enabled = false;
+                    this.mnuMoveUp.Enabled = false;
+                    this.mnuMoveDown.Enabled = false;
+                    this.mnuPromote.Enabled = false;
+                    this.mnuDegrade.Enabled = false;
+                    this.cmnuMoveUp.Enabled = false;
+                    this.cmnuMoveDown.Enabled = false;
+                    this.cmnuPromote.Enabled = false;
+                    this.cmnuDegrade.Enabled = false;
+                    this.tbtnMoveUp.Enabled = false;
+                    this.tbtnMoveDown.Enabled = false;
+                    this.tbtnPromote.Enabled = false;
+                    this.tbtnDegrade.Enabled = false;
                     break;
             }
         }
