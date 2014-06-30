@@ -56,6 +56,15 @@
             this.tbtnNew = new System.Windows.Forms.ToolStripButton();
             this.tbtnOpen = new System.Windows.Forms.ToolStripButton();
             this.tbtnSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tbtnAddNode = new System.Windows.Forms.ToolStripButton();
+            this.tbtnRename = new System.Windows.Forms.ToolStripButton();
+            this.tbtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tbtnMoveUp = new System.Windows.Forms.ToolStripButton();
+            this.tbtnMoveDown = new System.Windows.Forms.ToolStripButton();
+            this.tbtnPromote = new System.Windows.Forms.ToolStripButton();
+            this.tbtnDegrade = new System.Windows.Forms.ToolStripButton();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
@@ -78,24 +87,30 @@
             this.cmnuMoveDown = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuPromote = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuDegrade = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tbtnMoveUp = new System.Windows.Forms.ToolStripButton();
-            this.tbtnMoveDown = new System.Windows.Forms.ToolStripButton();
-            this.tbtnPromote = new System.Windows.Forms.ToolStripButton();
-            this.tbtnDegrade = new System.Windows.Forms.ToolStripButton();
-            this.tbtnAddNode = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tbtnRename = new System.Windows.Forms.ToolStripButton();
-            this.tbtnDelete = new System.Windows.Forms.ToolStripButton();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tpEditorView = new System.Windows.Forms.TabPage();
+            this.tpBrowserView = new System.Windows.Forms.TabPage();
+            this.tabControlImageList = new System.Windows.Forms.ImageList(this.components);
+            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
+            this.editor = new System.Windows.Forms.TextBox();
+            this.browser = new System.Windows.Forms.WebBrowser();
+            this.openResourceDialog = new System.Windows.Forms.OpenFileDialog();
+            this.cmsResources = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmnuAddResource = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.cmsDocument.SuspendLayout();
             this.cmsDocumentNodes.SuspendLayout();
             this.cmsDocumentNode.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.tpEditorView.SuspendLayout();
+            this.tpBrowserView.SuspendLayout();
+            this.cmsResources.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -103,6 +118,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
             this.mnuDocument,
+            this.mnuView,
             this.mnuHelp});
             resources.ApplyResources(this.menuStrip, "menuStrip");
             this.menuStrip.Name = "menuStrip";
@@ -302,6 +318,72 @@
             this.tbtnSave.Name = "tbtnSave";
             this.tbtnSave.Click += new System.EventHandler(this.ActionSave);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // tbtnAddNode
+            // 
+            this.tbtnAddNode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnAddNode.Image = global::MDocWriter.WinFormMain.Properties.Resources.AddNode;
+            resources.ApplyResources(this.tbtnAddNode, "tbtnAddNode");
+            this.tbtnAddNode.Name = "tbtnAddNode";
+            this.tbtnAddNode.Click += new System.EventHandler(this.ActionAddDocumentNode);
+            // 
+            // tbtnRename
+            // 
+            this.tbtnRename.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnRename.Image = global::MDocWriter.WinFormMain.Properties.Resources.Rename;
+            resources.ApplyResources(this.tbtnRename, "tbtnRename");
+            this.tbtnRename.Name = "tbtnRename";
+            this.tbtnRename.Click += new System.EventHandler(this.ActionRenameDocumentNode);
+            // 
+            // tbtnDelete
+            // 
+            this.tbtnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnDelete.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
+            resources.ApplyResources(this.tbtnDelete, "tbtnDelete");
+            this.tbtnDelete.Name = "tbtnDelete";
+            this.tbtnDelete.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            // 
+            // tbtnMoveUp
+            // 
+            this.tbtnMoveUp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnMoveUp.Image = global::MDocWriter.WinFormMain.Properties.Resources.MoveUp;
+            resources.ApplyResources(this.tbtnMoveUp, "tbtnMoveUp");
+            this.tbtnMoveUp.Name = "tbtnMoveUp";
+            this.tbtnMoveUp.Click += new System.EventHandler(this.ActionDocumentNodeMoveUp);
+            // 
+            // tbtnMoveDown
+            // 
+            this.tbtnMoveDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnMoveDown.Image = global::MDocWriter.WinFormMain.Properties.Resources.MoveDown;
+            resources.ApplyResources(this.tbtnMoveDown, "tbtnMoveDown");
+            this.tbtnMoveDown.Name = "tbtnMoveDown";
+            this.tbtnMoveDown.Click += new System.EventHandler(this.ActionDocumentNodeMoveDown);
+            // 
+            // tbtnPromote
+            // 
+            this.tbtnPromote.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnPromote.Image = global::MDocWriter.WinFormMain.Properties.Resources.Promote;
+            resources.ApplyResources(this.tbtnPromote, "tbtnPromote");
+            this.tbtnPromote.Name = "tbtnPromote";
+            this.tbtnPromote.Click += new System.EventHandler(this.ActionDocumentNodePromote);
+            // 
+            // tbtnDegrade
+            // 
+            this.tbtnDegrade.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tbtnDegrade.Image = global::MDocWriter.WinFormMain.Properties.Resources.Degrade;
+            resources.ApplyResources(this.tbtnDegrade, "tbtnDegrade");
+            this.tbtnDegrade.Name = "tbtnDegrade";
+            this.tbtnDegrade.Click += new System.EventHandler(this.ActionDocumentNodeDegrade);
+            // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -324,6 +406,10 @@
             // 
             this.splitContainer.Panel1.Controls.Add(this.tvWorkspace);
             // 
+            // splitContainer.Panel2
+            // 
+            this.splitContainer.Panel2.Controls.Add(this.tabControl);
+            // 
             // tvWorkspace
             // 
             resources.ApplyResources(this.tvWorkspace, "tvWorkspace");
@@ -338,6 +424,7 @@
             this.tvWorkspace.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.tvWorkspace_AfterExpand);
             this.tvWorkspace.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvWorkspace_AfterSelect);
             this.tvWorkspace.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvWorkspace_NodeMouseClick);
+            this.tvWorkspace.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvWorkspace_NodeMouseDoubleClick);
             // 
             // tvImageList
             // 
@@ -469,71 +556,68 @@
             resources.ApplyResources(this.cmnuDegrade, "cmnuDegrade");
             this.cmnuDegrade.Click += new System.EventHandler(this.ActionDocumentNodeDegrade);
             // 
-            // toolStripSeparator1
+            // tabControl
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.tabControl.Controls.Add(this.tpEditorView);
+            this.tabControl.Controls.Add(this.tpBrowserView);
+            resources.ApplyResources(this.tabControl, "tabControl");
+            this.tabControl.ImageList = this.tabControlImageList;
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
             // 
-            // tbtnMoveUp
+            // tpEditorView
             // 
-            this.tbtnMoveUp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnMoveUp.Image = global::MDocWriter.WinFormMain.Properties.Resources.MoveUp;
-            resources.ApplyResources(this.tbtnMoveUp, "tbtnMoveUp");
-            this.tbtnMoveUp.Name = "tbtnMoveUp";
-            this.tbtnMoveUp.Click += new System.EventHandler(this.ActionDocumentNodeMoveUp);
+            this.tpEditorView.Controls.Add(this.editor);
+            resources.ApplyResources(this.tpEditorView, "tpEditorView");
+            this.tpEditorView.Name = "tpEditorView";
+            this.tpEditorView.UseVisualStyleBackColor = true;
             // 
-            // tbtnMoveDown
+            // tpBrowserView
             // 
-            this.tbtnMoveDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnMoveDown.Image = global::MDocWriter.WinFormMain.Properties.Resources.MoveDown;
-            resources.ApplyResources(this.tbtnMoveDown, "tbtnMoveDown");
-            this.tbtnMoveDown.Name = "tbtnMoveDown";
-            this.tbtnMoveDown.Click += new System.EventHandler(this.ActionDocumentNodeMoveDown);
+            this.tpBrowserView.Controls.Add(this.browser);
+            resources.ApplyResources(this.tpBrowserView, "tpBrowserView");
+            this.tpBrowserView.Name = "tpBrowserView";
+            this.tpBrowserView.UseVisualStyleBackColor = true;
             // 
-            // tbtnPromote
+            // tabControlImageList
             // 
-            this.tbtnPromote.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnPromote.Image = global::MDocWriter.WinFormMain.Properties.Resources.Promote;
-            resources.ApplyResources(this.tbtnPromote, "tbtnPromote");
-            this.tbtnPromote.Name = "tbtnPromote";
-            this.tbtnPromote.Click += new System.EventHandler(this.ActionDocumentNodePromote);
+            this.tabControlImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tabControlImageList.ImageStream")));
+            this.tabControlImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.tabControlImageList.Images.SetKeyName(0, "EditorView");
+            this.tabControlImageList.Images.SetKeyName(1, "BrowserView");
             // 
-            // tbtnDegrade
+            // mnuView
             // 
-            this.tbtnDegrade.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnDegrade.Image = global::MDocWriter.WinFormMain.Properties.Resources.Degrade;
-            resources.ApplyResources(this.tbtnDegrade, "tbtnDegrade");
-            this.tbtnDegrade.Name = "tbtnDegrade";
-            this.tbtnDegrade.Click += new System.EventHandler(this.ActionDocumentNodeDegrade);
+            this.mnuView.Name = "mnuView";
+            resources.ApplyResources(this.mnuView, "mnuView");
             // 
-            // tbtnAddNode
+            // editor
             // 
-            this.tbtnAddNode.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnAddNode.Image = global::MDocWriter.WinFormMain.Properties.Resources.AddNode;
-            resources.ApplyResources(this.tbtnAddNode, "tbtnAddNode");
-            this.tbtnAddNode.Name = "tbtnAddNode";
-            this.tbtnAddNode.Click += new System.EventHandler(this.ActionAddDocumentNode);
+            resources.ApplyResources(this.editor, "editor");
+            this.editor.Name = "editor";
+            this.editor.TextChanged += new System.EventHandler(this.editor_TextChanged);
             // 
-            // toolStripSeparator2
+            // browser
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+            resources.ApplyResources(this.browser, "browser");
+            this.browser.Name = "browser";
             // 
-            // tbtnRename
+            // openResourceDialog
             // 
-            this.tbtnRename.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnRename.Image = global::MDocWriter.WinFormMain.Properties.Resources.Rename;
-            resources.ApplyResources(this.tbtnRename, "tbtnRename");
-            this.tbtnRename.Name = "tbtnRename";
-            this.tbtnRename.Click += new System.EventHandler(this.ActionRenameDocumentNode);
+            resources.ApplyResources(this.openResourceDialog, "openResourceDialog");
             // 
-            // tbtnDelete
+            // cmsResources
             // 
-            this.tbtnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tbtnDelete.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
-            resources.ApplyResources(this.tbtnDelete, "tbtnDelete");
-            this.tbtnDelete.Name = "tbtnDelete";
-            this.tbtnDelete.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            this.cmsResources.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmnuAddResource});
+            this.cmsResources.Name = "cmsResources";
+            resources.ApplyResources(this.cmsResources, "cmsResources");
+            // 
+            // cmnuAddResource
+            // 
+            this.cmnuAddResource.Name = "cmnuAddResource";
+            resources.ApplyResources(this.cmnuAddResource, "cmnuAddResource");
+            this.cmnuAddResource.Click += new System.EventHandler(this.ActionAddResource);
             // 
             // FrmMain
             // 
@@ -554,11 +638,17 @@
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.cmsDocument.ResumeLayout(false);
             this.cmsDocumentNodes.ResumeLayout(false);
             this.cmsDocumentNode.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
+            this.tpEditorView.ResumeLayout(false);
+            this.tpEditorView.PerformLayout();
+            this.tpBrowserView.ResumeLayout(false);
+            this.cmsResources.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -623,6 +713,16 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tbtnRename;
         private System.Windows.Forms.ToolStripButton tbtnDelete;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tpEditorView;
+        private System.Windows.Forms.TabPage tpBrowserView;
+        private System.Windows.Forms.ImageList tabControlImageList;
+        private System.Windows.Forms.ToolStripMenuItem mnuView;
+        private System.Windows.Forms.TextBox editor;
+        private System.Windows.Forms.WebBrowser browser;
+        private System.Windows.Forms.OpenFileDialog openResourceDialog;
+        private System.Windows.Forms.ContextMenuStrip cmsResources;
+        private System.Windows.Forms.ToolStripMenuItem cmnuAddResource;
 
     }
 }

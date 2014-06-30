@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="mnuFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
@@ -289,7 +289,7 @@
     <value>&amp;Help</value>
   </data>
   <data name="mnuAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="mnuAbout.Text" xml:space="preserve">
     <value>&amp;About...</value>
@@ -297,6 +297,30 @@
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>125, 17</value>
   </metadata>
+  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>754, 25</value>
+  </data>
+  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="toolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
+    <value>toolStrip</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
   <data name="tbtnNew.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
@@ -393,30 +417,6 @@
   <data name="tbtnDegrade.Text" xml:space="preserve">
     <value>Degrade</value>
   </data>
-  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>754, 25</value>
-  </data>
-  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="toolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
-    <value>toolStrip</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>223, 17</value>
   </metadata>
@@ -442,7 +442,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lblStatus.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -476,7 +476,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAADW
-        EAAAAk1TRnQBSQFMAgEBBwEAAdgBAAHYAQABEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        EAAAAk1TRnQBSQFMAgEBBwEAAeABAAHgAQABEAEAARABAAT/ARkBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABIAMAAQEBAAEYBgABGFcAAeQB1QHUAcsBogGgAbYBZwFodQAe9gP1A/gYAAP9AcsBnwGdAdEBugG0
         AeIB5gHdAc0BqAGlAbYBZwFoGwAB9gL1AXQBVwFDAWgBTQE6AWQBSAE2AWkBTAE5AWsBTgE5AWwBUAE7
         AWwBUQE9AXEBUgFAAYkBbAFdAaEBigF9Ab4BrgGmMwAD9htCA4YD9QP4EgAB6ALbAbsBfQF6AdEBugG0
@@ -586,6 +586,168 @@
   <data name="&gt;&gt;splitContainer.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;editor.Name" xml:space="preserve">
+    <value>editor</value>
+  </data>
+  <data name="&gt;&gt;editor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editor.Parent" xml:space="preserve">
+    <value>tpEditorView</value>
+  </data>
+  <data name="&gt;&gt;editor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpEditorView.ImageKey" xml:space="preserve">
+    <value>EditorView</value>
+  </data>
+  <data name="tpEditorView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tpEditorView.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tpEditorView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>511, 414</value>
+  </data>
+  <data name="tpEditorView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tpEditorView.Text" xml:space="preserve">
+    <value>Editor View</value>
+  </data>
+  <data name="&gt;&gt;tpEditorView.Name" xml:space="preserve">
+    <value>tpEditorView</value>
+  </data>
+  <data name="&gt;&gt;tpEditorView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpEditorView.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tpEditorView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;browser.Name" xml:space="preserve">
+    <value>browser</value>
+  </data>
+  <data name="&gt;&gt;browser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;browser.Parent" xml:space="preserve">
+    <value>tpBrowserView</value>
+  </data>
+  <data name="&gt;&gt;browser.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpBrowserView.ImageKey" xml:space="preserve">
+    <value>BrowserView</value>
+  </data>
+  <data name="tpBrowserView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tpBrowserView.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tpBrowserView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>511, 414</value>
+  </data>
+  <data name="tpBrowserView.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tpBrowserView.Text" xml:space="preserve">
+    <value>Browser View</value>
+  </data>
+  <data name="&gt;&gt;tpBrowserView.Name" xml:space="preserve">
+    <value>tpBrowserView</value>
+  </data>
+  <data name="&gt;&gt;tpBrowserView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpBrowserView.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tpBrowserView.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <metadata name="tabControlImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>576, 73</value>
+  </metadata>
+  <data name="tabControlImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABA
+        CgAAAk1TRnQBSQFMAgEBAgEAAQgBAAEIAQABEAEAARABAAT/ASEBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        AwABEAMAAQEBAAEgBgABEBIAA/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2
+        Af8D9gH/A/YB/wP2Af8D9gH/DAADRQFQA8IBzwP2Af8D9gH/A/YB/wPCAc8DRQFQnAAD9gH/A0EB/wP2
+        Af8DQQH/A/YB/wNBAf8D9gH/A0EB/wP2Af8DQQH/A/YB/wNBAf8D9gH/A0EB/wP2Af8IAANyAYAB8gHq
+        AdcB/wHhAbMBTAH/AdcBlQEAAf8B1wGVAQAB/wHXAZUBAAH/AeEBswFMAf8B8gHqAdcB/wNyAYCYAAP2
+        Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wQA
+        A0UBUAHyAeoB1wH/AdkBmwEOAf8B5gHIAYcB/wHXAZUBAAH/AfEB7wHwAf8B1wGVAQAB/wHmAcgBhwH/
+        AdkBmwEOAf8B8gHqAdcB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/4AAA/YB/wNBAf8D9gH/A0EB/wNB
+        Af8DQQH/A0EB/wNBAf8DQQH/A/YB/wP2Af8D9gH/A/YB/wNBAf8D9gH/BAADwgHPAeEBswFMAf8B5gHI
+        AYcB/wHxAe8B8AH/AdcBlQEAAf8B8QHvAfAB/wHXAZUBAAH/AfEB7wHwAf8B5gHIAYcB/wHhAbMBTAH/
+        A5EB/wNBAf8DQQH/A0EB/wNBAf8D9gH/gAAD9gH/A/YB/wP2Af8DQQH/AfEB7wHwAf8B8QHvAfAB/wHx
+        Ae8B8AH/AfEB7wHwAf8DQQH/A/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/BAAD9gH/AdcBlQEAAf8B1wGV
+        AQAB/wHXAZUBAAH/AdcBlQEAAf8B1wGVAQAB/wHXAZUBAAH/AdcBlQEAAf8B1wGVAQAB/wHXAZUBAAH/
+        AfUB9AH1Af8B8QHvAfAB/wHxAe8B8AH/AfEB7wHwAf8DQQH/A/YB/4AAA/YB/wNBAf8D9gH/A0EB/wHx
+        Ae8B8AH/A/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2Af8DQQH/A/YB/wQAAfIB6gHXAf8B1wGV
+        AQAB/wHxAe8B8AH/AfEB7wHwAf8B1wGVAQAB/wHxAe8B8AH/AdcBlQEAAf8B8QHvAfAB/wHxAe8B8AH/
+        AdcBlQEAAf8B9QH0AfUB/wHxAe8B8AH/AfEB7wHwAf8B8QHvAfAB/wNBAf8D9gH/gAAD9gH/A/YB/wP2
+        Af8DQQH/AfEB7wHwAf8D9gH/AZwBUgEAAf8BvgGQAVsB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2
+        Af8EAAP2Af8B1wGVAQAB/wHXAZUBAAH/AdcBlQEAAf8B1wGVAQAB/wHXAZUBAAH/AdcBlQEAAf8B1wGV
+        AQAB/wHXAZUBAAH/AdcBlQEAAf8B9QH0AfUB/wHxAe8B8AH/AfEB7wHwAf8B8QHvAfAB/wNBAf8D9gH/
+        gAAD9gH/A0EB/wP2Af8DQQH/AfEB7wHwAf8D9gH/Ab4BkAFbAf8D9gH/Ab4BkAFbAf8BrQFxAS0B/wP2
+        Af8D9gH/A/YB/wNBAf8D9gH/BAADwgHPAeEBswFMAf8B5gHIAYcB/wHxAe8B8AH/AdcBlQEAAf8B8QHv
+        AfAB/wHXAZUBAAH/AfEB7wHwAf8B5gHIAYcB/wHhAbMBTAH/AfMB8gHzAf8B8QHvAfAB/wHxAe8B8AH/
+        AfEB7wHwAf8DQQH/A/YB/4AAA/YB/wP2Af8D9gH/A0EB/wHxAe8B8AH/A/UB/wP2Af8BvgGQAVsB/wGc
+        AVIBAAH/AZwBUgEAAf8BvgGQAVsB/wP2Af8D9gH/A/YB/wP2Af8EAANFAVAB8gHqAdcB/wHZAZsBDgH/
+        AeYByAGHAf8B1wGVAQAB/wHxAe8B8AH/AdcBlQEAAf8B5gHIAYcB/wHZAZsBDgH/AfEB6QHWAf8B8QHv
+        AfAB/wHxAe8B8AH/AfEB7wHwAf8B8QHvAfAB/wNBAf8D9gH/gAAD9gH/A0EB/wP2Af8DQQH/A0EB/wNM
+        Af8D9gH/Aa0BcQEtAf8BnAFSAQAB/wGcAVIBAAH/AZwBUgEAAf8BvgGQAVsB/wP2Af8DQQH/A/YB/wgA
+        A3IBgAHyAeoB1wH/AeEBswFMAf8B1wGVAQAB/wHXAZUBAAH/AdcBlQEAAf8B4QGzAUwB/wHxAekB1gH/
+        AfIB8AHxAf8B8QHvAfAB/wHxAe8B8AH/AfEB7wHwAf8B8QHvAfAB/wNBAf8D9gH/gAAD9gH/A/YB/wP2
+        Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wGtAXEBLQH/AZwBUgEAAf8BnAFSAQAB/wGcAVIBAAH/Aa0BcQEt
+        Af8D9gH/A/YB/wwAA0UBUAPCAc8D9gH/A8kB/wH1AfQB9QH/AfMB8gHzAf8B8QHvAfAB/wHxAe8B8AH/
+        AfEB7wHwAf8B8QHvAfAB/wHxAe8B8AH/AfEB7wHwAf8DQQH/A/YB/4AAA/YB/wNBAf8D9gH/A0EB/wP2
+        Af8DQQH/A/YB/wNMAf8D9gH/Aa0BcQEtAf8BnAFSAQAB/wGcAVIBAAH/Ab4BkAFbAf8D9gH/A/YB/xQA
+        A/YB/wNBAf8B8QHvAfAB/wHxAe8B8AH/AfEB7wHwAf8B8QHvAfAB/wHxAe8B8AH/A0EB/wNBAf8DQQH/
+        A0EB/wP2Af+AAAP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A/YB/wP2Af8BrQFxAS0B/wG+
+        AZABWwH/A/YB/wG+AZABWwH/Ab4BkAFbAf8D5AHvEAAD9gH/A0EB/wHxAe8B8AH/AfEB7wHwAf8B8QHv
+        AfAB/wHxAe8B8AH/AfEB7wHwAf8DQQH/A0EB/wNBAf8DYwH/A+QB76gAA+QB7wP2Af8BvgGQAVsB/wGc
+        AVIBAAH/Ab4BkAFbAf8D5AHvEAAD9gH/A0EB/wHxAe8B8AH/AfEB7wHwAf8B8QHvAfAB/wHxAe8B8AH/
+        AfEB7wHwAf8DQQH/A0EB/wNjAf8D2QHvAygBMKwAA+QB7wG+AZABWwH/Ab4BkAFbAf8D5AHvFAAD9gH/
+        A0EB/wNBAf8DQQH/A0EB/wNBAf8DQQH/A0EB/wNjAf8D2QHvAygBMLQAA+QB7wPkAe8YAAP2Af8D9gH/
+        A/YB/wP2Af8D9gH/A/YB/wP2Af8D9gH/A+QB7wMoATCIAAFCAU0BPgcAAT4DAAEoAwABQAMAARADAAEB
+        AQABAQUAAYAXAAP/AgABAQHAAX8FAAEBAYABPwUAAQEHAAEBBwABAQcAAQEHAAEBBwABAQcAAQEHAAEB
+        AYAGAAEBAcAGAAEBAfAHAAHwBQAB/wHAAfAFAAH/AeEB8AEBBAAB/wHzAfABAwQACw==
+</value>
+  </data>
+  <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>519, 442</value>
+  </data>
+  <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Name" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl.Parent" xml:space="preserve">
+    <value>splitContainer.Panel2</value>
+  </data>
+  <data name="&gt;&gt;tabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;splitContainer.Panel2.Name" xml:space="preserve">
     <value>splitContainer.Panel2</value>
   </data>
@@ -617,7 +779,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;splitContainer.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="saveDocumentDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>332, 17</value>
@@ -635,7 +797,7 @@
     <value>Markdown Document Writer File (*.mdocx)|*.mdocx</value>
   </data>
   <metadata name="cmsDocument.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 41</value>
+    <value>203, 113</value>
   </metadata>
   <data name="cmsDocument.Size" type="System.Drawing.Size, System.Drawing">
     <value>197, 54</value>
@@ -662,7 +824,7 @@
     <value>Properties...</value>
   </data>
   <metadata name="cmsDocumentNodes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>147, 41</value>
+    <value>216, 72</value>
   </metadata>
   <data name="cmsDocumentNodes.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 26</value>
@@ -680,7 +842,7 @@
     <value>Add Child</value>
   </data>
   <metadata name="cmsDocumentNode.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>312, 41</value>
+    <value>390, 82</value>
   </metadata>
   <data name="cmsDocumentNode.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 164</value>
@@ -736,8 +898,104 @@
   <data name="cmnuDegrade.Text" xml:space="preserve">
     <value>Degrade</value>
   </data>
+  <data name="mnuView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="mnuView.Text" xml:space="preserve">
+    <value>&amp;View</value>
+  </data>
+  <data name="editor.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="editor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 9.75pt</value>
+  </data>
+  <data name="editor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="editor.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="editor.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="editor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>505, 408</value>
+  </data>
+  <data name="editor.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;editor.Name" xml:space="preserve">
+    <value>editor</value>
+  </data>
+  <data name="&gt;&gt;editor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editor.Parent" xml:space="preserve">
+    <value>tpEditorView</value>
+  </data>
+  <data name="&gt;&gt;editor.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="browser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="browser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="browser.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="browser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>505, 408</value>
+  </data>
+  <data name="browser.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;browser.Name" xml:space="preserve">
+    <value>browser</value>
+  </data>
+  <data name="&gt;&gt;browser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.WebBrowser, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;browser.Parent" xml:space="preserve">
+    <value>tpBrowserView</value>
+  </data>
+  <data name="&gt;&gt;browser.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="openResourceDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>37, 72</value>
+  </metadata>
+  <data name="openResourceDialog.Filter" xml:space="preserve">
+    <value>All Files (*.*)|*.*</value>
+  </data>
+  <data name="openResourceDialog.Title" xml:space="preserve">
+    <value>Open Resource File</value>
+  </data>
+  <metadata name="cmsResources.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>32, 118</value>
+  </metadata>
+  <data name="cmnuAddResource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>156, 22</value>
+  </data>
+  <data name="cmnuAddResource.Text" xml:space="preserve">
+    <value>Add Resource...</value>
+  </data>
+  <data name="cmsResources.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 48</value>
+  </data>
+  <data name="&gt;&gt;cmsResources.Name" xml:space="preserve">
+    <value>cmsResources</value>
+  </data>
+  <data name="&gt;&gt;cmsResources.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>206</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>7, 15</value>
@@ -4259,6 +4517,60 @@
   <data name="&gt;&gt;tbtnSave.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnAddNode.Name" xml:space="preserve">
+    <value>tbtnAddNode</value>
+  </data>
+  <data name="&gt;&gt;tbtnAddNode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnRename.Name" xml:space="preserve">
+    <value>tbtnRename</value>
+  </data>
+  <data name="&gt;&gt;tbtnRename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnDelete.Name" xml:space="preserve">
+    <value>tbtnDelete</value>
+  </data>
+  <data name="&gt;&gt;tbtnDelete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnMoveUp.Name" xml:space="preserve">
+    <value>tbtnMoveUp</value>
+  </data>
+  <data name="&gt;&gt;tbtnMoveUp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnMoveDown.Name" xml:space="preserve">
+    <value>tbtnMoveDown</value>
+  </data>
+  <data name="&gt;&gt;tbtnMoveDown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnPromote.Name" xml:space="preserve">
+    <value>tbtnPromote</value>
+  </data>
+  <data name="&gt;&gt;tbtnPromote.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbtnDegrade.Name" xml:space="preserve">
+    <value>tbtnDegrade</value>
+  </data>
+  <data name="&gt;&gt;tbtnDegrade.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;lblStatus.Name" xml:space="preserve">
     <value>lblStatus</value>
   </data>
@@ -4355,59 +4667,29 @@
   <data name="&gt;&gt;cmnuDegrade.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
+  <data name="&gt;&gt;tabControlImageList.Name" xml:space="preserve">
+    <value>tabControlImageList</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tabControlImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbtnMoveUp.Name" xml:space="preserve">
-    <value>tbtnMoveUp</value>
+  <data name="&gt;&gt;mnuView.Name" xml:space="preserve">
+    <value>mnuView</value>
   </data>
-  <data name="&gt;&gt;tbtnMoveUp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;mnuView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbtnMoveDown.Name" xml:space="preserve">
-    <value>tbtnMoveDown</value>
+  <data name="&gt;&gt;openResourceDialog.Name" xml:space="preserve">
+    <value>openResourceDialog</value>
   </data>
-  <data name="&gt;&gt;tbtnMoveDown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;openResourceDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbtnPromote.Name" xml:space="preserve">
-    <value>tbtnPromote</value>
+  <data name="&gt;&gt;cmnuAddResource.Name" xml:space="preserve">
+    <value>cmnuAddResource</value>
   </data>
-  <data name="&gt;&gt;tbtnPromote.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbtnDegrade.Name" xml:space="preserve">
-    <value>tbtnDegrade</value>
-  </data>
-  <data name="&gt;&gt;tbtnDegrade.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbtnAddNode.Name" xml:space="preserve">
-    <value>tbtnAddNode</value>
-  </data>
-  <data name="&gt;&gt;tbtnAddNode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
-    <value>toolStripSeparator2</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbtnRename.Name" xml:space="preserve">
-    <value>tbtnRename</value>
-  </data>
-  <data name="&gt;&gt;tbtnRename.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbtnDelete.Name" xml:space="preserve">
-    <value>tbtnDelete</value>
-  </data>
-  <data name="&gt;&gt;tbtnDelete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cmnuAddResource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMain</value>

@@ -242,6 +242,11 @@
 
                     this.LoadWorkspace(this.workspace);
 
+                    this.ResetMenuToolStatus();
+                    this.editor.Text = null;
+                    this.editor.Enabled = false;
+                    this.browser.DocumentText = null;
+
                     this.mnuClose.Enabled = true;
                     this.mnuProperties.Enabled = true;
                     this.mnuOpenWorkingFolder.Enabled = true;
@@ -261,6 +266,11 @@
                         this.openDocumentDialog.FileName);
 
                     this.LoadWorkspace(this.workspace);
+
+                    this.ResetMenuToolStatus();
+                    this.editor.Text = null;
+                    this.editor.Enabled = false;
+                    this.browser.DocumentText = null;
 
                     this.mnuClose.Enabled = true;
                     this.mnuProperties.Enabled = true;
@@ -284,6 +294,9 @@
             {
                 tvWorkspace.Nodes.Clear();
                 this.ResetMenuToolStatus();
+                this.editor.Text = null;
+                this.editor.Enabled = false;
+                this.browser.DocumentText = null;
             }
         }
 
@@ -424,6 +437,25 @@
             }
         }
 
+        private void ActionAddResource(object sender, EventArgs e)
+        {
+            if (openResourceDialog.ShowDialog() == DialogResult.OK)
+            {
+                var resourceFileName = openResourceDialog.FileName;
+                var plainFileName = Path.GetFileName(resourceFileName);
+                var resourceFileNameInWorkingFolder = Path.Combine(this.workspace.WorkingDirectory, plainFileName);
+                File.Copy(
+                    resourceFileName,
+                    resourceFileNameInWorkingFolder);
+                var resource = this.workspace.Document.AddDocumentResource(
+                    plainFileName,
+                    Utils.GetBase64OfFile(resourceFileNameInWorkingFolder));
+                var resourceNode = tvWorkspace.Nodes[0].Nodes[1].Nodes.Add(resource.Id.ToString(), plainFileName);
+                resourceNode.Tag = new WorkspaceNode(WorkspaceNodeType.ResourceNode, resource);
+                this.SetTreeNodeImage(resourceNode, "Resource");
+            }
+        }
+
         private void ActionAbout(object sender, EventArgs e)
         {
             new FrmAbout().ShowDialog();
@@ -462,6 +494,9 @@
                     case WorkspaceNodeType.DocumentNode:
                         cmsDocumentNode.Show(tvWorkspace, e.X, e.Y);
                         break;
+                    case WorkspaceNodeType.ResourceNodes:
+                        cmsResources.Show(tvWorkspace, e.X, e.Y);
+                        break;
                 }
             }
         }
@@ -469,6 +504,9 @@
         private void FrmMain_Load(object sender, EventArgs e)
         {
             this.ResetMenuToolStatus();
+            this.editor.Text = null;
+            this.editor.Enabled = false;
+            this.browser.DocumentText = null;
         }
 
         private void tvWorkspace_AfterExpand(object sender, TreeViewEventArgs e)
@@ -565,6 +603,40 @@
                     this.tbtnPromote.Enabled = false;
                     this.tbtnDegrade.Enabled = false;
                     break;
+            }
+        }
+
+        private void tvWorkspace_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            var wksNode = (WorkspaceNode)e.Node.Tag;
+            switch (wksNode.NodeType)
+            {
+                case WorkspaceNodeType.DocumentNode:
+                    var documentNode = (DocumentNode)wksNode.NodeValue;
+                    editor.Text = documentNode.Content;
+                    editor.Enabled = true;
+                    editor.Focus();
+                    editor.SelectionStart = 0;
+                    editor.SelectionLength = 0;
+                    break;
+                
+            }
+        }
+
+        private void editor_TextChanged(object sender, EventArgs e)
+        {
+            if (this.workspace != null &&
+                tvWorkspace.SelectedNode!=null)
+            {
+                var wksNode = (WorkspaceNode)tvWorkspace.SelectedNode.Tag;
+                switch (wksNode.NodeType)
+                {
+                    case WorkspaceNodeType.DocumentNode:
+                        var documentNode = (DocumentNode)wksNode.NodeValue;
+                        documentNode.Content = editor.Text;
+                        break;
+
+                }
             }
         }
     }

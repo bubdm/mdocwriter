@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace MDocWriter.Common
 {
+    using System.IO;
+
     public static class Utils
     {
         #region Private Constants
@@ -46,6 +48,12 @@ namespace MDocWriter.Common
                 }
             }
             return string.Format("{0} {1}", leading, intList.Max() + 1);
+        }
+
+        public static string GetBase64OfFile(string fileName)
+        {
+            var bytes = File.ReadAllBytes(fileName);
+            return Convert.ToBase64String(bytes);
         }
 
         #region Extension Methods
