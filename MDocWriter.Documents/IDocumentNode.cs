@@ -1,8 +1,8 @@
 ﻿
-using System;
 
 namespace MDocWriter.Documents
 {
+    using System;
     using System.Collections.Generic;
 
     /// <summary>
@@ -11,26 +11,26 @@ namespace MDocWriter.Documents
     public interface IDocumentNode
     {
         /// <summary>
-        /// Gets the identifier.
+        /// Gets the unique identifier of the current node.
         /// </summary>
         /// <value>
-        /// The identifier.
+        /// The unique identifier which represents the current node.
         /// </value>
         Guid Id { get; }
 
         /// <summary>
-        /// Gets the parent.
+        /// Gets the parent of the current node.
         /// </summary>
         /// <value>
-        /// The parent.
+        /// The parent of the current node.
         /// </value>
         IDocumentNode Parent { get; }
 
         /// <summary>
-        /// Gets the children of the current document node.
+        /// Gets the child document nodes of the current document node.
         /// </summary>
         /// <value>
-        /// The children of the current document node.
+        /// The child document nodes of the current document node.
         /// </value>
         IEnumerable<DocumentNode> Children { get; }
 
@@ -39,8 +39,8 @@ namespace MDocWriter.Documents
         /// </summary>
         /// <param name="name">The name of the child node to be added.</param>
         /// <param name="content">The content of the child node to be added.</param>
-        /// <param name="parent">The parent node, usually it is the current node.</param>
-        /// <returns>A <see cref="DocumentNode"/> instance.</returns>
+        /// <returns>A <see cref="DocumentNode"/> instance which represents a document node
+        /// in the document model.</returns>
         DocumentNode AddDocumentNode(string name, string content = null);
 
         /// <summary>

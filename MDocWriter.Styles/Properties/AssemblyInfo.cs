@@ -1,15 +1,15 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MDocWriter.Documents")]
+[assembly: AssemblyTitle("MDocWriter.Styles")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MDocWriter.Documents")]
+[assembly: AssemblyProduct("MDocWriter.Styles")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,8 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("697d44db-cfa6-405c-88d2-1d279c877624")]
-[assembly: CLSCompliant(true)]
+[assembly: Guid("7c2e8fde-03fe-4b42-94b5-6dbec9ee84ba")]
 
 // Version information for an assembly consists of the following four values:
 //

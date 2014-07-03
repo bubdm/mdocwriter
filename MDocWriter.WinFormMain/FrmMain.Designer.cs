@@ -103,6 +103,7 @@
             this.cmnuOpenResourceNode = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuDeleteResource = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTools = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -124,8 +125,9 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
-            this.mnuDocument,
             this.mnuView,
+            this.mnuDocument,
+            this.mnuTools,
             this.mnuHelp});
             resources.ApplyResources(this.menuStrip, "menuStrip");
             this.menuStrip.Name = "menuStrip";
@@ -668,6 +670,11 @@
             resources.ApplyResources(this.cmnuDeleteResource, "cmnuDeleteResource");
             this.cmnuDeleteResource.Click += new System.EventHandler(this.ActionDeleteNode);
             // 
+            // mnuTools
+            // 
+            this.mnuTools.Name = "mnuTools";
+            resources.ApplyResources(this.mnuTools, "mnuTools");
+            // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -779,6 +786,7 @@
         private System.Windows.Forms.ToolStripMenuItem cmnuOpenResourceNode;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem cmnuDeleteResource;
+        private System.Windows.Forms.ToolStripMenuItem mnuTools;
 
     }
 }
