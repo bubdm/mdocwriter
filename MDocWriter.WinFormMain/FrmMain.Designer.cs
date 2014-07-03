@@ -50,6 +50,7 @@
             this.mnuDegrade = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuProperties = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -70,6 +71,12 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.tvWorkspace = new System.Windows.Forms.TreeView();
             this.tvImageList = new System.Windows.Forms.ImageList(this.components);
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tpEditorView = new System.Windows.Forms.TabPage();
+            this.editor = new System.Windows.Forms.TextBox();
+            this.tpBrowserView = new System.Windows.Forms.TabPage();
+            this.browser = new System.Windows.Forms.WebBrowser();
+            this.tabControlImageList = new System.Windows.Forms.ImageList(this.components);
             this.saveDocumentDialog = new System.Windows.Forms.SaveFileDialog();
             this.openDocumentDialog = new System.Windows.Forms.OpenFileDialog();
             this.cmsDocument = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -79,6 +86,8 @@
             this.cmsDocumentNodes = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddNode = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsDocumentNode = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmnuOpenDocumentNode = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuAddNode2 = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuRename = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuDeleteDocumentNode = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,16 +96,13 @@
             this.cmnuMoveDown = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuPromote = new System.Windows.Forms.ToolStripMenuItem();
             this.cmnuDegrade = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tpEditorView = new System.Windows.Forms.TabPage();
-            this.tpBrowserView = new System.Windows.Forms.TabPage();
-            this.tabControlImageList = new System.Windows.Forms.ImageList(this.components);
-            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.editor = new System.Windows.Forms.TextBox();
-            this.browser = new System.Windows.Forms.WebBrowser();
             this.openResourceDialog = new System.Windows.Forms.OpenFileDialog();
             this.cmsResources = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmnuAddResource = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsResource = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmnuOpenResourceNode = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.cmnuDeleteResource = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -104,13 +110,14 @@
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            this.cmsDocument.SuspendLayout();
-            this.cmsDocumentNodes.SuspendLayout();
-            this.cmsDocumentNode.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tpEditorView.SuspendLayout();
             this.tpBrowserView.SuspendLayout();
+            this.cmsDocument.SuspendLayout();
+            this.cmsDocumentNodes.SuspendLayout();
+            this.cmsDocumentNode.SuspendLayout();
             this.cmsResources.SuspendLayout();
+            this.cmsResource.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -216,7 +223,7 @@
             this.mnuDelete.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
             this.mnuDelete.Name = "mnuDelete";
             resources.ApplyResources(this.mnuDelete, "mnuDelete");
-            this.mnuDelete.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            this.mnuDelete.Click += new System.EventHandler(this.ActionDeleteNode);
             // 
             // toolStripMenuItem3
             // 
@@ -262,6 +269,11 @@
             this.mnuProperties.Name = "mnuProperties";
             resources.ApplyResources(this.mnuProperties, "mnuProperties");
             this.mnuProperties.Click += new System.EventHandler(this.ActionEditDocumentProperty);
+            // 
+            // mnuView
+            // 
+            this.mnuView.Name = "mnuView";
+            resources.ApplyResources(this.mnuView, "mnuView");
             // 
             // mnuHelp
             // 
@@ -345,7 +357,7 @@
             this.tbtnDelete.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
             resources.ApplyResources(this.tbtnDelete, "tbtnDelete");
             this.tbtnDelete.Name = "tbtnDelete";
-            this.tbtnDelete.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            this.tbtnDelete.Click += new System.EventHandler(this.ActionDeleteNode);
             // 
             // toolStripSeparator2
             // 
@@ -434,9 +446,50 @@
             this.tvImageList.Images.SetKeyName(1, "DocumentNodes");
             this.tvImageList.Images.SetKeyName(2, "Resources");
             this.tvImageList.Images.SetKeyName(3, "File");
-            this.tvImageList.Images.SetKeyName(4, "Resource.png");
+            this.tvImageList.Images.SetKeyName(4, "Resource");
             this.tvImageList.Images.SetKeyName(5, "BookClose");
             this.tvImageList.Images.SetKeyName(6, "BookOpen");
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tpEditorView);
+            this.tabControl.Controls.Add(this.tpBrowserView);
+            resources.ApplyResources(this.tabControl, "tabControl");
+            this.tabControl.ImageList = this.tabControlImageList;
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            // 
+            // tpEditorView
+            // 
+            this.tpEditorView.Controls.Add(this.editor);
+            resources.ApplyResources(this.tpEditorView, "tpEditorView");
+            this.tpEditorView.Name = "tpEditorView";
+            this.tpEditorView.UseVisualStyleBackColor = true;
+            // 
+            // editor
+            // 
+            resources.ApplyResources(this.editor, "editor");
+            this.editor.Name = "editor";
+            this.editor.TextChanged += new System.EventHandler(this.editor_TextChanged);
+            // 
+            // tpBrowserView
+            // 
+            this.tpBrowserView.Controls.Add(this.browser);
+            resources.ApplyResources(this.tpBrowserView, "tpBrowserView");
+            this.tpBrowserView.Name = "tpBrowserView";
+            this.tpBrowserView.UseVisualStyleBackColor = true;
+            // 
+            // browser
+            // 
+            resources.ApplyResources(this.browser, "browser");
+            this.browser.Name = "browser";
+            // 
+            // tabControlImageList
+            // 
+            this.tabControlImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tabControlImageList.ImageStream")));
+            this.tabControlImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.tabControlImageList.Images.SetKeyName(0, "EditorView");
+            this.tabControlImageList.Images.SetKeyName(1, "BrowserView");
             // 
             // saveDocumentDialog
             // 
@@ -491,6 +544,8 @@
             // cmsDocumentNode
             // 
             this.cmsDocumentNode.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmnuOpenDocumentNode,
+            this.toolStripSeparator3,
             this.cmnuAddNode2,
             this.cmnuRename,
             this.cmnuDeleteDocumentNode,
@@ -501,6 +556,18 @@
             this.cmnuDegrade});
             this.cmsDocumentNode.Name = "cmsDocumentNode";
             resources.ApplyResources(this.cmsDocumentNode, "cmsDocumentNode");
+            // 
+            // cmnuOpenDocumentNode
+            // 
+            resources.ApplyResources(this.cmnuOpenDocumentNode, "cmnuOpenDocumentNode");
+            this.cmnuOpenDocumentNode.Image = global::MDocWriter.WinFormMain.Properties.Resources.OpenNode;
+            this.cmnuOpenDocumentNode.Name = "cmnuOpenDocumentNode";
+            this.cmnuOpenDocumentNode.Click += new System.EventHandler(this.ActionOpenNode);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // cmnuAddNode2
             // 
@@ -521,7 +588,7 @@
             this.cmnuDeleteDocumentNode.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
             this.cmnuDeleteDocumentNode.Name = "cmnuDeleteDocumentNode";
             resources.ApplyResources(this.cmnuDeleteDocumentNode, "cmnuDeleteDocumentNode");
-            this.cmnuDeleteDocumentNode.Click += new System.EventHandler(this.ActionRemoveDocumentNode);
+            this.cmnuDeleteDocumentNode.Click += new System.EventHandler(this.ActionDeleteNode);
             // 
             // toolStripMenuItem5
             // 
@@ -556,52 +623,6 @@
             resources.ApplyResources(this.cmnuDegrade, "cmnuDegrade");
             this.cmnuDegrade.Click += new System.EventHandler(this.ActionDocumentNodeDegrade);
             // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tpEditorView);
-            this.tabControl.Controls.Add(this.tpBrowserView);
-            resources.ApplyResources(this.tabControl, "tabControl");
-            this.tabControl.ImageList = this.tabControlImageList;
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            // 
-            // tpEditorView
-            // 
-            this.tpEditorView.Controls.Add(this.editor);
-            resources.ApplyResources(this.tpEditorView, "tpEditorView");
-            this.tpEditorView.Name = "tpEditorView";
-            this.tpEditorView.UseVisualStyleBackColor = true;
-            // 
-            // tpBrowserView
-            // 
-            this.tpBrowserView.Controls.Add(this.browser);
-            resources.ApplyResources(this.tpBrowserView, "tpBrowserView");
-            this.tpBrowserView.Name = "tpBrowserView";
-            this.tpBrowserView.UseVisualStyleBackColor = true;
-            // 
-            // tabControlImageList
-            // 
-            this.tabControlImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("tabControlImageList.ImageStream")));
-            this.tabControlImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.tabControlImageList.Images.SetKeyName(0, "EditorView");
-            this.tabControlImageList.Images.SetKeyName(1, "BrowserView");
-            // 
-            // mnuView
-            // 
-            this.mnuView.Name = "mnuView";
-            resources.ApplyResources(this.mnuView, "mnuView");
-            // 
-            // editor
-            // 
-            resources.ApplyResources(this.editor, "editor");
-            this.editor.Name = "editor";
-            this.editor.TextChanged += new System.EventHandler(this.editor_TextChanged);
-            // 
-            // browser
-            // 
-            resources.ApplyResources(this.browser, "browser");
-            this.browser.Name = "browser";
-            // 
             // openResourceDialog
             // 
             resources.ApplyResources(this.openResourceDialog, "openResourceDialog");
@@ -618,6 +639,34 @@
             this.cmnuAddResource.Name = "cmnuAddResource";
             resources.ApplyResources(this.cmnuAddResource, "cmnuAddResource");
             this.cmnuAddResource.Click += new System.EventHandler(this.ActionAddResource);
+            // 
+            // cmsResource
+            // 
+            this.cmsResource.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmnuOpenResourceNode,
+            this.toolStripMenuItem7,
+            this.cmnuDeleteResource});
+            this.cmsResource.Name = "cmsResource";
+            resources.ApplyResources(this.cmsResource, "cmsResource");
+            // 
+            // cmnuOpenResourceNode
+            // 
+            resources.ApplyResources(this.cmnuOpenResourceNode, "cmnuOpenResourceNode");
+            this.cmnuOpenResourceNode.Image = global::MDocWriter.WinFormMain.Properties.Resources.OpenNode;
+            this.cmnuOpenResourceNode.Name = "cmnuOpenResourceNode";
+            this.cmnuOpenResourceNode.Click += new System.EventHandler(this.ActionOpenNode);
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
+            // 
+            // cmnuDeleteResource
+            // 
+            this.cmnuDeleteResource.Image = global::MDocWriter.WinFormMain.Properties.Resources.Delete;
+            this.cmnuDeleteResource.Name = "cmnuDeleteResource";
+            resources.ApplyResources(this.cmnuDeleteResource, "cmnuDeleteResource");
+            this.cmnuDeleteResource.Click += new System.EventHandler(this.ActionDeleteNode);
             // 
             // FrmMain
             // 
@@ -641,14 +690,15 @@
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            this.cmsDocument.ResumeLayout(false);
-            this.cmsDocumentNodes.ResumeLayout(false);
-            this.cmsDocumentNode.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.tpEditorView.ResumeLayout(false);
             this.tpEditorView.PerformLayout();
             this.tpBrowserView.ResumeLayout(false);
+            this.cmsDocument.ResumeLayout(false);
+            this.cmsDocumentNodes.ResumeLayout(false);
+            this.cmsDocumentNode.ResumeLayout(false);
             this.cmsResources.ResumeLayout(false);
+            this.cmsResource.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -723,6 +773,12 @@
         private System.Windows.Forms.OpenFileDialog openResourceDialog;
         private System.Windows.Forms.ContextMenuStrip cmsResources;
         private System.Windows.Forms.ToolStripMenuItem cmnuAddResource;
+        private System.Windows.Forms.ToolStripMenuItem cmnuOpenDocumentNode;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ContextMenuStrip cmsResource;
+        private System.Windows.Forms.ToolStripMenuItem cmnuOpenResourceNode;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem cmnuDeleteResource;
 
     }
 }

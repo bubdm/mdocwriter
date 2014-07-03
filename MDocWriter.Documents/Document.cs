@@ -246,6 +246,15 @@
             return documentResource;
         }
 
+        public void RemoveDocumentResource(Guid id)
+        {
+            var resource = this.resources.FirstOrDefault(r => r.Id == id);
+            if (resource != null)
+            {
+                this.resources.Remove(resource);
+            }
+        }
+
         #region IVisitorAcceptor Members
 
         public void Accept(IVisitor visitor)

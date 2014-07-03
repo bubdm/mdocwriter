@@ -225,6 +225,62 @@
             this.tbtnPromote.Enabled = false;
             this.tbtnDegrade.Enabled = false;
         }
+
+        private void OpenTreeNode(TreeNode treeNode)
+        {
+            var wksNode = (WorkspaceNode)treeNode.Tag;
+            switch(wksNode.NodeType)
+            {
+                case WorkspaceNodeType.DocumentNode:
+                    var documentNode = (DocumentNode)wksNode.NodeValue;
+                    editor.Text = documentNode.Content;
+                    editor.Enabled = true;
+                    editor.Focus();
+                    editor.SelectionStart = 0;
+                    editor.SelectionLength = 0;
+                    break;
+                case WorkspaceNodeType.ResourceNode:
+                    var resourceNode = (DocumentResource)wksNode.NodeValue;
+                    var resourceFile = Path.Combine(this.workspace.WorkingDirectory, resourceNode.FileName);
+                    Process.Start(resourceFile);
+                    break;
+            }
+        }
+
+        private void DeleteTreeNode(TreeNode treeNode)
+        {
+            var wksNode = (WorkspaceNode)treeNode.Tag;
+            switch(wksNode.NodeType)
+            {
+                case WorkspaceNodeType.DocumentNode:
+                    if (MessageBox.Show(Resources.DeleteDocumentNodeConfirmPrompt, Resources.Confirmation,
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    {
+                        var currentDocumentNode = (DocumentNode)wksNode.NodeValue;
+                        var parentDocumentNode = currentDocumentNode.Parent;
+                        parentDocumentNode.RemoveDocumentNode(currentDocumentNode.Id);
+                        var parentNode = treeNode.Parent;
+                        tvWorkspace.SelectedNode = parentNode;
+                        tvWorkspace.Nodes.Remove(treeNode);
+                        if (((WorkspaceNode)parentNode.Tag).NodeType == WorkspaceNodeType.DocumentNode
+                            && parentNode.Nodes.Count == 0)
+                        {
+                            this.SetTreeNodeImage(parentNode, "File");
+                        }
+                    }
+                    break;
+                case WorkspaceNodeType.ResourceNode:
+                    if (MessageBox.Show(Resources.DeleteDocumentNodeConfirmPrompt, Resources.Confirmation, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    {
+                        var currentResourceNode = (DocumentResource)wksNode.NodeValue;
+                        this.workspace.Document.RemoveDocumentResource(currentResourceNode.Id);
+                        tvWorkspace.SelectedNode = treeNode.PrevNode ?? treeNode.Parent;
+                        tvWorkspace.Nodes.Remove(treeNode);
+                    }
+                    break;
+            }
+            
+        }
         #endregion
 
         #region Private ToolStrip Actions
@@ -331,24 +387,10 @@
             this.AddDocumentNode(currentNode);
         }
 
-        private void ActionRemoveDocumentNode(object sender, EventArgs e)
+        private void ActionDeleteNode(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Resources.DeleteDocumentNodeConfirmPrompt, Resources.Confirmation,
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-            {
-                var currentNode = tvWorkspace.SelectedNode;
-                var currentDocumentNode = (DocumentNode)((WorkspaceNode)currentNode.Tag).NodeValue;
-                var parentDocumentNode = currentDocumentNode.Parent;
-                parentDocumentNode.RemoveDocumentNode(currentDocumentNode.Id);
-                var parentNode = currentNode.Parent;
-                tvWorkspace.SelectedNode = parentNode;
-                tvWorkspace.Nodes.Remove(currentNode);
-                if (((WorkspaceNode)parentNode.Tag).NodeType == WorkspaceNodeType.DocumentNode
-                    && parentNode.Nodes.Count == 0)
-                {
-                    this.SetTreeNodeImage(parentNode, "File");
-                }
-            }
+            var currentNode = tvWorkspace.SelectedNode;
+            this.DeleteTreeNode(currentNode);
         }
 
         private void ActionRenameDocumentNode(object sender, EventArgs e)
@@ -456,6 +498,12 @@
             }
         }
 
+        private void ActionOpenNode(object sender, EventArgs e)
+        {
+            var node = tvWorkspace.SelectedNode;
+            this.OpenTreeNode(node);
+        }
+
         private void ActionAbout(object sender, EventArgs e)
         {
             new FrmAbout().ShowDialog();
@@ -496,6 +544,9 @@
                         break;
                     case WorkspaceNodeType.ResourceNodes:
                         cmsResources.Show(tvWorkspace, e.X, e.Y);
+                        break;
+                    case WorkspaceNodeType.ResourceNode:
+                        cmsResource.Show(tvWorkspace, e.X, e.Y);
                         break;
                 }
             }
@@ -583,6 +634,10 @@
                     tbtnDelete.Enabled = true;
                     this.UpdateNodeMoveMenuStatus(e.Node);
                     break;
+                case WorkspaceNodeType.ResourceNode:
+                    mnuDelete.Enabled = true;
+                    tbtnDelete.Enabled = true;
+                    break;
                 default:
                     this.mnuAddChild.Enabled = false;
                     this.tbtnAddNode.Enabled = false;
@@ -608,19 +663,7 @@
 
         private void tvWorkspace_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            var wksNode = (WorkspaceNode)e.Node.Tag;
-            switch (wksNode.NodeType)
-            {
-                case WorkspaceNodeType.DocumentNode:
-                    var documentNode = (DocumentNode)wksNode.NodeValue;
-                    editor.Text = documentNode.Content;
-                    editor.Enabled = true;
-                    editor.Focus();
-                    editor.SelectionStart = 0;
-                    editor.SelectionLength = 0;
-                    break;
-                
-            }
+            this.OpenTreeNode(e.Node);
         }
 
         private void editor_TextChanged(object sender, EventArgs e)
