@@ -291,6 +291,8 @@
                 var frmNewDocument = new FrmDocumentPropertyEditor();
                 if (frmNewDocument.ShowDialog() == DialogResult.OK)
                 {
+                    this.ResetMenuToolStatus();
+
                     this.workspace = Workspace.New(
                         this.WorkspaceModified,
                         this.WorkspaceSaved,
@@ -298,7 +300,7 @@
 
                     this.LoadWorkspace(this.workspace);
 
-                    this.ResetMenuToolStatus();
+                    
                     this.editor.Text = null;
                     this.editor.Enabled = false;
                     this.browser.DocumentText = null;
@@ -337,7 +339,7 @@
 
         private void ActionSave(object sender, EventArgs e)
         {
-            if (tvWorkspace.SelectedNode.IsEditing)
+            if (tvWorkspace.SelectedNode != null && tvWorkspace.SelectedNode.IsEditing)
             {
                 tvWorkspace.SelectedNode.EndEdit(false);
             }
