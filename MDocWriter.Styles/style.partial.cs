@@ -5,7 +5,7 @@ namespace MDocWriter.Styles
     using System.IO;
     using System.Windows.Forms;
 
-    partial class style
+    partial class Style
     {
         public const string StyleDefinitionFileName = @"StyleDefinition.xml";
 

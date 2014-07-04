@@ -8,7 +8,7 @@ namespace MDocWriter.Styles
 {
     public sealed class StyleReader
     {
-        private readonly List<style> styles = new List<style>();
+        private readonly List<Style> styles = new List<Style>();
  
         public StyleReader()
         {

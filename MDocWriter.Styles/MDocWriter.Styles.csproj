@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="style.partial.cs" />
+    <Compile Include="Style.partial.cs" />
     <Compile Include="StyleDefinition.cs">
       <DependentUpon>StyleDefinition.xsd</DependentUpon>
     </Compile>
