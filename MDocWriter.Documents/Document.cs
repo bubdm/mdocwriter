@@ -40,10 +40,11 @@
         /// </summary>
         /// <param name="title">The title of the document, for example, Anna Karenina.</param>
         /// <param name="author">The author of the document, for example, Leo Tolstoy.</param>
-        public Document(string title, string author = null)
+        public Document(string title, Version version, string author = null)
             : this()
         {
             this.title = title;
+            this.version = version;
             this.author = author;
         }
 

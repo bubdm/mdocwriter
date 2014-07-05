@@ -43,10 +43,17 @@
             this.lblDlgTitle = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.numMajor = new System.Windows.Forms.NumericUpDown();
+            this.numMinor = new System.Windows.Forms.NumericUpDown();
+            this.numRevision = new System.Windows.Forms.NumericUpDown();
             this.tabControl.SuspendLayout();
             this.tpGeneral.SuspendLayout();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMajor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRevision)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -58,6 +65,10 @@
             // 
             // tpGeneral
             // 
+            this.tpGeneral.Controls.Add(this.numRevision);
+            this.tpGeneral.Controls.Add(this.numMinor);
+            this.tpGeneral.Controls.Add(this.numMajor);
+            this.tpGeneral.Controls.Add(this.lblVersion);
             this.tpGeneral.Controls.Add(this.txtAuthor);
             this.tpGeneral.Controls.Add(this.lblAuthor);
             this.tpGeneral.Controls.Add(this.txtTitle);
@@ -130,6 +141,49 @@
             // 
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // lblVersion
+            // 
+            resources.ApplyResources(this.lblVersion, "lblVersion");
+            this.lblVersion.Name = "lblVersion";
+            // 
+            // numMajor
+            // 
+            resources.ApplyResources(this.numMajor, "numMajor");
+            this.numMajor.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numMajor.Name = "numMajor";
+            this.toolTip.SetToolTip(this.numMajor, resources.GetString("numMajor.ToolTip"));
+            this.numMajor.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numMinor
+            // 
+            resources.ApplyResources(this.numMinor, "numMinor");
+            this.numMinor.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numMinor.Name = "numMinor";
+            this.toolTip.SetToolTip(this.numMinor, resources.GetString("numMinor.ToolTip"));
+            // 
+            // numRevision
+            // 
+            resources.ApplyResources(this.numRevision, "numRevision");
+            this.numRevision.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numRevision.Name = "numRevision";
+            this.toolTip.SetToolTip(this.numRevision, resources.GetString("numRevision.ToolTip"));
+            // 
             // FrmDocumentPropertyEditor
             // 
             this.AcceptButton = this.btnOK;
@@ -152,6 +206,9 @@
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMajor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRevision)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,5 +228,9 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.NumericUpDown numMajor;
+        private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.NumericUpDown numMinor;
+        private System.Windows.Forms.NumericUpDown numRevision;
     }
 }

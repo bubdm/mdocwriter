@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="Style">
+  <xs:element name="Template">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="Id" />
+        <xs:element name="Id" type="xs:string" />
         <xs:element name="Name" type="xs:string" />
         <xs:element name="Description" type="xs:string" />
         <xs:element name="Author" type="xs:string" />
         <xs:element name="Company" type="xs:string" />
         <xs:element name="Copyright" type="xs:string" />
         <xs:element name="Preview" type="xs:string" />
-        <xs:element name="Stylesheet" type="xs:string" />
+        <xs:element name="TemplateFile" type="xs:string" />
       </xs:sequence>
-      <xs:attribute name="version" type="xs:decimal" use="required" />
+      <xs:attribute name="Version" type="xs:decimal" use="required" />
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -368,6 +368,7 @@
                     var settings = frmDocumentPropertyEditor.WorkspaceSettings;
                     this.workspace.Document.Title = settings.DocumentTitle;
                     this.workspace.Document.Author = settings.DocumentAuthor;
+                    this.workspace.Document.Version = settings.Version;
                     var documentTreeNode = tvWorkspace.Nodes.Find(this.workspace.Document.Id.ToString(), false).First();
                     documentTreeNode.Text = this.workspace.Document.Title;
                 }

@@ -27,7 +27,7 @@
         /// Prevents a default instance of the <see cref="Workspace"/> class from being created.
         /// </summary>
         private Workspace()
-            : this(new WorkspaceSettings { DocumentAuthor = null, DocumentTitle = null })
+            : this(new WorkspaceSettings { DocumentAuthor = null, DocumentTitle = null, Version = new Version(1,0,0,0)})
         {
         }
 
@@ -39,7 +39,7 @@
             : this(
                 string.Empty,
                 Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString()),
-                new Document(settings.DocumentTitle, settings.DocumentAuthor))
+                new Document(settings.DocumentTitle, settings.Version, settings.DocumentAuthor))
         {
         }
 

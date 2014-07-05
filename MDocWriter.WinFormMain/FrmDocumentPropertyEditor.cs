@@ -44,6 +44,9 @@
                     lblDlgDesc.Text = Resources.CreateNewDocumentPrompt;
                     txtTitle.Text = string.Empty;
                     txtAuthor.Text = string.Empty;
+                    numMajor.Value = 1;
+                    numMinor.Value = 0;
+                    numRevision.Value = 0;
                     this.Text = Resources.CreateNewDocument;
                     this.Icon = Resources.NewIcon;
                     break;
@@ -52,6 +55,9 @@
                     lblDlgDesc.Text = Resources.EditDocumentPropertyPrompt;
                     txtTitle.Text = this.document.Title;
                     txtAuthor.Text = this.document.Author;
+                    numMajor.Value = this.document.Version.Major;
+                    numMinor.Value = this.document.Version.Minor;
+                    numRevision.Value = this.document.Version.Revision;
                     this.Text = Resources.EditDocumentProperty;
                     this.Icon = Resources.EditIcon;
                     break;
@@ -72,7 +78,9 @@
             this.WorkspaceSettings = new WorkspaceSettings
                                          {
                                              DocumentAuthor = this.txtAuthor.Text,
-                                             DocumentTitle = this.txtTitle.Text
+                                             DocumentTitle = this.txtTitle.Text,
+                                             Version = new Version(Convert.ToInt32(this.numMajor.Value),
+                                                 Convert.ToInt32(this.numMinor.Value), 0, Convert.ToInt32(this.numRevision.Value))
                                          };
         }
     }

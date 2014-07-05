@@ -122,19 +122,118 @@
     <value>Top, Left, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txtAuthor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 48</value>
+  <data name="numRevision.Location" type="System.Drawing.Point, System.Drawing">
+    <value>229, 87</value>
   </data>
-  <data name="txtAuthor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 23</value>
+  <data name="numRevision.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="txtAuthor.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="numRevision.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>140, 17</value>
   </metadata>
+  <data name="numRevision.ToolTip" xml:space="preserve">
+    <value>Represents the revision version number.</value>
+  </data>
+  <data name="&gt;&gt;numRevision.Name" xml:space="preserve">
+    <value>numRevision</value>
+  </data>
+  <data name="&gt;&gt;numRevision.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numRevision.Parent" xml:space="preserve">
+    <value>tpGeneral</value>
+  </data>
+  <data name="&gt;&gt;numRevision.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="numMinor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>149, 87</value>
+  </data>
+  <data name="numMinor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 23</value>
+  </data>
+  <data name="numMinor.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="numMinor.ToolTip" xml:space="preserve">
+    <value>Represents the minor version number.</value>
+  </data>
+  <data name="&gt;&gt;numMinor.Name" xml:space="preserve">
+    <value>numMinor</value>
+  </data>
+  <data name="&gt;&gt;numMinor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numMinor.Parent" xml:space="preserve">
+    <value>tpGeneral</value>
+  </data>
+  <data name="&gt;&gt;numMinor.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="numMajor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>69, 87</value>
+  </data>
+  <data name="numMajor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 23</value>
+  </data>
+  <data name="numMajor.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="numMajor.ToolTip" xml:space="preserve">
+    <value>Represents the major version number.</value>
+  </data>
+  <data name="&gt;&gt;numMajor.Name" xml:space="preserve">
+    <value>numMajor</value>
+  </data>
+  <data name="&gt;&gt;numMajor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numMajor.Parent" xml:space="preserve">
+    <value>tpGeneral</value>
+  </data>
+  <data name="&gt;&gt;numMajor.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblVersion.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 89</value>
+  </data>
+  <data name="lblVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 15</value>
+  </data>
+  <data name="lblVersion.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="lblVersion.Text" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="&gt;&gt;lblVersion.Name" xml:space="preserve">
+    <value>lblVersion</value>
+  </data>
+  <data name="&gt;&gt;lblVersion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblVersion.Parent" xml:space="preserve">
+    <value>tpGeneral</value>
+  </data>
+  <data name="&gt;&gt;lblVersion.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtAuthor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>69, 48</value>
+  </data>
+  <data name="txtAuthor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 23</value>
+  </data>
+  <data name="txtAuthor.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="txtAuthor.ToolTip" xml:space="preserve">
     <value>The author of the document, can be the name of either an individual or organization.</value>
   </data>
@@ -148,7 +247,7 @@
     <value>tpGeneral</value>
   </data>
   <data name="&gt;&gt;txtAuthor.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="lblAuthor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -175,13 +274,13 @@
     <value>tpGeneral</value>
   </data>
   <data name="&gt;&gt;lblAuthor.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="txtTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>69, 13</value>
   </data>
   <data name="txtTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 23</value>
+    <value>234, 23</value>
   </data>
   <data name="txtTitle.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -199,7 +298,7 @@
     <value>tpGeneral</value>
   </data>
   <data name="&gt;&gt;txtTitle.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="lblTitle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -226,7 +325,7 @@
     <value>tpGeneral</value>
   </data>
   <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <data name="tpGeneral.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 24</value>
