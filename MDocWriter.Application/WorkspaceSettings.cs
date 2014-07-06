@@ -2,6 +2,8 @@
 {
     using System;
 
+    using MDocWriter.Templates;
+
     /// <summary>
     /// Represents the setting values for a workspace.
     /// </summary>
@@ -30,5 +32,7 @@
         /// The version.
         /// </value>
         public Version Version { get; set; }
+
+        public Template Template { get; set; }
     }
 }

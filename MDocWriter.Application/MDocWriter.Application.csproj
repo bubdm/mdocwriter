@@ -62,6 +62,10 @@
       <Project>{9c6d7e68-27b4-4c3b-a040-de1f0aeb6b09}</Project>
       <Name>MDocWriter.Documents</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MDocWriter.Templates\MDocWriter.Templates.csproj">
+      <Project>{1df73838-dee5-4953-920e-2869a7bd06b0}</Project>
+      <Name>MDocWriter.Templates</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

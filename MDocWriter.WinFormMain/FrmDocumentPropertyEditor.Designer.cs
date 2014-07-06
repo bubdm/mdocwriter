@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDocumentPropertyEditor));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
+            this.numRevision = new System.Windows.Forms.NumericUpDown();
+            this.numMinor = new System.Windows.Forms.NumericUpDown();
+            this.numMajor = new System.Windows.Forms.NumericUpDown();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -43,23 +47,23 @@
             this.lblDlgTitle = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.lblVersion = new System.Windows.Forms.Label();
-            this.numMajor = new System.Windows.Forms.NumericUpDown();
-            this.numMinor = new System.Windows.Forms.NumericUpDown();
-            this.numRevision = new System.Windows.Forms.NumericUpDown();
+            this.tpTemplate = new System.Windows.Forms.TabPage();
+            this.templatePicker = new MDocWriter.WinFormMain.Controls.TemplatePicker();
             this.tabControl.SuspendLayout();
             this.tpGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRevision)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMajor)).BeginInit();
             this.pnlTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMajor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMinor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRevision)).BeginInit();
+            this.tpTemplate.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
             // 
             resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.tpGeneral);
+            this.tabControl.Controls.Add(this.tpTemplate);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             // 
@@ -76,6 +80,49 @@
             resources.ApplyResources(this.tpGeneral, "tpGeneral");
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.UseVisualStyleBackColor = true;
+            // 
+            // numRevision
+            // 
+            resources.ApplyResources(this.numRevision, "numRevision");
+            this.numRevision.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numRevision.Name = "numRevision";
+            this.toolTip.SetToolTip(this.numRevision, resources.GetString("numRevision.ToolTip"));
+            // 
+            // numMinor
+            // 
+            resources.ApplyResources(this.numMinor, "numMinor");
+            this.numMinor.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numMinor.Name = "numMinor";
+            this.toolTip.SetToolTip(this.numMinor, resources.GetString("numMinor.ToolTip"));
+            // 
+            // numMajor
+            // 
+            resources.ApplyResources(this.numMajor, "numMajor");
+            this.numMajor.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numMajor.Name = "numMajor";
+            this.toolTip.SetToolTip(this.numMajor, resources.GetString("numMajor.ToolTip"));
+            this.numMajor.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // lblVersion
+            // 
+            resources.ApplyResources(this.lblVersion, "lblVersion");
+            this.lblVersion.Name = "lblVersion";
             // 
             // txtAuthor
             // 
@@ -141,48 +188,17 @@
             // 
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // lblVersion
+            // tpTemplate
             // 
-            resources.ApplyResources(this.lblVersion, "lblVersion");
-            this.lblVersion.Name = "lblVersion";
+            this.tpTemplate.Controls.Add(this.templatePicker);
+            resources.ApplyResources(this.tpTemplate, "tpTemplate");
+            this.tpTemplate.Name = "tpTemplate";
+            this.tpTemplate.UseVisualStyleBackColor = true;
             // 
-            // numMajor
+            // templatePicker
             // 
-            resources.ApplyResources(this.numMajor, "numMajor");
-            this.numMajor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numMajor.Name = "numMajor";
-            this.toolTip.SetToolTip(this.numMajor, resources.GetString("numMajor.ToolTip"));
-            this.numMajor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numMinor
-            // 
-            resources.ApplyResources(this.numMinor, "numMinor");
-            this.numMinor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.numMinor.Name = "numMinor";
-            this.toolTip.SetToolTip(this.numMinor, resources.GetString("numMinor.ToolTip"));
-            // 
-            // numRevision
-            // 
-            resources.ApplyResources(this.numRevision, "numRevision");
-            this.numRevision.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.numRevision.Name = "numRevision";
-            this.toolTip.SetToolTip(this.numRevision, resources.GetString("numRevision.ToolTip"));
+            resources.ApplyResources(this.templatePicker, "templatePicker");
+            this.templatePicker.Name = "templatePicker";
             // 
             // FrmDocumentPropertyEditor
             // 
@@ -203,12 +219,13 @@
             this.tabControl.ResumeLayout(false);
             this.tpGeneral.ResumeLayout(false);
             this.tpGeneral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numRevision)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMinor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMajor)).EndInit();
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMajor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMinor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRevision)).EndInit();
+            this.tpTemplate.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -232,5 +249,7 @@
         private System.Windows.Forms.Label lblVersion;
         private System.Windows.Forms.NumericUpDown numMinor;
         private System.Windows.Forms.NumericUpDown numRevision;
+        private System.Windows.Forms.TabPage tpTemplate;
+        private Controls.TemplatePicker templatePicker;
     }
 }

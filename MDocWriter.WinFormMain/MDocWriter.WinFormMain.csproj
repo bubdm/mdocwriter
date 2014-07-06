@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\TemplatePicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\TemplatePicker.Designer.cs">
+      <DependentUpon>TemplatePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     <Compile Include="Models\WorkspaceNodeType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\TemplatePicker.resx">
+      <DependentUpon>TemplatePicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbout.resx">
       <DependentUpon>FrmAbout.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +139,10 @@
       <Project>{9c6d7e68-27b4-4c3b-a040-de1f0aeb6b09}</Project>
       <Name>MDocWriter.Documents</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MDocWriter.Templates\MDocWriter.Templates.csproj">
+      <Project>{1df73838-dee5-4953-920e-2869a7bd06b0}</Project>
+      <Name>MDocWriter.Templates</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\New.png" />
@@ -182,9 +195,7 @@
   <ItemGroup>
     <None Include="Resources\OpenNode.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

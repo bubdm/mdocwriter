@@ -37,7 +37,7 @@ namespace MDocWriter.Templates
                                 {
                                     var xmlSerializer = new XmlSerializer(typeof(Template));
                                     var template = (Template)xmlSerializer.Deserialize(zipStream);
-                                    template.TemplateFileName = templateFile;
+                                    template.MDocxTemplateFileName = templateFile;
                                     this.templates.Add(template);
                                 }
                             }
@@ -56,9 +56,9 @@ namespace MDocWriter.Templates
         {
             if (template==null)
                 throw new ArgumentNullException("template");
-            if (string.IsNullOrEmpty(template.TemplateFileName))
+            if (string.IsNullOrEmpty(template.MDocxTemplateFileName))
                 throw new ArgumentNullException("template.TemplateFileName");
-            using (var fileStream = File.OpenRead(template.TemplateFileName))
+            using (var fileStream = File.OpenRead(template.MDocxTemplateFileName))
             {
                 var zipFile = new ZipFile(fileStream);
                 var cssEntry = zipFile.GetEntry(template.TemplateFile);
@@ -73,9 +73,9 @@ namespace MDocWriter.Templates
         {
             if (template==null)
                 throw new ArgumentNullException("template");
-            if (string.IsNullOrEmpty(template.TemplateFileName))
+            if (string.IsNullOrEmpty(template.MDocxTemplateFileName))
                 throw new ArgumentNullException("template.TemplateFileName");
-            using (var fileStream = File.OpenRead(template.TemplateFileName))
+            using (var fileStream = File.OpenRead(template.MDocxTemplateFileName))
             {
                 var zipFile = new ZipFile(fileStream);
                 var previewImageEntry = zipFile.GetEntry(template.Preview);

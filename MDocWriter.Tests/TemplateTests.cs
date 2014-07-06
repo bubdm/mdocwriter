@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
 
 namespace MDocWriter.Tests
 {
-    using System.Linq;
-
     using MDocWriter.Templates;
+    using System.Linq;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class TemplateTests

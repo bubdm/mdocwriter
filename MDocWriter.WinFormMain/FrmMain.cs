@@ -369,6 +369,12 @@
                     this.workspace.Document.Title = settings.DocumentTitle;
                     this.workspace.Document.Author = settings.DocumentAuthor;
                     this.workspace.Document.Version = settings.Version;
+                    if (settings.Template != null && !string.IsNullOrEmpty(settings.Template.MDocxTemplateFileName))
+                    {
+                        this.workspace.Document.Template = settings.Template;
+                        this.workspace.Document.TemplateBase64 =
+                            Utils.GetBase64OfFile(settings.Template.MDocxTemplateFileName);
+                    }
                     var documentTreeNode = tvWorkspace.Nodes.Find(this.workspace.Document.Id.ToString(), false).First();
                     documentTreeNode.Text = this.workspace.Document.Title;
                 }

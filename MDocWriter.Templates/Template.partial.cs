@@ -13,7 +13,12 @@ namespace MDocWriter.Templates
         public const string TemplateDirectory = @"templates";
 
         [XmlIgnore]
-        public string TemplateFileName { get; internal set; }
+        public string MDocxTemplateFileName { get; internal set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
 
         public static string TemplatePath
         {

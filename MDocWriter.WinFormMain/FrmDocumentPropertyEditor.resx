@@ -334,7 +334,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tpGeneral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>458, 219</value>
+    <value>549, 269</value>
   </data>
   <data name="tpGeneral.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -354,11 +354,65 @@
   <data name="&gt;&gt;tpGeneral.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="templatePicker.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="templatePicker.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="templatePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="templatePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>543, 263</value>
+  </data>
+  <data name="templatePicker.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;templatePicker.Name" xml:space="preserve">
+    <value>templatePicker</value>
+  </data>
+  <data name="&gt;&gt;templatePicker.Type" xml:space="preserve">
+    <value>MDocWriter.WinFormMain.Controls.TemplatePicker, mdocwriter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=754e16977efda34c</value>
+  </data>
+  <data name="&gt;&gt;templatePicker.Parent" xml:space="preserve">
+    <value>tpTemplate</value>
+  </data>
+  <data name="&gt;&gt;templatePicker.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tpTemplate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 24</value>
+  </data>
+  <data name="tpTemplate.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tpTemplate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>549, 269</value>
+  </data>
+  <data name="tpTemplate.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tpTemplate.Text" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="&gt;&gt;tpTemplate.Name" xml:space="preserve">
+    <value>tpTemplate</value>
+  </data>
+  <data name="&gt;&gt;tpTemplate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tpTemplate.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tpTemplate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="tabControl.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 64</value>
   </data>
   <data name="tabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>466, 247</value>
+    <value>557, 297</value>
   </data>
   <data name="tabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -379,7 +433,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>318, 317</value>
+    <value>409, 367</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -406,7 +460,7 @@
     <value>Bottom, Right</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 317</value>
+    <value>490, 367</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -493,7 +547,7 @@
     <value>0, 0</value>
   </data>
   <data name="pnlTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>490, 58</value>
+    <value>581, 58</value>
   </data>
   <data name="pnlTop.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -520,7 +574,7 @@
     <value>7, 15</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>490, 352</value>
+    <value>581, 402</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
