@@ -9,22 +9,22 @@ namespace MDocWriter.WinFormMain.Controls
 
     public partial class TemplatePicker : UserControl
     {
-        private Template selectedTemplate;
+        private Guid selectedTemplateId;
         private readonly TemplateReader templateReader = new TemplateReader();
         public TemplatePicker()
         {
             InitializeComponent();
         }
 
-        public Template SelectedTemplate
+        public Guid SelectedTemplateId
         {
             get
             {
-                return selectedTemplate;
+                return selectedTemplateId;
             }
             set
             {
-                this.selectedTemplate = value;
+                this.selectedTemplateId = value;
             }
         }
 
@@ -48,8 +48,16 @@ namespace MDocWriter.WinFormMain.Controls
                 {
                     this.cbName.Items.Add(template);
                 }
-                if (this.selectedTemplate == null) this.cbName.SelectedIndex = 0;
-                else this.cbName.SelectedItem = templates.First(t => t.Id == this.selectedTemplate.Id);
+                if (this.selectedTemplateId == Guid.Empty ||
+                    !this.templateReader.Exists(this.selectedTemplateId)) this.cbName.SelectedIndex = 0;
+                else
+                    this.cbName.SelectedItem =
+                        templates.First(
+                            t =>
+                            String.Compare(
+                                this.selectedTemplateId.ToString(),
+                                t.Id,
+                                StringComparison.InvariantCultureIgnoreCase) == 0);
 
             }
 
@@ -57,8 +65,9 @@ namespace MDocWriter.WinFormMain.Controls
 
         private void cbName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.selectedTemplate = (Template)this.cbName.SelectedItem;
-            this.BindTemplate(this.selectedTemplate);
+            var template = (Template)this.cbName.SelectedItem;
+            this.selectedTemplateId = new Guid(template.Id);
+            this.BindTemplate(template);
         }
 
     }

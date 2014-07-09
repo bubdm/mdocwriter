@@ -24,9 +24,7 @@
         private string title;
         private string author;
         private Version version;
-
-        private Template template;
-        private string templateBase64;
+        private Guid templateId;
         private DateTime dateCreated = DateTime.UtcNow;
         #endregion
 
@@ -47,25 +45,13 @@
         /// </summary>
         /// <param name="title">The title of the document, for example, Anna Karenina.</param>
         /// <param name="author">The author of the document, for example, Leo Tolstoy.</param>
-        public Document(string title, Version version, string author = null, Template template = null)
+        public Document(string title, Version version, string author = null, Guid templateId = default(Guid))
             : this()
         {
             this.title = title;
             this.version = version;
             this.author = author;
-            this.template = template;
-            if (template != null && !string.IsNullOrEmpty(template.MDocxTemplateFileName))
-            {
-                try
-                {
-                    this.templateBase64 = Utils.GetBase64OfFile(template.MDocxTemplateFileName);
-                }
-                catch
-                {
-                    
-                }
-                
-            }
+            this.templateId = templateId;
         }
 
         /// <summary>
@@ -80,8 +66,7 @@
             this.author = info.GetString("Author");
             this.dateCreated = info.GetDateTime("DateCreated");
             this.version = (Version)info.GetValue("Version", typeof(Version));
-            this.template = (Template)info.GetValue("Template", typeof(Template));
-            this.templateBase64 = info.GetString("TemplateBase64");
+            this.templateId = (Guid)info.GetValue("TemplateId", typeof(Guid));
             this.children =
                 (ObservableCollection<DocumentNode>)
                 info.GetValue("Children", typeof(ObservableCollection<DocumentNode>));
@@ -200,37 +185,22 @@
             }
         }
 
-        public Template Template
+        public Guid TemplateId
         {
             get
             {
-                return this.template;
+                return this.templateId;
             }
             set
             {
-                if (this.template != value)
+                if (this.templateId != value)
                 {
-                    this.template = value;
-                    this.OnPropertyChanged("Template");
+                    this.templateId = value;
+                    this.OnPropertyChanged("TemplateId");
                 }
             }
         }
 
-        public string TemplateBase64
-        {
-            get
-            {
-                return this.templateBase64;
-            }
-            set
-            {
-                if (this.templateBase64 != value)
-                {
-                    this.templateBase64 = value;
-                    this.OnPropertyChanged("TemplateBase64");
-                }
-            }
-        }
         /// <summary>
         /// Gets the resources used by the current document.
         /// </summary>
@@ -326,8 +296,7 @@
             info.AddValue("Author", this.author);
             info.AddValue("DateCreated", this.dateCreated);
             info.AddValue("Version", this.version);
-            info.AddValue("Template", this.template);
-            info.AddValue("TemplateBase64", this.templateBase64);
+            info.AddValue("TemplateId", this.templateId);
             info.AddValue("Children", this.children);
             info.AddValue("Resources", this.resources);
         }

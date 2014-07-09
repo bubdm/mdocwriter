@@ -83,6 +83,18 @@ namespace MDocWriter.Templates
             }
         }
 
+        /// <summary>
+        /// Checks if the template with the given Id exists.
+        /// </summary>
+        /// <param name="templateId">The template identifier.</param>
+        /// <returns>true if exists, otherwise, false.</returns>
+        public bool Exists(Guid templateId)
+        {
+            return
+                this.templates.Exists(
+                    t => String.Compare(t.Id, templateId.ToString(), StringComparison.InvariantCultureIgnoreCase) == 0);
+        }
+
         public IEnumerable<Template> Templates
         {
             get

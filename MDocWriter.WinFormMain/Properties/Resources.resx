@@ -202,4 +202,12 @@
   <data name="OpenNode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OpenNode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TemplateDoesNotExistConfirmMessage" xml:space="preserve">
+    <value>The template used by current document doesn't exist, do you want to select another template, or just leave as it is?
+
+Yes = Select another template.
+No = Leave as it is.
+
+Note that if you select No, the document will still use the original template, but it will be ignored.</value>
+  </data>
 </root>

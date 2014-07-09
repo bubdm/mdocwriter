@@ -39,7 +39,7 @@
             : this(
                 string.Empty,
                 Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString()),
-                new Document(settings.DocumentTitle, settings.Version, settings.DocumentAuthor, settings.Template))
+                new Document(settings.DocumentTitle, settings.Version, settings.DocumentAuthor, settings.TemplateId))
         {
 
         }

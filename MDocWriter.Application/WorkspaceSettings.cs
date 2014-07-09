@@ -33,6 +33,6 @@
         /// </value>
         public Version Version { get; set; }
 
-        public Template Template { get; set; }
+        public Guid TemplateId { get; set; }
     }
 }

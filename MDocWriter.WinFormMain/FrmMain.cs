@@ -9,11 +9,13 @@
     using MDocWriter.Application;
     using MDocWriter.Common;
     using MDocWriter.Documents;
+    using MDocWriter.Templates;
     using MDocWriter.WinFormMain.Models;
     using MDocWriter.WinFormMain.Properties;
 
     public partial class FrmMain : Form
     {
+        private readonly TemplateReader templateReader = new TemplateReader();
         private Workspace workspace;
 
         public FrmMain()
@@ -333,6 +335,29 @@
                     this.mnuClose.Enabled = true;
                     this.mnuProperties.Enabled = true;
                     this.mnuOpenWorkingFolder.Enabled = true;
+
+                    if (!templateReader.Exists(this.workspace.Document.TemplateId))
+                    {
+                        if (MessageBox.Show(
+                            Resources.TemplateDoesNotExistConfirmMessage,
+                            Resources.Confirmation,
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            var frmDocumentPropertyEditor = new FrmDocumentPropertyEditor(this.workspace.Document);
+                            if (frmDocumentPropertyEditor.ShowDialog() == DialogResult.OK)
+                            {
+                                var settings = frmDocumentPropertyEditor.WorkspaceSettings;
+                                this.workspace.Document.Title = settings.DocumentTitle;
+                                this.workspace.Document.Author = settings.DocumentAuthor;
+                                this.workspace.Document.Version = settings.Version;
+                                this.workspace.Document.TemplateId = settings.TemplateId;
+                                var documentTreeNode =
+                                    tvWorkspace.Nodes.Find(this.workspace.Document.Id.ToString(), false).First();
+                                documentTreeNode.Text = this.workspace.Document.Title;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -369,12 +394,7 @@
                     this.workspace.Document.Title = settings.DocumentTitle;
                     this.workspace.Document.Author = settings.DocumentAuthor;
                     this.workspace.Document.Version = settings.Version;
-                    if (settings.Template != null && !string.IsNullOrEmpty(settings.Template.MDocxTemplateFileName))
-                    {
-                        this.workspace.Document.Template = settings.Template;
-                        this.workspace.Document.TemplateBase64 =
-                            Utils.GetBase64OfFile(settings.Template.MDocxTemplateFileName);
-                    }
+                    this.workspace.Document.TemplateId = settings.TemplateId;
                     var documentTreeNode = tvWorkspace.Nodes.Find(this.workspace.Document.Id.ToString(), false).First();
                     documentTreeNode.Text = this.workspace.Document.Title;
                 }

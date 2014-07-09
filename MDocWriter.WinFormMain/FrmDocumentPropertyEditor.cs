@@ -61,7 +61,7 @@
                     this.Text = Resources.EditDocumentProperty;
                     this.Icon = Resources.EditIcon;
                     this.templatePicker.Show();
-                    this.templatePicker.SelectedTemplate = this.document.Template;
+                    this.templatePicker.SelectedTemplateId = this.document.TemplateId;
                     break;
 
             }
@@ -83,7 +83,7 @@
                                              DocumentTitle = this.txtTitle.Text,
                                              Version = new Version(Convert.ToInt32(this.numMajor.Value),
                                                  Convert.ToInt32(this.numMinor.Value), 0, Convert.ToInt32(this.numRevision.Value)),
-                                             Template = this.templatePicker.SelectedTemplate
+                                             TemplateId = this.templatePicker.SelectedTemplateId
                                          };
         }
     }
