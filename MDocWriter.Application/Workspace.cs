@@ -1,4 +1,8 @@
-﻿namespace MDocWriter.Application
+﻿using ICSharpCode.SharpZipLib.Zip;
+
+using MDocWriter.Templates;
+
+namespace MDocWriter.Application
 {
     using System;
     using System.IO;
@@ -27,7 +31,7 @@
         /// Prevents a default instance of the <see cref="Workspace"/> class from being created.
         /// </summary>
         private Workspace()
-            : this(new WorkspaceSettings { DocumentAuthor = null, DocumentTitle = null, Version = new Version(1,0,0,0)})
+            : this(new WorkspaceSettings { DocumentAuthor = null, DocumentTitle = null, Version = new Version(1, 0, 0, 0) })
         {
         }
 
@@ -141,10 +145,39 @@
                             Path.Combine(workingDirectory, resource.FileName),
                             Convert.FromBase64String(resource.Base64Data)));
                 }
+                // Prepare the template resources
+                if (document.TemplateId != Guid.Empty)
+                {
+                    PrepareTemplateResources(workingDirectory, document.TemplateId);
+                }
                 var wks = new Workspace(fileName, workingDirectory, document) { status = WorkspaceStatus.Existing };
                 if (onModifiedHandler != null) wks.Modified += onModifiedHandler;
                 if (onSavedHandler != null) wks.Saved += onSavedHandler;
                 return wks;
+            }
+        }
+
+        private static void PrepareTemplateResources(string workingDirectory, Guid templateId)
+        {
+            var templateReader = new TemplateReader();
+            var template = templateReader.GetTemplate(templateId);
+            if (template != null && template.Resources != null &&
+                template.Resources.Length > 0)
+            {
+                // prepare the directory under working directory to store the resources
+                var templateResourceDirectory = Path.Combine(
+                    workingDirectory,
+                    string.Format("_template_{0}", templateId.ToString().ToUpper().Replace("-", "_")));
+                if (!Directory.Exists(templateResourceDirectory)) Directory.CreateDirectory(templateResourceDirectory);
+                // read all the entries in the zip file, and find the resource items
+                using (var templateFileStream = File.OpenRead(template.MDocxTemplateFileName))
+                using (var zipFile = new ZipFile(templateFileStream))
+                {
+                    foreach (ZipEntry zipEntry in zipFile)
+                    {
+
+                    }
+                }
             }
         }
 
@@ -176,21 +209,21 @@
             return newWorkspace;
         }
 
-        public static Workspace New(EventHandler onModifiedHandler, EventHandler onSavedHandler)
-        {
-            var newWorkspace = new Workspace();
-            if (onModifiedHandler != null)
-            {
-                newWorkspace.Modified += onModifiedHandler;
-            }
-            if (onSavedHandler != null)
-            {
-                newWorkspace.Saved += onSavedHandler;
-            }
-            newWorkspace.OnModified();
-            if (!Directory.Exists(newWorkspace.WorkingDirectory)) Directory.CreateDirectory(newWorkspace.WorkingDirectory);
-            return newWorkspace;
-        }
+        //public static Workspace New(EventHandler onModifiedHandler, EventHandler onSavedHandler)
+        //{
+        //    var newWorkspace = new Workspace();
+        //    if (onModifiedHandler != null)
+        //    {
+        //        newWorkspace.Modified += onModifiedHandler;
+        //    }
+        //    if (onSavedHandler != null)
+        //    {
+        //        newWorkspace.Saved += onSavedHandler;
+        //    }
+        //    newWorkspace.OnModified();
+        //    if (!Directory.Exists(newWorkspace.WorkingDirectory)) Directory.CreateDirectory(newWorkspace.WorkingDirectory);
+        //    return newWorkspace;
+        //}
 
         public static void Close(ref Workspace workspace, EventHandler onModifiedHandler, EventHandler onSavedHandler)
         {

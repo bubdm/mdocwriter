@@ -11,6 +11,13 @@
         <xs:element name="Copyright" type="xs:string" />
         <xs:element name="Preview" type="xs:string" />
         <xs:element name="TemplateFile" type="xs:string" />
+        <xs:element name="Resources">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="Resource" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:sequence>
       <xs:attribute name="Version" type="xs:decimal" use="required" />
     </xs:complexType>

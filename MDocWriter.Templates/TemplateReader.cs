@@ -1,5 +1,7 @@
 ﻿
 
+using System.Linq;
+
 namespace MDocWriter.Templates
 {
     using System;
@@ -83,6 +85,13 @@ namespace MDocWriter.Templates
             }
         }
 
+        public Template GetTemplate(Guid templateId)
+        {
+            return
+                this.templates.FirstOrDefault(
+                    t => String.Compare(t.Id, templateId.ToString(), StringComparison.InvariantCultureIgnoreCase) == 0);
+        }
+
         /// <summary>
         /// Checks if the template with the given Id exists.
         /// </summary>
@@ -90,9 +99,7 @@ namespace MDocWriter.Templates
         /// <returns>true if exists, otherwise, false.</returns>
         public bool Exists(Guid templateId)
         {
-            return
-                this.templates.Exists(
-                    t => String.Compare(t.Id, templateId.ToString(), StringComparison.InvariantCultureIgnoreCase) == 0);
+            return this.GetTemplate(templateId) != null;
         }
 
         public IEnumerable<Template> Templates
