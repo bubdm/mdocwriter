@@ -6,6 +6,8 @@
     using System.Linq;
     using System.Windows.Forms;
 
+    using MarkdownSharp;
+
     using MDocWriter.Application;
     using MDocWriter.Common;
     using MDocWriter.Documents;
@@ -15,6 +17,7 @@
 
     public partial class FrmMain : Form
     {
+        private readonly Markdown markdown = new Markdown();
         private readonly TemplateReader templateReader = new TemplateReader();
         private Workspace workspace;
 
@@ -240,6 +243,8 @@
                     editor.Focus();
                     editor.SelectionStart = 0;
                     editor.SelectionLength = 0;
+                    if (tabControl.SelectedTab == tpBrowserView)
+                        this.DisplayContentInBrowserView();
                     break;
                 case WorkspaceNodeType.ResourceNode:
                     var resourceNode = (DocumentResource)wksNode.NodeValue;
@@ -282,6 +287,16 @@
                     break;
             }
             
+        }
+
+        private void DisplayContentInBrowserView()
+        {
+            if (this.workspace != null)
+            {
+                var htmlBodyContent = markdown.Transform(editor.Text);
+                var html = this.workspace.Transform(htmlBodyContent);
+                browser.DocumentText = html;
+            }
         }
         #endregion
 
@@ -540,10 +555,20 @@
         #endregion
 
         #region Custom Event Handlers
-        private void WorkspaceModified(object sender, EventArgs e)
+        private void WorkspaceModified(object sender, ModifiedEventArgs e)
         {
             this.mnuSave.Enabled = true;
             this.tbtnSave.Enabled = true;
+            switch (e.PropertyName.ToUpper())
+            {
+                case "TEMPLATEID":
+                    if (this.workspace != null)
+                    {
+                        this.workspace.ExtractTemplateResources();
+                        this.DisplayContentInBrowserView();
+                    }
+                    break;
+            }
         }
 
         private void WorkspaceSaved(object sender, EventArgs e)
@@ -709,6 +734,14 @@
                         break;
 
                 }
+            }
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedTab == tpBrowserView)
+            {
+                this.DisplayContentInBrowserView();
             }
         }
     }

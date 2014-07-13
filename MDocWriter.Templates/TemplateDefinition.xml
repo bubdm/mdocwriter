@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Template Version="1.0">
+  <Id>987ADB01-2655-4B18-8FC2-47702A6D38B0</Id>
+  <Name>InfoQ</Name>
+  <Description>A InfoQ template.</Description>
+  <Author>InfoQ</Author>
+  <Company>C4Media Inc.</Company>
+  <Copyright>Copyright © 2006-2014 C4Media Inc</Copyright>
+  <Preview>infoq_preview.png</Preview>
+  <TemplateFile>infoq_template.html</TemplateFile>
+</Template>

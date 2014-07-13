@@ -23,6 +23,7 @@
         public FrmDocumentPropertyEditor()
         {
             InitializeComponent();
+            
             this.behavior = DocumentPropertyEditorBehavior.NewDocument;
         }
 
@@ -37,6 +38,7 @@
 
         private void FrmNewDocument_Shown(object sender, EventArgs e)
         {
+            this.templatePicker.LoadTemplates();
             switch (this.behavior)
             {
                 case DocumentPropertyEditorBehavior.NewDocument:
@@ -60,7 +62,6 @@
                     numRevision.Value = this.document.Version.Revision;
                     this.Text = Resources.EditDocumentProperty;
                     this.Icon = Resources.EditIcon;
-                    this.templatePicker.Show();
                     this.templatePicker.SelectedTemplateId = this.document.TemplateId;
                     break;
 

@@ -39,6 +39,7 @@
             this.mnuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuOpenWorkingFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDocument = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAddChild = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRename = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,7 @@
             this.mnuDegrade = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuProperties = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTools = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
@@ -103,7 +104,6 @@
             this.cmnuOpenResourceNode = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuDeleteResource = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTools = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -190,6 +190,11 @@
             resources.ApplyResources(this.mnuOpenWorkingFolder, "mnuOpenWorkingFolder");
             this.mnuOpenWorkingFolder.Click += new System.EventHandler(this.ActionOpenWorkingFolder);
             // 
+            // mnuView
+            // 
+            this.mnuView.Name = "mnuView";
+            resources.ApplyResources(this.mnuView, "mnuView");
+            // 
             // mnuDocument
             // 
             this.mnuDocument.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -272,10 +277,10 @@
             resources.ApplyResources(this.mnuProperties, "mnuProperties");
             this.mnuProperties.Click += new System.EventHandler(this.ActionEditDocumentProperty);
             // 
-            // mnuView
+            // mnuTools
             // 
-            this.mnuView.Name = "mnuView";
-            resources.ApplyResources(this.mnuView, "mnuView");
+            this.mnuTools.Name = "mnuTools";
+            resources.ApplyResources(this.mnuTools, "mnuTools");
             // 
             // mnuHelp
             // 
@@ -460,6 +465,7 @@
             this.tabControl.ImageList = this.tabControlImageList;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tpEditorView
             // 
@@ -669,11 +675,6 @@
             this.cmnuDeleteResource.Name = "cmnuDeleteResource";
             resources.ApplyResources(this.cmnuDeleteResource, "cmnuDeleteResource");
             this.cmnuDeleteResource.Click += new System.EventHandler(this.ActionDeleteNode);
-            // 
-            // mnuTools
-            // 
-            this.mnuTools.Name = "mnuTools";
-            resources.ApplyResources(this.mnuTools, "mnuTools");
             // 
             // FrmMain
             // 

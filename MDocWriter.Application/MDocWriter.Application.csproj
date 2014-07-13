@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModifiedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Workspace.cs" />
     <Compile Include="WorkspaceSettings.cs" />
@@ -61,6 +62,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MarkdownSharp\MarkdownSharp.csproj">
+      <Project>{37619116-cce8-465a-8b1f-081ca53364bb}</Project>
+      <Name>MarkdownSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MDocWriter.Common\MDocWriter.Common.csproj">
       <Project>{cd2c1938-9b89-4cf1-abc6-9d353fa0c4a9}</Project>
       <Name>MDocWriter.Common</Name>

@@ -38,7 +38,7 @@ namespace MDocWriter.WinFormMain.Controls
             this.previewImage.Image = templateReader.GetPreviewImage(template);
         }
 
-        private void TemplatePicker_Load(object sender, EventArgs e)
+        internal void LoadTemplates()
         {
             this.cbName.Items.Clear();
             var templates = templateReader.Templates as Template[] ?? templateReader.Templates.ToArray();
@@ -60,6 +60,11 @@ namespace MDocWriter.WinFormMain.Controls
                                 StringComparison.InvariantCultureIgnoreCase) == 0);
 
             }
+        }
+
+        private void TemplatePicker_Load(object sender, EventArgs e)
+        {
+            this.LoadTemplates();
 
         }
 

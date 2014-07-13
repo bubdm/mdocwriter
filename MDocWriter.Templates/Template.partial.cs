@@ -12,6 +12,16 @@ namespace MDocWriter.Templates
         public const string TemplateDefinitionFileName = @"TemplateDefinition.xml";
         public const string TemplateDirectory = @"templates";
 
+        public const string MacroTemporaryTemplatePath = "{$template_path$}";
+
+        public const string MacroDocumentVersion = "{$document_version$}";
+
+        public const string MacroDocumentTitle = "{$document_title$}";
+
+        public const string MacroDocumentAuthor = "{$document_author$}";
+
+        public const string MacroDocumentBody = "{$document_body$}";
+
         [XmlIgnore]
         public string MDocxTemplateFileName { get; internal set; }
 
