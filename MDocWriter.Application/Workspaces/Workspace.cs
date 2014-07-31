@@ -1,22 +1,24 @@
 ﻿
-namespace MDocWriter.Application
-{
-    using ICSharpCode.SharpZipLib.Core;
-    using ICSharpCode.SharpZipLib.Zip;
-    using MDocWriter.Documents;
-    using MDocWriter.Templates;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Runtime.Serialization.Formatters.Binary;
-    using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
 
+using ICSharpCode.SharpZipLib.Core;
+using ICSharpCode.SharpZipLib.Zip;
+
+using MDocWriter.Application.Templates;
+using MDocWriter.Documents;
+
+namespace MDocWriter.Application.Workspaces
+{
     /// <summary>
     /// Represents the workspace concept on which the users
     /// are able to manipulate the documents.
     /// </summary>
-    public sealed class Workspace
+    public sealed class Workspace : IWorkspace
     {
         #region Private Constants
 
@@ -68,7 +70,7 @@ namespace MDocWriter.Application
             if (attachDocumentEvent) this.document.PropertyChanged += (s, e) => this.OnModified((Document)s, e.PropertyName);
         }
 
-        public event EventHandler<ModifiedEventArgs> Modified;
+        public event EventHandler<WorkspaceModifiedEventArgs> Modified;
 
         public event EventHandler Saved;
 
@@ -117,7 +119,7 @@ namespace MDocWriter.Application
             var handler = this.Modified;
             if (handler != null)
             {
-                handler(this, new ModifiedEventArgs(originator, propertyName));
+                handler(this, new WorkspaceModifiedEventArgs(originator, propertyName));
             }
             this.isModified = true;
         }
@@ -196,7 +198,7 @@ namespace MDocWriter.Application
                                      },
                                      { Template.MacroDocumentBody, htmlBodyContent }
                                  };
-            return Transform(parameters);
+            return this.Transform(parameters);
         }
 
         private string Transform(IEnumerable<KeyValuePair<string, string>> parameters)
@@ -221,7 +223,7 @@ namespace MDocWriter.Application
                        : null;
         }
 
-        public static Workspace Open(EventHandler<ModifiedEventArgs> onModifiedHandler, EventHandler onSavedHandler, string fileName)
+        public static Workspace Open(EventHandler<WorkspaceModifiedEventArgs> onModifiedHandler, EventHandler onSavedHandler, string fileName)
         {
             using (var fileStream = new FileStream(fileName, FileMode.Open, FileAccess.Read))
             {
@@ -265,7 +267,7 @@ namespace MDocWriter.Application
             }
         }
 
-        public static Workspace New(EventHandler<ModifiedEventArgs> onModifiedHandler, EventHandler onSavedHandler, WorkspaceSettings settings)
+        public static Workspace New(EventHandler<WorkspaceModifiedEventArgs> onModifiedHandler, EventHandler onSavedHandler, WorkspaceSettings settings)
         {
             var newWorkspace = new Workspace(settings);
             if (onModifiedHandler != null)
@@ -301,7 +303,7 @@ namespace MDocWriter.Application
         //    return newWorkspace;
         //}
 
-        public static void Close(ref Workspace workspace, EventHandler<ModifiedEventArgs> onModifiedHandler, EventHandler onSavedHandler)
+        public static void Close(ref Workspace workspace, EventHandler<WorkspaceModifiedEventArgs> onModifiedHandler, EventHandler onSavedHandler)
         {
             if (workspace != null)
             {

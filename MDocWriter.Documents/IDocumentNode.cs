@@ -48,6 +48,5 @@ namespace MDocWriter.Documents
         /// </summary>
         /// <param name="id">The identifier of the document node that needs to be removed.</param>
         void RemoveDocumentNode(Guid id);
-
     }
 }

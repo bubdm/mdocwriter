@@ -1,8 +1,9 @@
 ﻿
 
+using MDocWriter.Application.Templates;
+
 namespace MDocWriter.Tests
 {
-    using MDocWriter.Templates;
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

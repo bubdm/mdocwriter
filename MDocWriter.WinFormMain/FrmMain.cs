@@ -1,30 +1,53 @@
-﻿namespace MDocWriter.WinFormMain
+﻿using MDocWriter.Application.Plugins;
+using MDocWriter.Application.Templates;
+using MDocWriter.Application.Workspaces;
+
+namespace MDocWriter.WinFormMain
 {
+    using MarkdownSharp;
+    using MDocWriter.Common;
+    using MDocWriter.Documents;
+    using MDocWriter.WinFormMain.Models;
+    using MDocWriter.WinFormMain.Properties;
     using System;
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
     using System.Windows.Forms;
 
-    using MarkdownSharp;
-
-    using MDocWriter.Application;
-    using MDocWriter.Common;
-    using MDocWriter.Documents;
-    using MDocWriter.Templates;
-    using MDocWriter.WinFormMain.Models;
-    using MDocWriter.WinFormMain.Properties;
-
     public partial class FrmMain : Form
     {
         private readonly Markdown markdown = new Markdown();
         private readonly TemplateReader templateReader = new TemplateReader();
         private Workspace workspace;
+        private readonly PluginManager pluginManager = new PluginManager();
 
         public FrmMain()
         {
             InitializeComponent();
             Application.Idle += (sender, e) => lblStatus.Text = Resources.Ready;
+            pluginManager.PluginLoaded += pluginManager_PluginLoaded;
+        }
+
+        void pluginManager_PluginLoaded(object sender, PluginLoadedEventArgs e)
+        {
+            var menuItem = new ToolStripMenuItem(
+                e.Plugin.MenuText,
+                e.Plugin.Icon,
+                (miSender, miEvent) => e.Plugin.Execute(this.workspace));
+            
+            ToolStripMenuItem parentMenuItem = mnuTools;
+
+            switch(e.Plugin.Type)
+            {
+                case PluginType.DocumentExporter:
+                    parentMenuItem = mnuExport;
+                    break;
+                case PluginType.DocumentImporter:
+                    parentMenuItem = mnuImport;
+                    break;
+            }
+            parentMenuItem.DropDownItems.Add(menuItem);
         }
 
         #region Private Methods
@@ -555,7 +578,7 @@
         #endregion
 
         #region Custom Event Handlers
-        private void WorkspaceModified(object sender, ModifiedEventArgs e)
+        private void WorkspaceModified(object sender, WorkspaceModifiedEventArgs e)
         {
             this.mnuSave.Enabled = true;
             this.tbtnSave.Enabled = true;
@@ -612,6 +635,8 @@
             this.editor.Text = null;
             this.editor.Enabled = false;
             this.browser.DocumentText = null;
+
+            pluginManager.Load();
         }
 
         private void tvWorkspace_AfterExpand(object sender, TreeViewEventArgs e)

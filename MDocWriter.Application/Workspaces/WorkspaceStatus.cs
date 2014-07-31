@@ -1,4 +1,4 @@
-﻿namespace MDocWriter.Application
+﻿namespace MDocWriter.Application.Workspaces
 {
     /// <summary>
     /// Represents the status of the workspace.

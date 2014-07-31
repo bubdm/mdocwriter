@@ -1,4 +1,6 @@
-﻿namespace MDocWriter.WinFormMain
+﻿using MDocWriter.Application.Workspaces;
+
+namespace MDocWriter.WinFormMain
 {
     using System;
     using System.Collections.Generic;

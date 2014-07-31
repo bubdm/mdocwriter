@@ -222,6 +222,7 @@
 
         #endregion
 
+        #region IEditableDocumentNode Members
         public DocumentNode AddDocumentNode(string name, string content = null)
         {
             if (this.children.Any(child => child.Name == name))
@@ -246,6 +247,7 @@
             RemoveChildNodes(found);
             this.children.Remove(found);
         }
+        #endregion
 
         public bool CanMoveUp
         {

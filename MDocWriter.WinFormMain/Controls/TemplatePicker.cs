@@ -1,8 +1,9 @@
 ﻿
 
+using MDocWriter.Application.Templates;
+
 namespace MDocWriter.WinFormMain.Controls
 {
-    using MDocWriter.Templates;
     using System;
     using System.Linq;
     using System.Windows.Forms;

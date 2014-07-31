@@ -1,11 +1,10 @@
 ﻿
 
-namespace MDocWriter.Templates
-{
-    using System.IO;
-    using System.Windows.Forms;
-    using System.Xml.Serialization;
+using System.IO;
+using System.Xml.Serialization;
 
+namespace MDocWriter.Application.Templates
+{
     partial class Template
     {
         public const string TemplateFileExtension = "mdocxtemplate";
@@ -34,7 +33,7 @@ namespace MDocWriter.Templates
         {
             get
             {
-                return Path.Combine(Application.StartupPath, TemplateDirectory);
+                return Path.Combine(System.Windows.Forms.Application.StartupPath, TemplateDirectory);
             }
         }
 

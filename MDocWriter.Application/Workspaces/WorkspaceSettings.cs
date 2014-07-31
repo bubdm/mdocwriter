@@ -1,9 +1,7 @@
-﻿namespace MDocWriter.Application
+﻿using System;
+
+namespace MDocWriter.Application.Workspaces
 {
-    using System;
-
-    using MDocWriter.Templates;
-
     /// <summary>
     /// Represents the setting values for a workspace.
     /// </summary>
@@ -33,6 +31,12 @@
         /// </value>
         public Version Version { get; set; }
 
+        /// <summary>
+        /// Gets or sets the template identifier.
+        /// </summary>
+        /// <value>
+        /// The template identifier.
+        /// </value>
         public Guid TemplateId { get; set; }
     }
 }

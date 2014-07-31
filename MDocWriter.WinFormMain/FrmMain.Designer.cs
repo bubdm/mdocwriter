@@ -104,6 +104,11 @@
             this.cmnuOpenResourceNode = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.cmnuDeleteResource = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -141,7 +146,12 @@
             this.toolStripMenuItem1,
             this.mnuClose,
             this.toolStripMenuItem4,
-            this.mnuOpenWorkingFolder});
+            this.mnuOpenWorkingFolder,
+            this.toolStripMenuItem8,
+            this.mnuImport,
+            this.mnuExport,
+            this.toolStripMenuItem9,
+            this.mnuExit});
             this.mnuFile.Name = "mnuFile";
             resources.ApplyResources(this.mnuFile, "mnuFile");
             // 
@@ -459,9 +469,9 @@
             // 
             // tabControl
             // 
+            resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.Controls.Add(this.tpEditorView);
             this.tabControl.Controls.Add(this.tpBrowserView);
-            resources.ApplyResources(this.tabControl, "tabControl");
             this.tabControl.ImageList = this.tabControlImageList;
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -676,6 +686,31 @@
             resources.ApplyResources(this.cmnuDeleteResource, "cmnuDeleteResource");
             this.cmnuDeleteResource.Click += new System.EventHandler(this.ActionDeleteNode);
             // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            resources.ApplyResources(this.toolStripMenuItem8, "toolStripMenuItem8");
+            // 
+            // mnuImport
+            // 
+            this.mnuImport.Name = "mnuImport";
+            resources.ApplyResources(this.mnuImport, "mnuImport");
+            // 
+            // mnuExport
+            // 
+            this.mnuExport.Name = "mnuExport";
+            resources.ApplyResources(this.mnuExport, "mnuExport");
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            resources.ApplyResources(this.toolStripMenuItem9, "toolStripMenuItem9");
+            // 
+            // mnuExit
+            // 
+            this.mnuExit.Name = "mnuExit";
+            resources.ApplyResources(this.mnuExit, "mnuExit");
+            // 
             // FrmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -788,6 +823,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem cmnuDeleteResource;
         private System.Windows.Forms.ToolStripMenuItem mnuTools;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem mnuImport;
+        private System.Windows.Forms.ToolStripMenuItem mnuExport;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem mnuExit;
 
     }
 }

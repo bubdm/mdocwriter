@@ -9,8 +9,6 @@
     using System.Linq;
     using System.Runtime.Serialization;
 
-    using MDocWriter.Templates;
-
     /// <summary>
     /// Represents the document model for the Markdown Document Writer.
     /// </summary>
@@ -364,7 +362,9 @@
                 return this.children;
             }
         }
+        #endregion
 
+        #region IEditableDocumentNode Members
         /// <summary>
         /// Adds the child document node.
         /// </summary>

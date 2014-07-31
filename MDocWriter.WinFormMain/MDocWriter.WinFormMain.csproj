@@ -79,8 +79,16 @@
     <Compile Include="FrmDocumentPropertyEditor.Designer.cs">
       <DependentUpon>FrmDocumentPropertyEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\WorkspaceNode.cs" />
     <Compile Include="Models\WorkspaceNodeType.cs" />
+    <Compile Include="PluginLoadedEventArgs.cs" />
+    <Compile Include="PluginManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\TemplatePicker.resx">
@@ -94,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDocumentPropertyEditor.resx">
       <DependentUpon>FrmDocumentPropertyEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,10 +149,6 @@
     <ProjectReference Include="..\MDocWriter.Documents\MDocWriter.Documents.csproj">
       <Project>{9c6d7e68-27b4-4c3b-a040-de1f0aeb6b09}</Project>
       <Name>MDocWriter.Documents</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MDocWriter.Templates\MDocWriter.Templates.csproj">
-      <Project>{1df73838-dee5-4953-920e-2869a7bd06b0}</Project>
-      <Name>MDocWriter.Templates</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -195,7 +202,9 @@
   <ItemGroup>
     <None Include="Resources\OpenNode.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Settings\Editor\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

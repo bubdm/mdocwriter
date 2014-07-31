@@ -27,7 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{72C92B
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDocWriter.Templates", "MDocWriter.Templates\MDocWriter.Templates.csproj", "{1DF73838-DEE5-4953-920E-2869A7BD06B0}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{8D140D9D-22C7-4802-86B1-B6040ACFFD54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDocWriter.Plugins.HelloWorld", "MDocWriter.Plugins.HelloWorld\MDocWriter.Plugins.HelloWorld.csproj", "{16FFEFA1-FB0B-4CEC-B380-9CCEC6F33961}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,12 +61,15 @@ Global
 		{3FFD5952-4C96-4C3C-B9E4-EC3550A1B7D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FFD5952-4C96-4C3C-B9E4-EC3550A1B7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FFD5952-4C96-4C3C-B9E4-EC3550A1B7D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DF73838-DEE5-4953-920E-2869A7BD06B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DF73838-DEE5-4953-920E-2869A7BD06B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DF73838-DEE5-4953-920E-2869A7BD06B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DF73838-DEE5-4953-920E-2869A7BD06B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16FFEFA1-FB0B-4CEC-B380-9CCEC6F33961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FFEFA1-FB0B-4CEC-B380-9CCEC6F33961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FFEFA1-FB0B-4CEC-B380-9CCEC6F33961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FFEFA1-FB0B-4CEC-B380-9CCEC6F33961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16FFEFA1-FB0B-4CEC-B380-9CCEC6F33961} = {8D140D9D-22C7-4802-86B1-B6040ACFFD54}
 	EndGlobalSection
 EndGlobal

@@ -1,17 +1,14 @@
-﻿
-
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 
-namespace MDocWriter.Templates
+using ICSharpCode.SharpZipLib.Zip;
+
+namespace MDocWriter.Application.Templates
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Drawing;
-    using System.IO;
-    using System.Xml.Serialization;
-
-    using ICSharpCode.SharpZipLib.Zip;
-
     public sealed class TemplateReader
     {
         private readonly List<Template> templates = new List<Template>();
