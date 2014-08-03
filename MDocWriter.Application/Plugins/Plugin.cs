@@ -10,9 +10,11 @@ using MDocWriter.Application.Workspaces;
 
 namespace MDocWriter.Application.Plugins
 {
+    using System.Reflection;
+
     public abstract class Plugin : IPlugin
     {
-
+        private Guid id = Guid.Empty;
         #region IPlugin Members
 
         /// <summary>
@@ -25,7 +27,17 @@ namespace MDocWriter.Application.Plugins
         /// This unique identifier will be used when identifying a single plugin
         /// in the Markdown Doucment Writer execution context.
         /// </remarks>
-        public abstract Guid Id { get; }
+        public Guid Id
+        {
+            get
+            {
+                if (this.id == Guid.Empty)
+                {
+                    this.id = (this.GetType().GetCustomAttribute<PluginAttribute>(true)).Id;
+                }
+                return this.id;
+            }
+        }
 
         /// <summary>
         /// Gets the name of the plugin.

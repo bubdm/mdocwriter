@@ -17,7 +17,7 @@ namespace MDocWriter.WinFormMain
 
         private const string PluginDirectory = "plugins";
 
-        private readonly string PluginFullPath = Path.Combine(
+        private readonly string pluginFullPath = Path.Combine(
             System.Windows.Forms.Application.StartupPath,
             PluginDirectory);
 
@@ -50,7 +50,8 @@ namespace MDocWriter.WinFormMain
                 {
                     var assembly = Assembly.LoadFile(pluginFile);
                     var pluginTypes = from p in assembly.GetExportedTypes()
-                                      where typeof(IPlugin).IsAssignableFrom(p)
+                                      where typeof(IPlugin).IsAssignableFrom(p) &&
+                                      p.IsDefined(typeof(PluginAttribute), true)
                                       select p;
                     foreach(var pluginType in pluginTypes)
                     {
@@ -70,7 +71,7 @@ namespace MDocWriter.WinFormMain
 
         public void Load()
         {
-            this.Load(PluginFullPath);
+            this.Load(this.pluginFullPath);
         }
     }
 }

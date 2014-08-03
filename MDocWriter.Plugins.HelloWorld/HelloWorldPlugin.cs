@@ -5,13 +5,9 @@ using System.Windows.Forms;
 
 namespace MDocWriter.Plugins.HelloWorld
 {
+    [Plugin("730644EB-7294-45A0-8BF1-C3692BDEE3F5")]
     public class HelloWorldPlugin : Plugin
     {
-        public override Guid Id
-        {
-            get { return new Guid("EF5B0795-99A5-4894-BED2-6C415AE2AB0A"); }
-        }
-
         public override string Name
         {
             get { return "Hello World"; }
@@ -31,6 +27,14 @@ namespace MDocWriter.Plugins.HelloWorld
         public override string MenuText
         {
             get { return "Hello World..."; }
+        }
+
+        public override PluginType Type
+        {
+            get
+            {
+                return PluginType.DocumentImporter;
+            }
         }
     }
 }

@@ -4,6 +4,9 @@ using MDocWriter.Application.Workspaces;
 
 namespace MDocWriter.WinFormMain
 {
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+
     using MarkdownSharp;
     using MDocWriter.Common;
     using MDocWriter.Documents;
@@ -21,6 +24,7 @@ namespace MDocWriter.WinFormMain
         private readonly TemplateReader templateReader = new TemplateReader();
         private Workspace workspace;
         private readonly PluginManager pluginManager = new PluginManager();
+        private readonly Dictionary<Guid, ToolStripMenuItem> pluginMenuItems = new Dictionary<Guid, ToolStripMenuItem>(); 
 
         public FrmMain()
         {
@@ -31,11 +35,15 @@ namespace MDocWriter.WinFormMain
 
         void pluginManager_PluginLoaded(object sender, PluginLoadedEventArgs e)
         {
+            pluginMenuItems.Clear();
+
             var menuItem = new ToolStripMenuItem(
                 e.Plugin.MenuText,
                 e.Plugin.Icon,
                 (miSender, miEvent) => e.Plugin.Execute(this.workspace));
             
+            pluginMenuItems.Add(e.Plugin.Id, menuItem);
+
             ToolStripMenuItem parentMenuItem = mnuTools;
 
             switch(e.Plugin.Type)
@@ -252,6 +260,11 @@ namespace MDocWriter.WinFormMain
             this.tbtnMoveDown.Enabled = false;
             this.tbtnPromote.Enabled = false;
             this.tbtnDegrade.Enabled = false;
+
+            Parallel.ForEach(this.pluginMenuItems, kvp => kvp.Value.Enabled = this.workspace != null);
+
+            if (this.mnuExport.DropDownItems.Count == 0) this.mnuExport.Enabled = false;
+            if (this.mnuImport.DropDownItems.Count == 0) this.mnuImport.Enabled = false;
         }
 
         private void OpenTreeNode(TreeNode treeNode)
@@ -373,6 +386,8 @@ namespace MDocWriter.WinFormMain
                     this.mnuClose.Enabled = true;
                     this.mnuProperties.Enabled = true;
                     this.mnuOpenWorkingFolder.Enabled = true;
+
+                    
 
                     if (!templateReader.Exists(this.workspace.Document.TemplateId))
                     {
@@ -631,12 +646,12 @@ namespace MDocWriter.WinFormMain
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            pluginManager.Load();
+
             this.ResetMenuToolStatus();
             this.editor.Text = null;
             this.editor.Enabled = false;
             this.browser.DocumentText = null;
-
-            pluginManager.Load();
         }
 
         private void tvWorkspace_AfterExpand(object sender, TreeViewEventArgs e)

@@ -55,13 +55,16 @@
   <ItemGroup>
     <Compile Include="Plugins\IPlugin.cs" />
     <Compile Include="Plugins\Plugin.cs" />
+    <Compile Include="Plugins\PluginAttribute.cs" />
     <Compile Include="Plugins\PluginType.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Settings\SettingModel.cs" />
+    <Compile Include="Settings\ApplicationSetting.cs" />
+    <Compile Include="Settings\Setting.cs" />
+    <Compile Include="Settings\SettingReader.cs" />
     <Compile Include="Templates\Template.partial.cs" />
     <Compile Include="Templates\TemplateDefinition.cs">
       <DependentUpon>TemplateDefinition.xsd</DependentUpon>

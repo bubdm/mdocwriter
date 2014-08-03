@@ -47,6 +47,7 @@
     <ProjectReference Include="..\MDocWriter.Application\MDocWriter.Application.csproj">
       <Project>{5b7c920b-989b-4c3e-9735-81fabba47d97}</Project>
       <Name>MDocWriter.Application</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
